@@ -1,5 +1,4 @@
 body {
-    height: 100vh;
     margin: 0;
 }
 
@@ -24,9 +23,10 @@ header h1 {
 
 main {
     position: absolute;
-    margin-top: 90px;
-    margin-left: 20px;
-    margin-right: 20px;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 60px;
 }
   
 footer {
@@ -39,6 +39,7 @@ footer {
     background: linear-gradient(35deg, rgb(147, 5, 241)10%, blue , rgb(147, 5, 241));
     padding: 20px;
     text-align: center;
+    height: 20px;
 }
 
 @media (max-width: 250px){
