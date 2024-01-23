@@ -1,0 +1,60 @@
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    
+    height: 40px;
+    background: linear-gradient(35deg, rgb(147, 5, 241)10%, blue , rgb(147, 5, 241));
+    margin: 0px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+  
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+
+    background: linear-gradient(35deg, rgb(147, 5, 241)10%, blue , rgb(147, 5, 241));
+    padding: 20px;
+    text-align: center;
+}
+
+@media (max-width: 250px){
+    footer {
+        width: 250px;
+    }
+    header {
+        width: 250px;
+    }
+}
+
+footer > a {
+    border-radius: 5px;
+    border: 0;
+    padding: 5px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+}
