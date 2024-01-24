@@ -2,6 +2,8 @@ body {
     margin: 0;
 }
 
+/* header */
+
 header {
     position: fixed;
     left: 0;
@@ -10,16 +12,28 @@ header {
     z-index: 100;
     
     height: 40px;
-    background: linear-gradient(35deg, rgb(147, 5, 241)10%, blue , rgb(147, 5, 241));
+    background: linear-gradient(35deg, #A67CFF 10%, #7090FF 50% 50%, #A67CFF);
     margin: 0px;
-    color: white;
     padding: 20px;
-    text-align: center;
 }
 
-header h1 {
-    margin: 0;
+@media (max-width: 250px){
+    header {
+        width: 250px;
+    }
 }
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: xx-large;
+}
+
+header img {
+    height: 1.5rem;
+}
+
+/* main */
 
 main {
     position: absolute;
@@ -27,8 +41,23 @@ main {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 80px;
+    font-family: sans-serif;
+}
+
+main > * {
+    margin-top: 0;
+}
+
+main a {
+    color: #7090FF;
+}
+
+main h1,h2,h3,h4,h5,h6 {
+    font-family: serif;
 }
   
+/* footer */
+
 footer {
     position: fixed;
     left: 0;
@@ -36,17 +65,13 @@ footer {
     width: 100%;
     z-index: 100;
 
-    background: linear-gradient(35deg, rgb(147, 5, 241)10%, blue , rgb(147, 5, 241));
+    background: linear-gradient(35deg, #A67CFF 10%, #7090FF 50% 50%, #A67CFF);
     padding: 20px;
-    text-align: center;
     height: 20px;
 }
 
 @media (max-width: 250px){
     footer {
-        width: 250px;
-    }
-    header {
         width: 250px;
     }
 }
@@ -56,6 +81,14 @@ footer > a {
     border: 0;
     padding: 5px;
     background-color: white;
-    color: black;
+    color: #7090FF;
     text-decoration: none;
 }
+
+/* colors
+    purple: #A67CFF
+    blue: #7090FF
+    pink: #EF8AFF
+    yellow: #FFE396
+    lime: #B5FF63
+*/
