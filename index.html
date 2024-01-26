@@ -3,27 +3,48 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Melissa's Website</title>
+        <title>My Projects</title>
         <link href="./css/general.css" rel="stylesheet">
+        <link href="./css/myProjects.css" rel="stylesheet">
     </head>
 
     <body>
         <header>
-            <a href="./index.html">
-                <img src="./assets/inverseLogo.svg" alt="logo of music note on computer screen">
+            <a class="logo" href="./index.html">
+                <img src="./assets/images/inverseLogo.svg" alt="Quarter note on a computer screen">
                 Melissa
             </a>
+            <nav class="links">
+                <a href="./index.html">Home</a>
+                <a href="./aboutMe.html">About Me</a>
+            </nav>
         </header>
         
         <main>
-            <p>Welcome to my website! Here you will find many interesting bits and bobs. Or maybe just a vast expanse of nothingness. Depending on how I'm feeling</p>
-        </main>
+            <div class="card" onclick="location.href='./myProjects/nomaiWriting.html';" style="cursor: pointer;">
+                <img src="./assets/images/NomaiText.png" alt="Indecipherable text in the form of intersecting purple swirls">
+                <h1>Nomai</h1>
+                <p>This is a word processor that creates a 2D script called Nomai. It is based on a language from the game Outer Wilds.</p>
+                
+            </div>
+            
+            <div class="card" onclick="location.href='./myProjects/slitherlinkSolver.html';" style="cursor: pointer;">
+                <img src="./assets/images/slitherlink.png" alt="Solved slitherlink puzzle">
+                <h1>Slitherlink Solver</h1>
+                <p>This project takes a slitherlink puzzle and automatically solves it.</p>
+            </div>
 
-        <footer>
-            <a href="./index.html">Home</a>
-            <a href="./myProjects/myProjects.html">My Projects</a>
-            <a href="./aboutMe.html">About Me</a>
-        </footer>
-        
+            <div class="card" onclick="location.href='./myProjects/website.html';" style="cursor: pointer;">
+                <img src="./assets/images/logo.svg" alt="Quarter note on a computer screen">
+                <h1>Website</h1>
+                <p>This is the website you are currently looking at.</p>
+            </div>
+
+            <div class="card" onclick="location.href='./myProjects/marylandFlag.html';" style="cursor: pointer;">
+                <img src="./assets/images/marylandFlag.svg" alt="Maryland Flag">
+                <h1>Maryland Flag</h1>
+                <p>This is a Maryland flag I made entirely using html and css. The one on the linked page is, not the one on this card.</p>
+            </div>
+        </main>
     </body>
 </html>

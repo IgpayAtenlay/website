@@ -5,289 +5,198 @@
   <meta charset="UTF-8">
   <title>Maryland Flag</title>
   <link href="../css/general.css" rel="stylesheet">
-  <style>
-    .flag *{
-        position: absolute;
-    }
-    
-    /*sizes of major components*/
-    .flag {
-        position: relative;
-        height: 300px;
-        width: 450px;
-    }
-    .corner {
-        height: 50%;
-        width: 50%;
-    }
-    .stripe {
-        width: 16.66%;
-        height: 100%;
-    }
-    .vertical.shaft {
-        height: 80%;
-        width: 10%;
-    }
-    .horizontal.shaft {
-        width: 80%;
-        height: 10%;
-    }
-    .edge {
-        height: 10%;
-        width: 10%;
-    }
-    .bud {
-        width: 20%;
-        height: 20%;
-    }
-
-    /*colors for red and white section*/
-    .white {
-        background-color: white;
-    }
-    .red {
-        background-color: red;
-    }
-    .white > div {
-        background-color: red;
-    }
-    .red > div {
-        background-color: white;
-    }
-
-    /*locations of corners*/
-    .top {
-        top: 0px;
-    }
-    .bottom {
-        bottom: 0px;
-    }
-    .left {
-        left: 0px;
-    }
-    .right {
-        right: 0px;
-    }
-    
-    /*location and curvature of red and white components based on location of their corner*/
-    .top > .vertical.edge {
-        bottom: 80%
-    }
-    .bottom > .vertical.edge {
-        top: 80%
-    }
-    .left > .vertical.edge {
-        right: 0;
-    }
-    .right > .vertical.edge {
-        left: 0;
-    }
-
-    .top > .horizontal.edge {
-        bottom: 0
-    }
-    .bottom > .horizontal.edge {
-        top: 0
-    }
-    .left > .horizontal.edge {
-        right: 80%
-    }
-    .right > .horizontal.edge {
-        left: 80%
-    }
-
-    .top.left > .edge {
-        border-top-left-radius: 100%;
-    }
-    .top.right > .edge {
-        border-top-right-radius: 100%;
-    }
-    .bottom.left > .edge {
-        border-bottom-left-radius: 100%;
-    }
-    .bottom.right > .edge {
-        border-bottom-right-radius: 100%;
-    }
-    
-    .left > .shaft {
-        right: 0;
-    }
-    .right > .shaft {
-        left: 0;
-    }
-    .top > .shaft {
-        bottom: 0;
-    }
-    .bottom > .shaft {
-        top: 0;
-    }
-
-    .left > .vertical.bud {
-        border-top-left-radius: 100%;
-        border-bottom-left-radius: 100%;
-        right: 10%
-    }
-    .right > .vertical.bud {
-        border-top-right-radius: 100%;
-        border-bottom-right-radius: 100%;
-        left: 10%
-    }
-    .top > .vertical.bud {
-        top: 30%
-    }
-    .bottom > .vertical.bud {
-        bottom: 30%;
-    }
-
-    .top > .horizontal.bud {
-        border-top-left-radius: 100%;
-        border-top-right-radius: 100%;
-        bottom: 10%
-    }
-    .bottom > .horizontal.bud {
-        border-bottom-left-radius: 100%;
-        border-bottom-right-radius: 100%;
-        top: 10%
-    }
-    .left > .horizontal.bud {
-        left: 30%
-    }
-    .right > .horizontal.bud {
-        right: 30%
-    }
-    
-    /*color of black and yellow stripes*/
-    .one {
-        left: 0%;
-        background: linear-gradient(35deg, yellow 75%, black 0%);
-    }
-    .two {
-        left: 16.66%;
-        background: linear-gradient(35deg, black 60%, yellow 0% 85%, black 0%);
-    }
-    .three {
-        left: 33.32%;
-        background: linear-gradient(35deg, yellow 45%, black 0% 70%, yellow 0%);
-    }
-    .four {
-        left: 50%;
-        background: linear-gradient(35deg, black 30%, yellow 0% 55%, black 0%);
-    }
-    .five {
-        left: 66.66%;
-        background: linear-gradient(35deg, yellow 15%, black 0% 40%, yellow 0%);
-    }
-    .six {
-        right: 0%;
-        background: linear-gradient(35deg, yellow 25%, black 0%);
-    }
-
-  </style>
+  <link href="../css/marylandFlag.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <a href="../index.html">
-            <img src="../assets/inverseLogo.svg" alt="logo of music note on computer screen">
+        <a class="logo" href="../index.html">
+            <img src="../assets/images/inverseLogo.svg" alt="logo of music note on computer screen">
             Melissa
         </a>
+        <nav class="links">
+            <a href="../index.html">Home</a>
+            <a href="../aboutMe.html">About Me</a>
+        </nav>
     </header>
 
     <main>
-        <div class="flag" alt="Maryland flag">
-            <div class="black-and-yellow corner top left">
-                <div class="stripe one"></div>
-                <div class="stripe two"></div>
-                <div class="stripe three"></div>
-                <div class="stripe four"></div>
-                <div class="stripe five"></div>
-                <div class="stripe six"></div>
+        <div class="mf-1-flag" alt="Maryland flag">
+            <div class="mf-1-black-and-yellow mf-1-corner mf-1-top mf-1-left">
+                <div class="mf-1-stripe mf-1-one"></div>
+                <div class="mf-1-stripe mf-1-two"></div>
+                <div class="mf-1-stripe mf-1-three"></div>
+                <div class="mf-1-stripe mf-1-four"></div>
+                <div class="mf-1-stripe mf-1-five"></div>
+                <div class="mf-1-stripe mf-1-six"></div>
             </div>
-            <div class="red-and-white corner top right">
-                <div class="white corner top left">
-                    <div class="vertical shaft"></div>
-                    <div class="horizontal shaft"></div>
-                    <div class="vertical edge"></div>
-                    <div class="horizontal edge"></div>
-                    <div class="vertical bud"></div>
-                    <div class="horizontal bud"></div>
+            <div class="mf-1-red-and-white mf-1-corner mf-1-top mf-1-right">
+                <div class="mf-1-white mf-1-corner mf-1-top mf-1-left">
+                    <div class="mf-1-vertical mf-1-shaft"></div>
+                    <div class="mf-1-horizontal mf-1-shaft"></div>
+                    <div class="mf-1-vertical mf-1-edge"></div>
+                    <div class="mf-1-horizontal mf-1-edge"></div>
+                    <div class="mf-1-vertical mf-1-bud"></div>
+                    <div class="mf-1-horizontal mf-1-bud"></div>
                 </div>
-                <div class="red corner top right">
-                    <div class="vertical shaft"></div>
-                    <div class="horizontal shaft"></div>
-                    <div class="vertical edge"></div>
-                    <div class="horizontal edge"></div>
-                    <div class="vertical bud"></div>
-                    <div class="horizontal bud"></div>
+                <div class="mf-1-red mf-1-corner mf-1-top mf-1-right">
+                    <div class="mf-1-vertical mf-1-shaft"></div>
+                    <div class="mf-1-horizontal mf-1-shaft"></div>
+                    <div class="mf-1-vertical mf-1-edge"></div>
+                    <div class="mf-1-horizontal mf-1-edge"></div>
+                    <div class="mf-1-vertical mf-1-bud"></div>
+                    <div class="mf-1-horizontal mf-1-bud"></div>
                 </div>
-                <div class="red corner bottom left">
-                    <div class="vertical shaft"></div>
-                    <div class="horizontal shaft"></div>
-                    <div class="vertical edge"></div>
-                    <div class="horizontal edge"></div>
-                    <div class="vertical bud"></div>
-                    <div class="horizontal bud"></div>
+                <div class="mf-1-red mf-1-corner mf-1-bottom mf-1-left">
+                    <div class="mf-1-vertical mf-1-shaft"></div>
+                    <div class="mf-1-horizontal mf-1-shaft"></div>
+                    <div class="mf-1-vertical mf-1-edge"></div>
+                    <div class="mf-1-horizontal mf-1-edge"></div>
+                    <div class="mf-1-vertical mf-1-bud"></div>
+                    <div class="mf-1-horizontal mf-1-bud"></div>
                 </div>
-                <div class="white corner bottom right">
-                    <div class="vertical shaft"></div>
-                    <div class="horizontal shaft"></div>
-                    <div class="vertical edge"></div>
-                    <div class="horizontal edge"></div>
-                    <div class="vertical bud"></div>
-                    <div class="horizontal bud"></div>
+                <div class="mf-1-white mf-1-corner mf-1-bottom mf-1-right">
+                    <div class="mf-1-vertical mf-1-shaft"></div>
+                    <div class="mf-1-horizontal mf-1-shaft"></div>
+                    <div class="mf-1-vertical mf-1-edge"></div>
+                    <div class="mf-1-horizontal mf-1-edge"></div>
+                    <div class="mf-1-vertical mf-1-bud"></div>
+                    <div class="mf-1-horizontal mf-1-bud"></div>
                 </div>
             </div>
-            <div class="black-and-yellow corner bottom right">
-                <div class="stripe one"></div>
-                <div class="stripe two"></div>
-                <div class="stripe three"></div>
-                <div class="stripe four"></div>
-                <div class="stripe five"></div>
-                <div class="stripe six"></div>
+            <div class="mf-1-black-and-yellow mf-1-corner mf-1-bottom mf-1-right">
+                <div class="mf-1-stripe mf-1-one"></div>
+                <div class="mf-1-stripe mf-1-two"></div>
+                <div class="mf-1-stripe mf-1-three"></div>
+                <div class="mf-1-stripe mf-1-four"></div>
+                <div class="mf-1-stripe mf-1-five"></div>
+                <div class="mf-1-stripe mf-1-six"></div>
             </div>
-            <div class="red-and-white corner bottom left">
-                <div class="white corner top left">
-                    <div class="vertical shaft"></div>
-                    <div class="horizontal shaft"></div>
-                    <div class="vertical edge"></div>
-                    <div class="horizontal edge"></div>
-                    <div class="vertical bud"></div>
-                    <div class="horizontal bud"></div>
+            <div class="mf-1-red-and-white mf-1-corner mf-1-bottom mf-1-left">
+                <div class="mf-1-white mf-1-corner mf-1-top mf-1-left">
+                    <div class="mf-1-vertical mf-1-shaft"></div>
+                    <div class="mf-1-horizontal mf-1-shaft"></div>
+                    <div class="mf-1-vertical mf-1-edge"></div>
+                    <div class="mf-1-horizontal mf-1-edge"></div>
+                    <div class="mf-1-vertical mf-1-bud"></div>
+                    <div class="mf-1-horizontal mf-1-bud"></div>
                 </div>
-                <div class="red corner top right">
-                    <div class="vertical shaft"></div>
-                    <div class="horizontal shaft"></div>
-                    <div class="vertical edge"></div>
-                    <div class="horizontal edge"></div>
-                    <div class="vertical bud"></div>
-                    <div class="horizontal bud"></div>
+                <div class="mf-1-red mf-1-corner mf-1-top mf-1-right">
+                    <div class="mf-1-vertical mf-1-shaft"></div>
+                    <div class="mf-1-horizontal mf-1-shaft"></div>
+                    <div class="mf-1-vertical mf-1-edge"></div>
+                    <div class="mf-1-horizontal mf-1-edge"></div>
+                    <div class="mf-1-vertical mf-1-bud"></div>
+                    <div class="mf-1-horizontal mf-1-bud"></div>
                 </div>
-                <div class="red corner bottom left">
-                    <div class="vertical shaft"></div>
-                    <div class="horizontal shaft"></div>
-                    <div class="vertical edge"></div>
-                    <div class="horizontal edge"></div>
-                    <div class="vertical bud"></div>
-                    <div class="horizontal bud"></div>
+                <div class="mf-1-red mf-1-corner mf-1-bottom mf-1-left">
+                    <div class="mf-1-vertical mf-1-shaft"></div>
+                    <div class="mf-1-horizontal mf-1-shaft"></div>
+                    <div class="mf-1-vertical mf-1-edge"></div>
+                    <div class="mf-1-horizontal mf-1-edge"></div>
+                    <div class="mf-1-vertical mf-1-bud"></div>
+                    <div class="mf-1-horizontal mf-1-bud"></div>
                 </div>
-                <div class="white corner bottom right">
-                    <div class="vertical shaft"></div>
-                    <div class="horizontal shaft"></div>
-                    <div class="vertical edge"></div>
-                    <div class="horizontal edge"></div>
-                    <div class="vertical bud"></div>
-                    <div class="horizontal bud"></div>
+                <div class="mf-1-white mf-1-corner mf-1-bottom mf-1-right">
+                    <div class="mf-1-vertical mf-1-shaft"></div>
+                    <div class="mf-1-horizontal mf-1-shaft"></div>
+                    <div class="mf-1-vertical mf-1-edge"></div>
+                    <div class="mf-1-horizontal mf-1-edge"></div>
+                    <div class="mf-1-vertical mf-1-bud"></div>
+                    <div class="mf-1-horizontal mf-1-bud"></div>
                 </div>
             </div>
         </div>
 
-    </main>
+        <!-- Second flag -->
 
-    <footer>
-        <a href="../index.html">Home</a>
-        <a href="../myProjects/myProjects.html">My Projects</a>
-        <a href="../aboutMe.html">About Me</a>
-    </footer>
+        <div class="mf-2-flag" alt="Maryland flag">
+            <div class="mf-2-black-and-yellow mf-2-corner mf-2-top mf-2-left">
+                <div class="mf-2-stripe mf-2-one"></div>
+                <div class="mf-2-stripe mf-2-two"></div>
+                <div class="mf-2-stripe mf-2-three"></div>
+                <div class="mf-2-stripe mf-2-four"></div>
+                <div class="mf-2-stripe mf-2-five"></div>
+                <div class="mf-2-stripe mf-2-six"></div>
+            </div>
+            <div class="mf-2-red-and-white mf-2-corner mf-2-top mf-2-right">
+                <div class="mf-2-white mf-2-corner mf-2-top mf-2-left">
+                    <div class="mf-2-vertical mf-2-shaft"></div>
+                    <div class="mf-2-horizontal mf-2-shaft"></div>
+                    <div class="mf-2-vertical mf-2-edge"></div>
+                    <div class="mf-2-horizontal mf-2-edge"></div>
+                    <div class="mf-2-vertical mf-2-bud"></div>
+                    <div class="mf-2-horizontal mf-2-bud"></div>
+                </div>
+                <div class="mf-2-red mf-2-corner mf-2-top mf-2-right">
+                    <div class="mf-2-vertical mf-2-shaft"></div>
+                    <div class="mf-2-horizontal mf-2-shaft"></div>
+                    <div class="mf-2-vertical mf-2-edge"></div>
+                    <div class="mf-2-horizontal mf-2-edge"></div>
+                    <div class="mf-2-vertical mf-2-bud"></div>
+                    <div class="mf-2-horizontal mf-2-bud"></div>
+                </div>
+                <div class="mf-2-red mf-2-corner mf-2-bottom mf-2-left">
+                    <div class="mf-2-vertical mf-2-shaft"></div>
+                    <div class="mf-2-horizontal mf-2-shaft"></div>
+                    <div class="mf-2-vertical mf-2-edge"></div>
+                    <div class="mf-2-horizontal mf-2-edge"></div>
+                    <div class="mf-2-vertical mf-2-bud"></div>
+                    <div class="mf-2-horizontal mf-2-bud"></div>
+                </div>
+                <div class="mf-2-white mf-2-corner mf-2-bottom mf-2-right">
+                    <div class="mf-2-vertical mf-2-shaft"></div>
+                    <div class="mf-2-horizontal mf-2-shaft"></div>
+                    <div class="mf-2-vertical mf-2-edge"></div>
+                    <div class="mf-2-horizontal mf-2-edge"></div>
+                    <div class="mf-2-vertical mf-2-bud"></div>
+                    <div class="mf-2-horizontal mf-2-bud"></div>
+                </div>
+            </div>
+            <div class="mf-2-black-and-yellow mf-2-corner mf-2-bottom mf-2-right">
+                <div class="mf-2-stripe mf-2-one"></div>
+                <div class="mf-2-stripe mf-2-two"></div>
+                <div class="mf-2-stripe mf-2-three"></div>
+                <div class="mf-2-stripe mf-2-four"></div>
+                <div class="mf-2-stripe mf-2-five"></div>
+                <div class="mf-2-stripe mf-2-six"></div>
+            </div>
+            <div class="mf-2-red-and-white mf-2-corner mf-2-bottom mf-2-left">
+                <div class="mf-2-white mf-2-corner mf-2-top mf-2-left">
+                    <div class="mf-2-vertical mf-2-shaft"></div>
+                    <div class="mf-2-horizontal mf-2-shaft"></div>
+                    <div class="mf-2-vertical mf-2-edge"></div>
+                    <div class="mf-2-horizontal mf-2-edge"></div>
+                    <div class="mf-2-vertical mf-2-bud"></div>
+                    <div class="mf-2-horizontal mf-2-bud"></div>
+                </div>
+                <div class="mf-2-red mf-2-corner mf-2-top mf-2-right">
+                    <div class="mf-2-vertical mf-2-shaft"></div>
+                    <div class="mf-2-horizontal mf-2-shaft"></div>
+                    <div class="mf-2-vertical mf-2-edge"></div>
+                    <div class="mf-2-horizontal mf-2-edge"></div>
+                    <div class="mf-2-vertical mf-2-bud"></div>
+                    <div class="mf-2-horizontal mf-2-bud"></div>
+                </div>
+                <div class="mf-2-red mf-2-corner mf-2-bottom mf-2-left">
+                    <div class="mf-2-vertical mf-2-shaft"></div>
+                    <div class="mf-2-horizontal mf-2-shaft"></div>
+                    <div class="mf-2-vertical mf-2-edge"></div>
+                    <div class="mf-2-horizontal mf-2-edge"></div>
+                    <div class="mf-2-vertical mf-2-bud"></div>
+                    <div class="mf-2-horizontal mf-2-bud"></div>
+                </div>
+                <div class="mf-2-white mf-2-corner mf-2-bottom mf-2-right">
+                    <div class="mf-2-vertical mf-2-shaft"></div>
+                    <div class="mf-2-horizontal mf-2-shaft"></div>
+                    <div class="mf-2-vertical mf-2-edge"></div>
+                    <div class="mf-2-horizontal mf-2-edge"></div>
+                    <div class="mf-2-vertical mf-2-bud"></div>
+                    <div class="mf-2-horizontal mf-2-bud"></div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

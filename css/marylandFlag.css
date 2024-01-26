@@ -1,0 +1,189 @@
+.mf-1-flag *{
+    position: absolute;
+}
+
+/*sizes of major components*/
+.mf-1-flag {
+    position: relative;
+    height: 200px;
+    width: 300px;
+}
+.mf-1-corner {
+    height: 50%;
+    width: 50%;
+}
+.mf-1-stripe {
+    width: 16.66%;
+    height: 100%;
+}
+.mf-1-vertical.mf-1-shaft {
+    height: 80%;
+    width: 10%;
+}
+.mf-1-horizontal.mf-1-shaft {
+    width: 80%;
+    height: 10%;
+}
+.mf-1-edge {
+    height: 10%;
+    width: 10%;
+}
+.mf-1-bud {
+    width: 20%;
+    height: 20%;
+}
+
+/*colors for red and white section*/
+.mf-1-white {
+    background-color: white;
+}
+.mf-1-red {
+    background-color: red;
+}
+.mf-1-white > div {
+    background-color: red;
+}
+.mf-1-red > div {
+    background-color: white;
+}
+
+/*locations of corners*/
+.mf-1-top {
+    top: 0px;
+}
+.mf-1-bottom {
+    bottom: 0px;
+}
+.mf-1-left {
+    left: 0px;
+}
+.mf-1-right {
+    right: 0px;
+}
+
+/*location and curvature of red and white components based on location of their corner*/
+.mf-1-top > .mf-1-vertical.mf-1-edge {
+    bottom: 80%
+}
+.mf-1-bottom > .mf-1-vertical.mf-1-edge {
+    top: 80%
+}
+.mf-1-left > .mf-1-vertical.mf-1-edge {
+    right: 0;
+}
+.mf-1-right > .mf-1-vertical.mf-1-edge {
+    left: 0;
+}
+
+.mf-1-top > .mf-1-horizontal.mf-1-edge {
+    bottom: 0
+}
+.mf-1-bottom > .mf-1-horizontal.mf-1-edge {
+    top: 0
+}
+.mf-1-left > .mf-1-horizontal.mf-1-edge {
+    right: 80%
+}
+.mf-1-right > .mf-1-horizontal.mf-1-edge {
+    left: 80%
+}
+
+.mf-1-top.mf-1-left > .mf-1-edge {
+    border-top-left-radius: 100%;
+}
+.mf-1-top.mf-1-right > .mf-1-edge {
+    border-top-right-radius: 100%;
+}
+.mf-1-bottom.mf-1-left > .mf-1-edge {
+    border-bottom-left-radius: 100%;
+}
+.mf-1-bottom.mf-1-right > .mf-1-edge {
+    border-bottom-right-radius: 100%;
+}
+
+.mf-1-left > .mf-1-shaft {
+    right: 0;
+}
+.mf-1-right > .mf-1-shaft {
+    left: 0;
+}
+.mf-1-top > .mf-1-shaft {
+    bottom: 0;
+}
+.mf-1-bottom > .mf-1-shaft {
+    top: 0;
+}
+
+.mf-1-left > .mf-1-vertical.mf-1-bud {
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    right: 10%
+}
+.mf-1-right > .mf-1-vertical.mf-1-bud {
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    left: 10%
+}
+.mf-1-top > .mf-1-vertical.mf-1-bud {
+    top: 30%
+}
+.mf-1-bottom > .mf-1-vertical.mf-1-bud {
+    bottom: 30%;
+}
+
+.mf-1-top > .mf-1-horizontal.mf-1-bud {
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    bottom: 10%
+}
+.mf-1-bottom > .mf-1-horizontal.mf-1-bud {
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    top: 10%
+}
+.mf-1-left > .mf-1-horizontal.mf-1-bud {
+    left: 30%
+}
+.mf-1-right > .mf-1-horizontal.mf-1-bud {
+    right: 30%
+}
+
+/*color of black and yellow stripes*/
+.mf-1-one {
+    left: 0%;
+    background: linear-gradient(35deg, yellow 75%, black 0%);
+}
+.mf-1-two {
+    left: 16.66%;
+    background: linear-gradient(35deg, black 60%, yellow 0% 85%, black 0%);
+}
+.mf-1-three {
+    left: 33.32%;
+    background: linear-gradient(35deg, yellow 45%, black 0% 70%, yellow 0%);
+}
+.mf-1-four {
+    left: 50%;
+    background: linear-gradient(35deg, black 30%, yellow 0% 55%, black 0%);
+}
+.mf-1-five {
+    left: 66.66%;
+    background: linear-gradient(35deg, yellow 15%, black 0% 40%, yellow 0%);
+}
+.mf-1-six {
+    right: 0%;
+    background: linear-gradient(35deg, yellow 25%, black 0%);
+}
+
+/*second flag*/
+
+.mf-2-flag *{
+    position: absolute;
+}
+
+/*sizes of major components*/
+.mf-2-flag {
+    position: relative;
+    height: 200px;
+    width: 300px;
+    display: grid;
+}
