@@ -1,0 +1,48 @@
+h1 {
+    font-size: 3rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+}
+
+#red {
+    background-color: red;
+}
+  
+#green {
+    background-color: green;
+}
+  
+#blue {
+    background-color: blue;
+}
+  
+#yellow {
+    background-color: yellow;
+}
+
+button {
+    margin: 25px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    border-radius: 20%;
+}
+
+@media (max-width: 530px){
+    button {
+        width: 35vw;
+        height: 35vw;
+        margin: 4vw;
+        border: 1.75vw solid black;
+    }
+    
+}
+
+.game-over {
+    background-color: red
+  }

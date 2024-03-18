@@ -173,17 +173,3 @@
     right: 0%;
     background: linear-gradient(35deg, yellow 25%, black 0%);
 }
-
-/*second flag*/
-
-.mf-2-flag *{
-    position: absolute;
-}
-
-/*sizes of major components*/
-.mf-2-flag {
-    position: relative;
-    height: 200px;
-    width: 300px;
-    display: grid;
-}
