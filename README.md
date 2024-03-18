@@ -5,13 +5,6 @@
 To Do
 
 <li>Add picture of myself to about me page</li>
-<li>Create pages
-    <ul>
-    <li>Nomai</li>
-    <li>Slitherlink solver</li>
-    <li>Website</li>
-    </ul>
-</li>
 <li>Make pretty with CSS</li>
 <li>Make links to github</li>
 <li>Make the pages interactive
