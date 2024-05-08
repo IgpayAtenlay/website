@@ -61,5 +61,5 @@ function gameOver() {
     setTimeout(function() {
         $("body").removeClass("game-over");
     }, 200);
-    $("h1").text("You Lost. Press A to Restart");
+    $("h1").text("You Lost. Press 'A' to Restart");
 }

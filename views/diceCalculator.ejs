@@ -1,0 +1,89 @@
+<%- include("head.ejs") %>
+    <title>Dice Calculator</title>
+    <link href="css/diceCalculator.css" rel="stylesheet">
+<%- include("header.ejs") %>
+
+<h1>Dice Calculator</h1>
+
+<form action="/diceCalculator" method="POST">
+    <label class="newLine">DC:</label>
+        <input type="text" name="DC" value=<%if(locals.body){%><%= body.DC %><%}%>>
+    <label>Modifier:</label>
+        <input type="text" name="modifier" value=<%if(locals.body){%><%= body.modifier %><%}%>>
+    <label class="investigator">Stratagem Modifier:</label>
+        <input type="text" name="stratagemModifier" class="investigator" value=<%if(locals.body){%><%= body.stratagemModifier %><%}%>>
+    <label class="newLine damage" for="critSuccessDice">On Crit Success:</label>
+        <input class = "damage" type="text" name="critSuccessDice" value=<%if(locals.body){%><%= body.critSuccessDice %><%}%>>
+    <label class = "damage" for="successDice">On Success:</label>
+        <input class = "damage" type="text" name="successDice" value=<%if(locals.body){%><%= body.successDice %><%}%>>
+    <label class = "damage" for="failDice">On Failure:</label>
+        <input class = "damage" type="text" name="failDice" value=<%if(locals.body){%><%= body.failDice %><%}%>>
+    <label class = "damage" for="critFailDice">On Crit Failure:</label>
+        <input class = "damage" type="text" name="critFailDice" value=<%if(locals.body){%><%= body.critFailDice %><%}%>>
+    <label class="newLine damage investigator" for="stratagemCritSuccessDice">Stratagem Crit Success:</label>
+        <input class = "damage investigator" type="text" name="stratagemCritSuccessDice" value=<%if(locals.body){%><%= body.stratagemCritSuccessDice %><%}%>>
+    <label class = "damage investigator" for="stratagemSuccessDice">Stratagem Success:</label>
+        <input class = "damage investigator" type="text" name="stratagemSuccessDice" value=<%if(locals.body){%><%= body.stratagemSuccessDice %><%}%>>
+    <label class = "damage investigator" for="stratagemFailDice">Stratagem Failure:</label>
+        <input class = "damage investigator" type="text" name="stratagemFailDice" value=<%if(locals.body){%><%= body.stratagemFailDice %><%}%>>
+    <label class = "damage investigator" for="stratagemCritFailDice">Stratagem Crit Failure:</label>
+        <input class = "damage investigator" type="text" name="stratagemCritFailDice" value=<%if(locals.body){%><%= body.stratagemCritFailDice %><%}%>>
+    <div class="newLine checkbox">
+        <input type="checkbox" class="degreeOfSuccess" name="StoCS" <%if(locals.body && body.StoCS){%>checked<%}%>>
+        <label for="StoCS">Success to Crit Success</label><br>
+        <input type="checkbox" class="degreeOfSuccess" name="FtoS" <%if(locals.body && body.FtoS){%>checked<%}%>>
+        <label for="FtoS">Fail to Success</label><br>
+        <input type="checkbox" class="degreeOfSuccess" name="FtoCF" <%if(locals.body && body.FtoCF){%>checked<%}%>>
+        <label for="FtoCF">Fail to Crit Fail</label><br>
+        <input type="checkbox" class="degreeOfSuccess" name="CFtoS" <%if(locals.body && body.CFtoS){%>checked<%}%>>
+        <label for="CFtoS">Crit Fail to Success</label><br>
+        <input type="checkbox" class="degreeOfSuccess" name="CFtoF" <%if(locals.body && body.CFtoF){%>checked<%}%>>
+        <label for="CFtoF">Crit Fail to Fail</label><br>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" class="fortune" name="fortune" <%if(locals.body && body.fortune){%>checked<%}%>>
+        <label for="fortune">Fortune</label><br>
+        <input type="checkbox" class="fortune" name="misfortune" <%if(locals.body && body.misfortune){%>checked<%}%>>
+        <label for="misfortune">Misfortune</label><br>
+        <input type="checkbox" class="fortune" name="rerollSuccess" value="S" <%if(locals.body && body.rerollSuccess){%>checked<%}%>>
+        <label for="misfortune">Reroll Success</label><br>
+        <input type="checkbox" class="fortune" name="rerollFail" value="F" <%if(locals.body && body.rerollFail){%>checked<%}%>>
+        <label for="misfortune">Reroll Failure</label><br>
+        <input type="checkbox" class="fortune" name="rerollCritFail" value="CF" <%if(locals.body && body.rerollCritFail){%>checked<%}%>>
+        <label for="misfortune">Reroll Crit Failure</label><br>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" class="damageType" name="strike" <%if(locals.body && body.strike){%>checked<%}%>>
+        <label for="fortune">Strike (damage on success, double on crit)</label><br>
+        <input type="checkbox" class="damageType" name="basicSave" <%if(locals.body && body.basicSave){%>checked<%}%>>
+        <label for="misfortune">Basic Save</label><br>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" name="investigator" <%if(locals.body && body.investigator){%>checked<%}%>>
+        <label for="fortune">Devise a Stratagem</label><br>
+    </div>
+    
+
+    <input type="submit" value="Calculate">
+</form>
+
+<% if (locals.body) { %>
+    <h2>Average</h2>
+    <p><%= average %></p>
+    <h2>Max</h2>
+    <p><%= max %></p>
+    <h2>Min</h2>
+    <p><%= min %></p>
+    <h2>Percent of Critical Successes</h2>
+    <p><%= percentCS %> %</p>
+    <h2>Percent of Successes</h2>
+    <p><%= percentS %> %</p>
+    <h2>Percent of Failures</h2>
+    <p><%= percentF %> %</p>
+    <h2>Percent of Critical Failures</h2>
+    <p><%= percentCF %> %</p>
+<% } %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/diceCalculator.js" charset="utf-8"></script>
+<%- include("footer.ejs") %>
