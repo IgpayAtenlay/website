@@ -1,0 +1,8 @@
+main > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+main > div > div > * {
+    margin-top: 20px
+}

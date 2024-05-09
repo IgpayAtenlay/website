@@ -1,3 +1,10 @@
-</main>
-</body>
+        </main>
+
+        <% if (locals.gitLink) { %>
+            <footer>
+                <p>Github: <a href="https://<%= gitLink %>"><%= gitLink %></a></p>
+            </footer>
+        <% } %>
+
+    </body>
 </html>

@@ -14,7 +14,9 @@ app.get("/", (req, res) => {
 
 app.get("/:pageName", (req, res) => {
   var pageName = req.params.pageName;
-  res.render(`${pageName}.ejs`);
+  if (pageName !== 'favicon.ico') {
+    res.render(`${pageName}.ejs`);
+  }
 });
 
 // app.post
