@@ -1,15 +1,15 @@
 var colors = ["green", "red", "yellow", "blue"];
 var colorAudio = [
-    new Audio("../assets/sounds/pop-very-low.mp3"), 
+    new Audio("../assets/sounds/pop-lowest.mp3"), 
     new Audio("../assets/sounds/pop-low.mp3"),
     new Audio("../assets/sounds/pop-high.mp3"),
-    new Audio("../assets/sounds/pop-very-high.mp3")
+    new Audio("../assets/sounds/pop-highest.mp3")
 ]
 var gamePattern = [];
 var userPattern = [];
 var level = 0;
 var inputNeeded = false;
-var greenAudio = new Audio("../assets/sounds/pop-very-low.mp3");
+var errorSound = new Audio("../assets/sounds/error.mp3");
 
 $(document).keydown(function(event) {
     if (event.key === "a" && level === 0) {
@@ -83,7 +83,7 @@ $("button").click(function() {
 function gameOver() {
     inputNeeded = false;
     level = 0;
-    new Audio("../assets/sounds/error.mp3").play();
+    errorSound.play();
     $("body").addClass("game-over");
     setTimeout(function() {
         $("body").removeClass("game-over");
