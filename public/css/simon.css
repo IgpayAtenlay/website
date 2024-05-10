@@ -43,6 +43,10 @@ button {
     
 }
 
+button:focus {
+    outline-color: #7090FF;
+}
+
 .game-over {
     background-color: red
   }

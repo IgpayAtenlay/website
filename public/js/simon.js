@@ -1,8 +1,15 @@
 var colors = ["green", "red", "yellow", "blue"];
+var colorAudio = [
+    new Audio("../assets/sounds/pop-very-low.mp3"), 
+    new Audio("../assets/sounds/pop-low.mp3"),
+    new Audio("../assets/sounds/pop-high.mp3"),
+    new Audio("../assets/sounds/pop-very-high.mp3")
+]
 var gamePattern = [];
 var userPattern = [];
 var level = 0;
 var inputNeeded = false;
+var greenAudio = new Audio("../assets/sounds/pop-very-low.mp3");
 
 $(document).keydown(function(event) {
     if (event.key === "a" && level === 0) {
@@ -25,17 +32,37 @@ function nextSequence() {
     var nextColor = colors[Math.floor(Math.random() * 4)];
     gamePattern.push(nextColor);
     userPattern = [];
-    animatePress(nextColor);
+    var i = 0;
+    var interval = setInterval(function() {
+        animatePress(gamePattern[i]);
+        i++;
+        if(i === json.objects.length) clearInterval(interval);
+    }, 1000);
     inputNeeded = true;
 }
 
 function animatePress(color) {
+    switch(color) {
+        case "green":
+            colorAudio[0].play();
+            break;
+        case "yellow":
+            colorAudio[1].play();
+            break;
+        case "red":
+            colorAudio[2].play();
+            break;
+        case "blue":
+            colorAudio[3].play();
+            break;
+    }
     $("#" + color).fadeOut(100).fadeIn(100);
-    new Audio("../assets/sounds/click.mp3").play();
 }
 
 $("button").click(function() {
-    if (inputNeeded) {
+    if (level === 0) {
+        startGame();
+    } else if (inputNeeded) {
         var color = this.id;
         animatePress(color);
         userPattern.push(color);
@@ -61,5 +88,5 @@ function gameOver() {
     setTimeout(function() {
         $("body").removeClass("game-over");
     }, 200);
-    $("h1").text("You Lost. Press 'A' to Restart");
+    $("h1").text("You Lost. Click any button to Restart");
 }

@@ -8,7 +8,7 @@
             <% if (locals.pageTitle) { %>
                 <%= pageTitle %>
             <% } else { %>
-                msite
+                Melissa's Website
             <% }%>
         </title>
         <% if (locals.styles) {
@@ -19,10 +19,11 @@
     </head>
     <body>
         <header>
-            <a class="logo" href="/">
-                <img src="assets/images/inverseLogo.svg" alt="Quarter note on a computer screen">
+            <a class="logo" href="/" title="Melissa Home" aria-label="Melissa Home">
+                <img src="assets/images/inverseLogo.svg" focusable="false" aria-hidden="true">
                 Melissa
             </a>
+            
             <nav class="links">
                 <a href="/">Home</a>
                 <a href="/aboutMe">About Me</a>
