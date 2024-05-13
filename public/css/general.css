@@ -109,6 +109,8 @@ main h1,h2,h3,h4,h5,h6 {
     height: 300px;
     color: black;
     text-decoration: none;
+    font-size: large;
+    line-height: 1.4em;
 }
 
 .card img {
@@ -119,5 +121,5 @@ main h1,h2,h3,h4,h5,h6 {
 .card h1 {
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: x-large;
+    font-size: 140%;
 }
