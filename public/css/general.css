@@ -1,10 +1,23 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
+    color: var(--text);
+    
+    --background: white;
+    --text: black;
+    --tint-one: #e7dcff;
+    --tint-two: #dce3ff;
+    --tint-one-shadow: #d7c4ff;
+    --tint-two-shadow: #c9d5ff;
+    --shade-one: #A67CFF;
+    --shade-two: #7090FF;
+    --accent: #B5FF63;
 }
 
 body {
     margin: 0;
+    background-color: var(--background);
 }
 
 /* header */
@@ -17,7 +30,7 @@ header {
     z-index: 100;
     
     height: 40px;
-    background: linear-gradient(35deg, #A67CFF 10%, #7090FF 50% 50%, #A67CFF);
+    background: linear-gradient(35deg, VAR(--shade-one) 10%, VAR(--shade-two) 50% 50%, VAR(--shade-one));
     margin: 0px;
     padding: 20px;
 }
@@ -34,8 +47,8 @@ footer {
     bottom: 0;
     z-index: 100;
     height: 20px;
-    background: #a57cff1e;
-    border-color: grey;
+    background: var(--background);
+    border-color: var(--shade-one);
     border-style: solid;
     border-width: 1px 1px 0px 0px;
     margin: 0px;
@@ -43,7 +56,7 @@ footer {
 }
 
 .logo {
-    color: white;
+    color: var(--background);
     text-decoration: none;
     font-size: xx-large;
 }
@@ -57,7 +70,7 @@ footer {
 }
 
 .links a {
-    color: white;
+    color: var(--background);
     text-decoration: none;
     font-size: large;
 }
@@ -74,34 +87,21 @@ main {
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 80px;
-    font-family: sans-serif;
 }
 
 main > * {
     margin-top: 0;
 }
 
-main a {
-    color: #7090FF;
+a {
+    color: VAR(--shade-two);
 }
-
-main h1,h2,h3,h4,h5,h6 {
-    font-family: serif;
-}
-
-/* colors
-    purple: #A67CFF
-    blue: #7090FF
-    pink: #EF8AFF
-    yellow: #FFE396
-    lime: #B5FF63
-*/
 
 .card {
-    background-color: lightgray;
+    background-color: var(--tint-one);
     border-style: solid;
     border-radius: 10px;
-    border-color: rgb(188, 188, 188);
+    border-color: var(--tint-one-shadow);
     border-top-width: 0px;
     border-left-width: 0px;
     padding: 10px;
@@ -121,5 +121,5 @@ main h1,h2,h3,h4,h5,h6 {
 .card h1 {
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 140%;
+    font-size: 130%;
 }
