@@ -1,7 +1,8 @@
 form {
     display: grid;
     grid-template-columns: repeat(4, 1fr 1fr);
-    background-color: azure;
+    background-color: var(--tint-two);
+    border-color: var(--text);
     border: 1px;
     border-style: solid;
     border-radius: 10px;
@@ -12,7 +13,11 @@ label {
     text-align: right;
 }
 input[type="submit"] {
-    grid-column: 4/6;
+    background-color: var(--accent-one);
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    font-weight: bold;
 }
 input[type="text"] {
     min-width: 0;

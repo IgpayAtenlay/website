@@ -1,4 +1,4 @@
-var colors = ["green", "red", "yellow", "blue"];
+var colors = ["one", "two", "three", "four"];
 var colorAudio = [
     new Audio("../assets/sounds/pop-lowest.mp3"), 
     new Audio("../assets/sounds/pop-low.mp3"),
@@ -43,16 +43,16 @@ function nextSequence() {
 
 function animatePress(color) {
     switch(color) {
-        case "green":
+        case "one":
             colorAudio[0].play();
             break;
-        case "yellow":
+        case "two":
             colorAudio[1].play();
             break;
-        case "red":
+        case "three":
             colorAudio[2].play();
             break;
-        case "blue":
+        case "four":
             colorAudio[3].play();
             break;
     }

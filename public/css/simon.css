@@ -8,20 +8,20 @@ h1 {
     width: fit-content;
 }
 
-#red {
-    background-color: red;
+#one {
+    background-color: var(--accent-two);
 }
   
-#green {
-    background-color: green;
+#two {
+    background-color: var(--shade-two);
 }
   
-#blue {
-    background-color: blue;
+#three {
+    background-color: var(--shade-one);
 }
   
-#yellow {
-    background-color: yellow;
+#four {
+    background-color: var(--accent-one);
 }
 
 button {
