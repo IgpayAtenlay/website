@@ -42,20 +42,6 @@ header {
     }
 }
 
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 100;
-    height: 20px;
-    background: var(--background);
-    border-color: var(--shade-one);
-    border-style: solid;
-    border-width: 1px 1px 0px 0px;
-    margin: 0px;
-    padding: 3px;
-}
-
 .logo {
     color: var(--background);
     text-decoration: none;
@@ -80,6 +66,8 @@ header img {
     height: 1.5rem;
 }
 
+
+
 /* main */
 
 main {
@@ -97,6 +85,12 @@ main > * {
 a {
     color: VAR(--shade-two);
 }
+
+ul {
+    list-style-position: inside;
+}
+
+/* cards */
 
 .card {
     background-color: var(--tint-one);
@@ -123,4 +117,20 @@ a {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 130%;
+}
+
+/* footer */
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    height: 20px;
+    background: var(--background);
+    border-color: var(--shade-one);
+    border-style: solid;
+    border-width: 1px 1px 0px 0px;
+    margin: 0px;
+    padding: 3px;
 }
