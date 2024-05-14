@@ -6,3 +6,8 @@ main > div {
 main > div > div > * {
     margin-top: 20px
 }
+
+canvas {
+    height: 200px;
+    width: 300px;
+}
