@@ -1,9 +1,4 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    color: var(--text);
-    
     --background: white;
     --text: black;
     --tint-one: #e7dcff;
@@ -19,6 +14,28 @@
 body {
     margin: 0;
     background-color: var(--background);
+}
+
+/* defaults */
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    color: var(--text);
+    line-height: 1.5em;
+}
+
+a {
+    color: VAR(--shade-two);
+}
+
+ul {
+    list-style-position: inside;
+}
+
+li {
+    margin-left: 1em;
 }
 
 /* header */
@@ -66,8 +83,6 @@ header img {
     height: 1.5rem;
 }
 
-
-
 /* main */
 
 main {
@@ -80,14 +95,6 @@ main {
 
 main > * {
     margin-top: 0;
-}
-
-a {
-    color: VAR(--shade-two);
-}
-
-ul {
-    list-style-position: inside;
 }
 
 /* cards */
@@ -105,7 +112,6 @@ ul {
     color: black;
     text-decoration: none;
     font-size: large;
-    line-height: 1.4em;
 }
 
 .card img {
