@@ -9,19 +9,19 @@ h1 {
 }
 
 #one {
-    background-color: var(--accent-two);
+    background-color: lime;
 }
   
 #two {
-    background-color: var(--shade-two);
+    background-color: red;
 }
   
 #three {
-    background-color: var(--shade-one);
+    background-color: yellow;
 }
   
 #four {
-    background-color: var(--accent-one);
+    background-color: blue;
 }
 
 button {
