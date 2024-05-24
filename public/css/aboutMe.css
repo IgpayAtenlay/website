@@ -1,0 +1,22 @@
+.contactInfo img {
+    display: block;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.contactInfo {
+    float: left;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0px 2px 2px 0px;
+    padding: 20px;
+    margin-right: 20px;
+    width: 320px;
+    background-color: var(--tint-one);
+    border-color: var(--tint-one-shadow);
+}
+
+main p {
+    margin-bottom: 1em;
+}
