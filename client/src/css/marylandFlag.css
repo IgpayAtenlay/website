@@ -1,0 +1,13 @@
+.marylandFlag > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.marylandFlag > div > div > * {
+    margin-top: 20px
+}
+
+.marylandFlag canvas {
+    height: 200px;
+    width: 300px;
+}

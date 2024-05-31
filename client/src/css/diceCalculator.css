@@ -1,0 +1,36 @@
+form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr 1fr);
+    background-color: var(--tint-two);
+    border-color: var(--text);
+    border: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+}
+label {
+    text-align: right;
+}
+input[type="submit"] {
+    background-color: var(--accent-one);
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    font-weight: bold;
+}
+input[type="text"] {
+    min-width: 0;
+}
+.checkbox {
+    grid-column: span 2;
+}
+.newLine {
+    grid-column-start: 1;
+}
+.newLine.checkbox {
+    grid-column: 1 / span 2;
+}
+.hide {
+    display: none;
+}
