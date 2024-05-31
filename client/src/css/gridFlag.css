@@ -1,0 +1,154 @@
+.gridFlag {
+    position: relative;
+    height: 200px;
+    width: 300px;
+    display: grid;
+    grid-template-rows: 2fr 2fr;
+    grid-template-columns: 2fr 2fr;
+    background-color: black;
+}
+
+/*black and yellow boxes*/
+.gridFlag .black-and-yellow {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+.gridFlag .one {
+    background: linear-gradient(35deg, yellow 75%, black 0%);
+}
+.gridFlag .two {
+    background: linear-gradient(35deg, black 60%, yellow 0% 85%, black 0%);
+}
+.gridFlag .three {
+    background: linear-gradient(35deg, yellow 45%, black 0% 70%, yellow 0%);
+}
+.gridFlag .four {
+    background: linear-gradient(35deg, black 30%, yellow 0% 55%, black 0%);
+}
+.gridFlag .five {
+    background: linear-gradient(35deg, yellow 15%, black 0% 40%, yellow 0%);
+}
+.gridFlag .six {
+    background: linear-gradient(35deg, yellow 25%, black 0%);
+}
+
+/*red and white boxes*/
+
+.gridFlag .red-and-white {
+    background-color: red;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.gridFlag .red-and-white > div {
+    position: relative;
+}
+
+.gridFlag .red-and-white > div > div {
+    position: absolute;
+}
+
+/*sizes*/
+
+.gridFlag .vertical.shaft {
+    height: 90%;
+    width: 10%;
+}
+.gridFlag .horizontal.shaft {
+    width: 90%;
+    height: 10%;
+}
+.gridFlag .bud {
+    width: 20%;
+    height: 20%;
+}
+
+/*color*/
+
+.gridFlag .red {
+    background-color: red;
+}
+.gridFlag .white {
+    background-color: white;
+}
+.gridFlag .white > div {
+    background-color: red;
+}
+.gridFlag .red > div {
+    background-color: white;
+}
+
+/*location and curvature of red and white components based on location of their corner*/
+
+.gridFlag .top.left > .horizontal.shaft {
+    border-top-left-radius: 10% 100%;
+}
+.gridFlag .top.left > .vertical.shaft.shaft {
+    border-top-left-radius: 100% 10%;
+}
+.gridFlag .top.right > .horizontal.shaft {
+    border-top-right-radius: 10% 100%;
+}
+.gridFlag .top.right > .vertical.shaft.shaft {
+    border-top-right-radius: 100% 10%;
+}
+.gridFlag .bottom.left > .horizontal.shaft {
+    border-bottom-left-radius: 10% 100%;
+}
+.gridFlag .bottom.left > .vertical.shaft.shaft {
+    border-bottom-left-radius: 100% 10%;
+}
+.gridFlag .bottom.right > .horizontal.shaft {
+    border-bottom-right-radius: 10% 100%;
+}
+.gridFlag .bottom.right > .vertical.shaft.shaft {
+    border-bottom-right-radius: 100% 10%;
+}
+
+.gridFlag .left > .shaft {
+    right: 0;
+}
+.gridFlag .right > .shaft {
+    left: 0;
+}
+.gridFlag .top > .shaft {
+    bottom: 0;
+}
+.gridFlag .bottom > .shaft {
+    top: 0;
+}
+
+.gridFlag .left > .vertical.bud {
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    right: 10%
+}
+.gridFlag .right > .vertical.bud {
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    left: 10%
+}
+.gridFlag .top > .vertical.bud {
+    top: 30%
+}
+.gridFlag .bottom > .vertical.bud {
+    bottom: 30%;
+}
+
+.gridFlag .top > .horizontal.bud {
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    bottom: 10%
+}
+.gridFlag .bottom > .horizontal.bud {
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    top: 10%
+}
+.gridFlag .left > .horizontal.bud {
+    left: 30%
+}
+.gridFlag .right > .horizontal.bud {
+    right: 30%
+}

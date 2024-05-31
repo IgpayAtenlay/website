@@ -1,0 +1,175 @@
+.absolutePositioningFlag *{
+    position: absolute;
+}
+
+/*sizes of major components*/
+.absolutePositioningFlag {
+    position: relative;
+    height: 200px;
+    width: 300px;
+}
+.absolutePositioningFlag .corner {
+    height: 50%;
+    width: 50%;
+}
+.absolutePositioningFlag .stripe {
+    width: 16.66%;
+    height: 100%;
+}
+.absolutePositioningFlag .vertical.shaft {
+    height: 80%;
+    width: 10%;
+}
+.absolutePositioningFlag .horizontal.shaft {
+    width: 80%;
+    height: 10%;
+}
+.absolutePositioningFlag .edge {
+    height: 10%;
+    width: 10%;
+}
+.absolutePositioningFlag .bud {
+    width: 20%;
+    height: 20%;
+}
+
+/*colors for red and white section*/
+.absolutePositioningFlag .white {
+    background-color: white;
+}
+.absolutePositioningFlag .red {
+    background-color: red;
+}
+.absolutePositioningFlag .white > div {
+    background-color: red;
+}
+.absolutePositioningFlag .red > div {
+    background-color: white;
+}
+
+/*locations of corners*/
+.absolutePositioningFlag .top {
+    top: 0px;
+}
+.absolutePositioningFlag .bottom {
+    bottom: 0px;
+}
+.absolutePositioningFlag .left {
+    left: 0px;
+}
+.absolutePositioningFlag .right {
+    right: 0px;
+}
+
+/*location and curvature of red and white components based on location of their corner*/
+.absolutePositioningFlag .top > .vertical.edge {
+    bottom: 80%
+}
+.absolutePositioningFlag .bottom > .vertical.edge {
+    top: 80%
+}
+.absolutePositioningFlag .left > .vertical.edge {
+    right: 0;
+}
+.absolutePositioningFlag .right > .vertical.edge {
+    left: 0;
+}
+
+.absolutePositioningFlag .top > .horizontal.edge {
+    bottom: 0
+}
+.absolutePositioningFlag .bottom > .horizontal.edge {
+    top: 0
+}
+.absolutePositioningFlag .left > .horizontal.edge {
+    right: 80%
+}
+.absolutePositioningFlag .right > .horizontal.edge {
+    left: 80%
+}
+
+.absolutePositioningFlag .top.left > .edge {
+    border-top-left-radius: 100%;
+}
+.absolutePositioningFlag .top.right > .edge {
+    border-top-right-radius: 100%;
+}
+.absolutePositioningFlag .bottom.left > .edge {
+    border-bottom-left-radius: 100%;
+}
+.absolutePositioningFlag .bottom.right > .edge {
+    border-bottom-right-radius: 100%;
+}
+
+.absolutePositioningFlag .left > .shaft {
+    right: 0;
+}
+.absolutePositioningFlag .right > .shaft {
+    left: 0;
+}
+.absolutePositioningFlag .top > .shaft {
+    bottom: 0;
+}
+.absolutePositioningFlag .bottom > .shaft {
+    top: 0;
+}
+
+.absolutePositioningFlag .left > .vertical.bud {
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    right: 10%
+}
+.absolutePositioningFlag .right > .vertical.bud {
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    left: 10%
+}
+.absolutePositioningFlag .top > .vertical.bud {
+    top: 30%
+}
+.absolutePositioningFlag .bottom > .vertical.bud {
+    bottom: 30%;
+}
+
+.absolutePositioningFlag .top > .horizontal.bud {
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    bottom: 10%
+}
+.absolutePositioningFlag .bottom > .horizontal.bud {
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    top: 10%
+}
+.absolutePositioningFlag .left > .horizontal.bud {
+    left: 30%
+}
+.absolutePositioningFlag .right > .horizontal.bud {
+    right: 30%
+}
+
+/*color of black and yellow stripes*/
+.absolutePositioningFlag .one {
+    left: 0%;
+    background: linear-gradient(35deg, yellow 75%, black 0%);
+}
+.absolutePositioningFlag .two {
+    left: 16.66%;
+    background: linear-gradient(35deg, black 60%, yellow 0% 85%, black 0%);
+}
+.absolutePositioningFlag .three {
+    left: 33.32%;
+    background: linear-gradient(35deg, yellow 45%, black 0% 70%, yellow 0%);
+}
+.absolutePositioningFlag .four {
+    left: 50%;
+    background: linear-gradient(35deg, black 30%, yellow 0% 55%, black 0%);
+}
+.absolutePositioningFlag .five {
+    left: 66.66%;
+    background: linear-gradient(35deg, yellow 15%, black 0% 40%, yellow 0%);
+}
+.absolutePositioningFlag .six {
+    right: 0%;
+    background: linear-gradient(35deg, yellow 25%, black 0%);
+}

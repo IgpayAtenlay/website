@@ -1,0 +1,54 @@
+.simon 
+
+.simon h1 {
+    font-size: 3rem;
+}
+
+.simon .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+}
+
+.simon #one {
+    background-color: var(--accent-two);
+}
+  
+.simon #two {
+    background-color: var(--shade-two);
+}
+  
+.simon #three {
+    background-color: var(--shade-one);
+}
+  
+.simon #four {
+    background-color: var(--accent-one);
+}
+
+.simon button {
+    margin: 25px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    border-radius: 20%;
+}
+
+@media (max-width: 530px){
+    .simon button {
+        width: 35vw;
+        height: 35vw;
+        margin: 4vw;
+        border: 1.75vw solid black;
+    }
+    
+}
+
+.simon button:focus {
+    outline-color: #7090FF;
+}
+
+.simon .game-over {
+    background-color: red
+}
