@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from './pages/home';
@@ -15,7 +14,7 @@ import Footer from './components/footer';
 
 import './css/general.css'
 
-const App = () => {
+export default function App() {
   return (
     <div>
       <Header />
@@ -37,5 +36,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
