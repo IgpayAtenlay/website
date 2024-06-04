@@ -1,7 +1,8 @@
-import React from "react"
-import "../css/diceCalculator.css";
+import React from "react";
+import "../../css/diceCalculator.css";
 
-const DiceCalculator = () => {
+export default function DiceCalculator() {
+
     return(<div>
         <h1>Dice Calculator</h1>
 
@@ -10,8 +11,6 @@ const DiceCalculator = () => {
                 <input type="text" name="DC" />
             <label>Modifier:</label>
                 <input type="text" name="modifier"  />
-            <label class="investigator">Stratagem Modifier:</label>
-                <input type="text" name="stratagemModifier" class="investigator" />
             <label class="newLine damage" for="critSuccessDice">On Crit Success:</label>
                 <input class = "damage" type="text" name="critSuccessDice" />
             <label class = "damage" for="successDice">On Success:</label>
@@ -20,14 +19,6 @@ const DiceCalculator = () => {
                 <input class = "damage" type="text" name="failDice" />
             <label class = "damage" for="critFailDice">On Crit Failure:</label>
                 <input class = "damage" type="text" name="critFailDice" />
-            <label class="newLine damage investigator" for="stratagemCritSuccessDice">Stratagem Crit Success:</label>
-                <input class = "damage investigator" type="text" name="stratagemCritSuccessDice" />
-            <label class = "damage investigator" for="stratagemSuccessDice">Stratagem Success:</label>
-                <input class = "damage investigator" type="text" name="stratagemSuccessDice" />
-            <label class = "damage investigator" for="stratagemFailDice">Stratagem Failure:</label>
-                <input class = "damage investigator" type="text" name="stratagemFailDice" />
-            <label class = "damage investigator" for="stratagemCritFailDice">Stratagem Crit Failure:</label>
-                <input class = "damage investigator" type="text" name="stratagemCritFailDice" />
             <div class="newLine checkbox">
                 <input type="checkbox" class="degreeOfSuccess" name="StoCS" />
                 <label for="StoCS">Success to Crit Success</label><br />
@@ -58,12 +49,8 @@ const DiceCalculator = () => {
                 <input type="checkbox" class="damageType" name="basicSave" />
                 <label for="misfortune">Basic Save</label><br />
             </div>
-            <div class="checkbox">
-                <input type="checkbox" name="investigator" />
-                <label for="fortune">Devise a Stratagem</label><br />
-            </div>
             
-            <input type="submit" value="Calculate" />
+            <input class="newLine" type="submit" value="Calculate" />
         </form>
 
             <h2>Average</h2>
@@ -85,5 +72,3 @@ const DiceCalculator = () => {
         <script src="js/diceCalculator.js" charset="utf-8"></script>
     </div>);
 };
-
-export default DiceCalculator;
