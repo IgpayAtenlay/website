@@ -1,7 +1,6 @@
-// src/CanvasComponent.js
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
-const CanvasFlag = () => {
+export default function CanvasFlag() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -122,5 +121,3 @@ const CanvasFlag = () => {
 
   return <canvas ref={canvasRef} />;
 };
-
-export default CanvasFlag;
