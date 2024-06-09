@@ -1,18 +1,18 @@
-.creatureCreator {
+.creature {
     font-size: small;
 }
 
-.creatureCreator * {
+.creature * {
     margin: 0px;
 }
 
-.creatureCreator > * {
+.creature > * {
     border-style: solid;
     border-width: 0px;
     border-bottom-width: 2px;
 }
 
-.creatureCreator .title {
+.creature .title {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
@@ -20,12 +20,12 @@
     font-stretch: condensed;
 }
 
-.creatureCreator .tags {
+.creature .tags {
     font-stretch: condensed;
     display: flex;
 }
 
-.creatureCreator .tags p {
+.creature .tags p {
     color: white;
     font-size: 0.7em;
     border-color: orange;
@@ -35,18 +35,18 @@
     margin: 0.1em;
 }
 
-.creatureCreator .orange {
+.creature .orange {
     background-color: rgb(145, 99, 14);
 }
 
-.creatureCreator .green {
+.creature .green {
     background-color: green;
 }
 
-.creatureCreator .red {
+.creature .red {
     background-color: rgb(111, 10, 10);
 }
 
-.creatureCreator .other {
+.creature .other {
     border-width: 0px;
 }
