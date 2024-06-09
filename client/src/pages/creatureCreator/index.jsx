@@ -4,7 +4,7 @@ import Tag from "./tag";
 export default function CreatureCreator() {
     return (<div class="creatureCreator">
         <div class="title">
-            <p class="name">NAME</p>
+            <p class="name">PLAGUE DOCTOR</p>
             <p class="level">CREATURE 5</p>
         </div>
         <div class="stats">

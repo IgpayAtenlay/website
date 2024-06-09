@@ -17,6 +17,7 @@
     justify-content: space-between;
     font-weight: bold;
     font-size: 1.5em;
+    font-stretch: condensed;
 }
 
 .creatureCreator .tags {
