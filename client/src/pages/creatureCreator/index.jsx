@@ -1,7 +1,8 @@
 import {useState, createContext, useContext} from 'react';
 import "../../css/creatureCreator/index.css";
-import Creature from "./creature";
-import CreatureForm from "./creatureForm";
+import Creature from "./creature/creature";
+import CreatureForm from "./form/creatureForm";
+import {v4} from "uuid";
 
 export var CreatureContext = createContext(null);
 
@@ -28,7 +29,7 @@ export default function CreatureCreator() {
                 color: "red"
             }],
         perception: 13,
-        languages: ["common"],
+        languages: [{language: "common"}],
         skills: [
             {
                 name: "intimidation",
@@ -87,7 +88,7 @@ export default function CreatureCreator() {
                 name: "staff",
                 range: "melee",
                 onhit: 9,
-                traits: ["two-hand d8"],
+                traits: [{name: "two-hand d8"}],
                 damageDice: "1d4",
                 damageType: "bludgeoning"
             },
@@ -95,7 +96,7 @@ export default function CreatureCreator() {
                 name: "crossbow",
                 range: "ranged",
                 onhit: 10,
-                traits: ["range increment 120 feet", "reload 1"],
+                traits: [{name: "range increment 120 feet"}, {name: "reload 1"}],
                 damageDice: "1d8",
                 damageType: "piercing"
             }
@@ -108,6 +109,28 @@ export default function CreatureCreator() {
         ]
     });
 
+    function uniqueID(list) {
+        creature[list].forEach(e => {
+            if (!e.id) {
+                e.id = v4();
+            }
+        });
+    }
+
+    uniqueID("tags");
+    uniqueID("languages");
+    uniqueID("skills");
+    uniqueID("items");
+    uniqueID("weapons");
+
+    creature.weapons.forEach(f => {
+        f.traits.forEach(e => {
+            if (!e.id) {
+                e.id = v4();
+            }
+        });
+    })
+
     return (<div class="creatureCreator">
         <CreatureContext.Provider value={{creature, setCreature}}>
             <CreatureForm creature={creature}/>
@@ -115,4 +138,3 @@ export default function CreatureCreator() {
         </CreatureContext.Provider>
     </div>);
 }
-

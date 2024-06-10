@@ -1,4 +1,4 @@
-import "../../css/creatureCreator/creature.css";
+import "../../../css/creatureCreator/creature.css";
 import Tags from "./tags";
 import Skills from "./skills";
 import Languages from "./languages";

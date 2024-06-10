@@ -1,14 +1,14 @@
-import "../../css/creatureCreator/creatureForm.css";
+import "../../../css/creatureCreator/creatureForm.css";
 
 import {useContext} from 'react';
-import {CreatureContext} from "./index";
+import {CreatureContext} from "../index";
 
 import Tags from "./tags";
-import Skills from "./skills";
+import Skills from "../creature/skills";
 import Languages from "./languages";
-import AddLanguage from "./addLanguage";
-import Items from "./items";
-import Weapons from "./weapons";
+import AddButton from "./addButton";
+import Items from "../creature/items";
+import Weapons from "../creature/weapons";
 
 export default function CreatureForm() {
     var {creature, setCreature} = useContext(CreatureContext);
@@ -22,7 +22,7 @@ export default function CreatureForm() {
             <Tags tags={creature.tags} />
             <div class="proficiency">
                 <p><b>Perception</b> +{creature.perception}</p>
-                <p><b>Languages</b> <Languages languages={creature.languages} /><AddLanguage /></p>
+                <p><b>Languages</b> <Languages languages={creature.languages} /><AddButton variable="languages" defaultValue={{language: "common"}} /></p>
                 <p><b>Skills</b> <Skills skills={creature.skills}/></p>
                 <p><b>Str</b> +{creature.abilities.str}, <b>Dex</b> +{creature.abilities.dex}, <b>Con</b> +{creature.abilities.con}, <b>Int</b> +{creature.abilities.int}, <b>Wis</b> +{creature.abilities.wis}, <b>Cha</b> +{creature.abilities.cha}</p>
                 <p><b>Items</b> <Items items={creature.items} /></p>

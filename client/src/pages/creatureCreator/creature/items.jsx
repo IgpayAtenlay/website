@@ -1,9 +1,9 @@
 export default function Items(props) {
     var items = props.items.slice(0,-1).map(e => {
-        return(<span><Item item={e} />, </span>);
+        return(<span key={e.id}><Item item={e} />, </span>);
     });
     var lastItem = props.items.slice(-1).map(e => {
-        return(<Item item={e} />);
+        return(<Item item={e} key={e.id} />);
     });
 
     return (<span>{items}{lastItem}</span>);
