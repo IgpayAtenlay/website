@@ -46,7 +46,7 @@ function Language(props) {
                 <option value="delete">Delete</option>
             </select>);
     } else {
-        return (<input id={props.id} type="text" value={props.language} onChange={handleChange}></input>);
+        return (<input id={props.id} type="text" value={props.language} onChange={handleChange} />);
     }
 }
 

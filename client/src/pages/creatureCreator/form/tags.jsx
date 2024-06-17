@@ -64,7 +64,7 @@ function Tag(props) {
 
     return (
     <div>
-        <input class={props.color} id={props.id} onChange={handleChangeText} value={props.text.toUpperCase()}></input>
+        <input class={props.color} id={props.id} onChange={handleChangeText} value={props.text.toUpperCase()} />
         <select id={props.id} value={props.color} onChange={handleChangeColor}>
             {colorOptions}
             <option value="delete">Delete</option>

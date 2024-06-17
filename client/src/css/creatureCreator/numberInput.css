@@ -1,0 +1,13 @@
+.numberInput {
+    display: inline-grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 0.75em 0.75em;
+}
+
+.numberInput input {
+    grid-row: span 2;
+}
+
+.numberInput button {
+    font-size: 0.5em;
+}
