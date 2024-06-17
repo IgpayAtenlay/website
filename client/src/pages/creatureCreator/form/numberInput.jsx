@@ -1,6 +1,7 @@
 import "../../../css/creatureCreator/numberInput.css";
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
+import {v4} from "uuid";
 
 export default function NumberInput(props) {
     var {setCreature} = useContext(CreatureContext);
@@ -10,6 +11,7 @@ export default function NumberInput(props) {
     if (props.factor) {
         factor = props.factor;
     }
+    var id = v4();
 
     function handleChangeSet(e) {
         var value = e.target.value
@@ -60,7 +62,8 @@ export default function NumberInput(props) {
     }
 
     return (<div className="numberInput">
-        <input value={location[name]} onChange={handleChangeSet}/>
+        <label for={id}>{props.label}</label>
+        <input value={location[name]} onChange={handleChangeSet} id={id}/>
         <button className="up" onClick={handleChangeUp}>^</button>
         <button className="down" onClick={handleChangeDown}>v</button>
     </div>)

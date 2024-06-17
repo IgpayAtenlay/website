@@ -1,10 +1,10 @@
 .numberInput {
     display: inline-grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto 1fr;
     grid-template-rows: 0.75em 0.75em;
 }
 
-.numberInput input {
+.numberInput input,label {
     grid-row: span 2;
 }
 
