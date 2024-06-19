@@ -111,18 +111,34 @@ export default function CreatureCreator() {
                 name: "studded leather"
             }],
         defenses: {
-            ac: 20,
-            fort: 13,
-            ref: 8,
-            will: 13,
-            hp: 73,
+            ac: {
+                number: 20, 
+                scale: "high"
+            },
+            fort: {
+                number: 13, 
+                scale: "medium"
+            },
+            ref: {
+                number: 8, 
+                scale: "low"
+            },
+            will: {
+                number: 13, 
+                scale: "medium"
+            },
+            hp: {
+                number: 73, 
+                scale: "medium"
+            },
             weaknesses: [
                 {
                     type: "cold iron",
                     amount: 5
                 }
             ],
-            resistances: []
+            resistances: [],
+            immunities: []
         },
         speed: [
             {

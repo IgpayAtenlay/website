@@ -3,7 +3,13 @@ import {CreatureContext} from "../index";
 import {v4} from "uuid";
 
 export default function AddTag() {
-    var tags = ["aberration", "aeon", "air", "angel", "animal", "archon", "astral", "azata", "beast", "celestial"];
+    var tags = [
+        "aberration", "aeon", "air", "angel", "animal", "archon", "astral", "azata", 
+        "beast", 
+        "celestial", "cold", "construct",
+        "daemon", "demon", 
+        "mindless"
+    ];
     var tagOptions = tags.map(e => <option value={e}>{e.toUpperCase()}</option>);
 
     var {creature, setCreature} = useContext(CreatureContext);
@@ -41,6 +47,8 @@ export default function AddTag() {
                 addTag("celestial");
                 addTag("holy");
                 addSpeed("fly");
+                addMiscAbilities("aura", "Angels each have a unique aura based on how they serve as messengers and how they deliver those messages.");
+                addMiscAbilities("rituals", "angelic messenger");
                 break;
             case "animal":
                 deleteLanguages();
@@ -49,6 +57,7 @@ export default function AddTag() {
             case "archon":
                 addTag("celestial");
                 addTag("holy");
+                addMiscAbilities("virtue ability", "Archons each represent a specific virtue, like courage or hope, and have a special ability based on the virtue they represent.");
                 break;
             case "astral":
                 addSense("darkvision");
@@ -57,6 +66,7 @@ export default function AddTag() {
                 addTag("celestial");
                 addTag("holy");
                 addWeakness("cold iron");
+                addMiscAbilities("Freedom Ability", "Azatas each represent a specific freedom, like free expression or free love, and have a special ability based on the freedom they represent.");
                 break;
             case "beast":
                 changeAbility("int", "terrible");
@@ -68,6 +78,46 @@ export default function AddTag() {
                 addWeakness("unholy");
                 addMiscAbilities("holy strikes", "all your strikes have the trait holy");
                 addMiscAbilities("saves vs magic", "you have a +1 status bonus to all saves vs. magic");
+                break;
+            case "cold":
+                addImmunity("cold");
+                addResistance("cold");
+                break;
+            case "construct":
+                addTag("mindless");
+                addImmunity("bleed");
+                addImmunity("death effects");
+                addImmunity("disease");
+                addImmunity("doomed");
+                addImmunity("drained");
+                addImmunity("fatigued");
+                addImmunity("healing");
+                addImmunity("nonlethal attacks");
+                addImmunity("paralyzed");
+                addImmunity("poison");
+                addImmunity("sickened");
+                addImmunity("spirit");
+                addImmunity("unconscious");
+                addImmunity("vitality");
+                addImmunity("void");
+                break;
+            case "daemon":
+                addTag("fiend");
+                addTag("unholy");
+                addLanguage("daemonic");
+                addLanguage("telepathy 100 feet");
+                addImmunity("death effects");
+                addMiscAbilities("Death Ability", "Daemons each represent a specific kind of death, like death by disease or starvation, and have a special ability based on the method of death they represent.");
+                break;
+            case "demon":
+                addTag("fiend");
+                addTag("unholy");
+                addLanguage("chthonian");
+                addLanguage("telepathy 100 feet");
+                changeDefense("hp", "high");
+                break;
+            case "mindless":
+                addImmunity("mental");
                 break;
             default:
                 break;
@@ -148,6 +198,19 @@ export default function AddTag() {
         }));
     }
 
+    function changeDefense(name, scale) {
+        setCreature(prevCreature => ({
+            ...prevCreature,
+            defenses: {
+                ...prevCreature.defenses,
+                [name]: {
+                    ...prevCreature.defenses[name],
+                    scale: scale
+                }
+            }
+        }));
+    }
+
     function addWeakness(type) {
         if (!creature.defenses.weaknesses.some(e => e.type === type)) {
             setCreature(prevCreature => ({
@@ -157,6 +220,37 @@ export default function AddTag() {
                     weaknesses: prevCreature.defenses.weaknesses.concat({
                         type: type,
                         amount: 5,
+                        id: v4()
+                    })
+                }
+            }));
+        }
+    }
+
+    function addResistance(type) {
+        if (!creature.defenses.resistances.some(e => e.type === type)) {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                defenses: {
+                    ...prevCreature.defenses,
+                    resistances: prevCreature.defenses.resistances.concat({
+                        type: type,
+                        amount: 5,
+                        id: v4()
+                    })
+                }
+            }));
+        }
+    }
+
+    function addImmunity(type) {
+        if (!creature.defenses.immunities.some(e => e.type === type)) {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                defenses: {
+                    ...prevCreature.defenses,
+                    immunities: prevCreature.defenses.immunities.concat({
+                        type: type,
                         id: v4()
                     })
                 }

@@ -25,8 +25,8 @@ export default function Creature(props) {
             </div>
         </div>
         <div class="defenses">
-            <p><b>AC</b> {creature.defenses.ac}; <b>Fort</b> +{creature.defenses.fort}, <b>Ref</b> +{creature.defenses.ref}, <b>Will</b> +{creature.defenses.will}</p>
-            <p><b>HP</b> {creature.defenses.hp}</p>
+            <p><b>AC</b> {creature.defenses.ac.scale}; <b>Fort</b> +{creature.defenses.fort.scale}, <b>Ref</b> +{creature.defenses.ref.scale}, <b>Will</b> +{creature.defenses.will.scale}</p>
+            <p><b>HP</b> {creature.defenses.hp.scale}</p>
         </div>
         <div class="other">
             <p><b>Speed</b> {creature.speed[0].speed} feet</p>
