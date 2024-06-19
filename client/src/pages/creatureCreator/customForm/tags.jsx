@@ -27,7 +27,7 @@ function Tag(props) {
     var {creature, setCreature} = useContext(CreatureContext);
     
     var colorOptions = colors.map(e => 
-        <option value={e} key={e}>{startCase(e)}</option>
+        <option class={e} value={e} key={e}>{startCase(e)}</option>
     );
 
     function handleChangeText(e) {
@@ -77,7 +77,7 @@ function Tag(props) {
     return (
     <div>
         <input class={props.color} id={props.id} onChange={handleChangeText} value={props.text.toUpperCase()} />
-        <select id={props.id} value={props.color} onChange={handleChangeColor}>
+        <select class={props.color} id={props.id} value={props.color} onChange={handleChangeColor}>
             {colorOptions}
             <option value="delete">Delete</option>
         </select>

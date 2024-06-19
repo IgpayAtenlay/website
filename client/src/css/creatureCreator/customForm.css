@@ -25,7 +25,7 @@
     display: flex;
 }
 
-.customForm .tags p {
+.customForm .tags input, .customForm .tags select, .customForm .tags option {
     color: white;
     font-size: 0.7em;
     border-color: orange;
