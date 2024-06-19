@@ -7,7 +7,7 @@ export default function AddTag() {
         "aberration", "aeon", "air", "angel", "animal", "archon", "astral", "azata", 
         "beast", 
         "celestial", "cold", "construct",
-        "daemon", "demon", 
+        "daemon", "demon", "devil",
         "mindless"
     ];
     var tagOptions = tags.map(e => <option value={e}>{e.toUpperCase()}</option>);
@@ -115,6 +115,24 @@ export default function AddTag() {
                 addLanguage("chthonian");
                 addLanguage("telepathy 100 feet");
                 changeDefense("hp", "high");
+                addWeakness("cold iron");
+                addMiscAbilities("Sin Vulnerability", "Demons each represent a specific sin, like envy or wrath, and have a special vulnerability based on the sin they represent. This should be something the PCs can exploit through their actions, which should then deal mental damage to the demon. The amount of damage should be based on how easy the vulnerability is to exploit.");
+                addMiscAbilities("Divine Innate Spells", "5th-rank translocate and at-will 4th-rank translocate");
+                addMiscAbilities("Rituals", "demonic pact");
+                addMiscAbilities("Sin Ability", "Demons also have a special ability based on the sin they represent, which either makes them better embody the sin or instills that sin in others.");
+                break;
+            case "devil":
+                addTag("fiend");
+                addTag("unholy");
+                addLanguage("diabolic");
+                addLanguage("telepathy 100 feet");
+                addImmunity("fire");
+                addWeakness("holy");
+                addResistance("physical (except silver)");
+                addResistance("poison");
+                addMiscAbilities("Divine Innate Spells", "one 5th-rank translocate and at-will 4th-rank translocate");
+                addMiscAbilities("Rituals", "diabolic pact");
+                addMiscAbilities("Infernal", "Hierarchy Ability Devils each have an ability corresponding to the role they play in the infernal hierarchy, typically focused around control or being controlled.");
                 break;
             case "mindless":
                 addImmunity("mental");
