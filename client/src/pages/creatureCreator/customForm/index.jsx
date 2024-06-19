@@ -4,14 +4,14 @@ import {useContext} from 'react';
 import {CreatureContext} from "../index";
 
 import Tags from "./tags";
-import Skills from "../creature/skills";
+import Skills from "./skills";
 import Languages from "./languages";
 import AddButton from "./addButton";
 import Items from "../creature/items";
 import Weapons from "../creature/weapons";
 import NumberInput from "./numberInput";
 
-export default function CreatureForm() {
+export default function CustomForm() {
     var {creature} = useContext(CreatureContext);
 
     return (<div class="creatureForm">
@@ -24,13 +24,13 @@ export default function CreatureForm() {
             <div class="proficiency">
                 <NumberInput label={<b>Perception</b>} name="perception" location={creature} />
                 <div><b>Languages</b> <Languages languages={creature.languages} /><AddButton variable="languages" defaultValue={{language: "common"}} /></div>
-                <div><b>Skills</b> <Skills skills={creature.skills}/></div>
+                <div><b>Skills</b> <Skills /></div>
                 <div>
-                    <NumberInput label={<b>Str</b>} name={"str"} location={creature.abilities} />, 
-                    <NumberInput label={<b>Dex</b>} name={"dex"} location={creature.abilities} />, 
-                    <NumberInput label={<b>Con</b>} name={"con"} location={creature.abilities} />, 
-                    <NumberInput label={<b>Wis</b>} name={"wis"} location={creature.abilities} />, 
-                    <NumberInput label={<b>Int</b>} name={"int"} location={creature.abilities} />, 
+                    <NumberInput label={<b>Str</b>} name={"str"} location={creature.abilities} />,&nbsp;
+                    <NumberInput label={<b>Dex</b>} name={"dex"} location={creature.abilities} />,&nbsp;
+                    <NumberInput label={<b>Con</b>} name={"con"} location={creature.abilities} />,&nbsp;
+                    <NumberInput label={<b>Wis</b>} name={"wis"} location={creature.abilities} />,&nbsp;
+                    <NumberInput label={<b>Int</b>} name={"int"} location={creature.abilities} />,&nbsp;
                     <NumberInput label={<b>Cha</b>} name={"cha"} location={creature.abilities} />
                 </div>
                 <div><b>Items</b> <Items items={creature.items} /></div>
@@ -38,9 +38,9 @@ export default function CreatureForm() {
         </div>
         <div class="defenses">
             <p>
-                <NumberInput label={<b>AC</b>} name={"ac"} location={creature.defences} />; 
-                <NumberInput label={<b>Fort</b>} name={"fort"} location={creature.defences} />; 
-                <NumberInput label={<b>Ref</b>} name={"ref"} location={creature.defences} />; 
+                <NumberInput label={<b>AC</b>} name={"ac"} location={creature.defences} />;&nbsp;
+                <NumberInput label={<b>Fort</b>} name={"fort"} location={creature.defences} />;&nbsp;
+                <NumberInput label={<b>Ref</b>} name={"ref"} location={creature.defences} />;&nbsp;
                 <NumberInput label={<b>Will</b>} name={"will"} location={creature.defences} /></p>
             <p><NumberInput label={<b>HP</b>} name={"hp"} location={creature.defences} /></p>
         </div>

@@ -8,6 +8,10 @@
     grid-row: span 2;
 }
 
+.numberInput label {
+    margin-right: 0.3em;
+}
+
 .numberInput button {
     font-size: 0.5em;
 }

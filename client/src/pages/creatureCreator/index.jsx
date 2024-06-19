@@ -1,7 +1,7 @@
 import {useState, createContext, useContext} from 'react';
 import "../../css/creatureCreator/index.css";
-import Creature from "./creature/creature";
-import CreatureForm from "./form/creatureForm";
+import Creature from "./creature";
+import CustomForm from "./customForm";
 import {v4} from "uuid";
 
 export var CreatureContext = createContext(null);
@@ -133,7 +133,8 @@ export default function CreatureCreator() {
 
     return (<div class="creatureCreator">
         <CreatureContext.Provider value={{creature, setCreature}}>
-            <CreatureForm creature={creature}/>
+            <CustomForm creature={creature}/>
+            <hr />
             <Creature creature={creature}/>
         </CreatureContext.Provider>
     </div>);
