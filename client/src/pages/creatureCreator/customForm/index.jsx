@@ -38,11 +38,11 @@ export default function CustomForm() {
         </div>
         <div class="defenses">
             <p>
-                <NumberInput label={<b>AC</b>} name={"ac"} location={creature.defences} />;&nbsp;
-                <NumberInput label={<b>Fort</b>} name={"fort"} location={creature.defences} />;&nbsp;
-                <NumberInput label={<b>Ref</b>} name={"ref"} location={creature.defences} />;&nbsp;
-                <NumberInput label={<b>Will</b>} name={"will"} location={creature.defences} /></p>
-            <p><NumberInput label={<b>HP</b>} name={"hp"} location={creature.defences} /></p>
+                <NumberInput label={<b>AC</b>} name={"ac"} location={creature.defenses} />;&nbsp;
+                <NumberInput label={<b>Fort</b>} name={"fort"} location={creature.defenses} />;&nbsp;
+                <NumberInput label={<b>Ref</b>} name={"ref"} location={creature.defenses} />;&nbsp;
+                <NumberInput label={<b>Will</b>} name={"will"} location={creature.defenses} /></p>
+            <p><NumberInput label={<b>HP</b>} name={"hp"} location={creature.defenses} /></p>
         </div>
         <div class="other">
             <p><NumberInput label={<b>Speed</b>} name={"speed"} location={creature.speed[0]} factor={5} /> feet</p>

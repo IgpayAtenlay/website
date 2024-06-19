@@ -3,14 +3,28 @@ import {CreatureContext} from "../index";
 import {v4} from "uuid";
 
 export default function AddTag() {
-    var tags = ["aberration", "aeon", "air", "angel", "animal"];
+    var tags = ["aberration", "aeon", "air", "angel", "animal", "archon", "astral", "azata"];
     var tagOptions = tags.map(e => <option value={e}>{e.toUpperCase()}</option>);
 
     var {creature, setCreature} = useContext(CreatureContext);
 
     function handleChange(e) {
         addTag(e.target.value);
-        switch(e.target.value) {
+    }
+
+    function addTag(text) {
+        if (!creature.tags.some(e => e.text === text)) {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                tags: prevCreature.tags.concat({
+                    text: text,
+                    color: "red",
+                    id: v4()
+                })
+            }));
+        }
+
+        switch(text) {
             case "aberration":
                 addSense("darkvision");
                 addLanguage("aklo");
@@ -31,6 +45,29 @@ export default function AddTag() {
             case "animal":
                 deleteLanguages();
                 changeAbility("int", "terrible");
+                break;
+            case "archon":
+                addTag("celestial");
+                addTag("holy");
+                break;
+            case "astral":
+                addSense("darkvision");
+                break;
+            case "azata":
+                addTag("celestial");
+                addTag("holy");
+                addWeakness("cold iron");
+                break;
+            case "beast":
+                changeAbility("int", "terrible");
+                break;
+            case "celestial":
+                addTag("holy");
+                addSense("darkvision");
+                addLanguage("empyrean");
+                addWeakness("unholy");
+                addOther("holy strikes", "all your strikes have the trait holy");
+                addOther("saves vs magic", "you have a +1 status bonus to all saves vs. magic");
                 break;
             default:
                 break;
@@ -78,19 +115,6 @@ export default function AddTag() {
         }
     }
 
-    function addTag(text) {
-        if (!creature.tags.some(e => e.text === text)) {
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                tags: prevCreature.tags.concat({
-                    text: text,
-                    color: "red",
-                    id: v4()
-                })
-            }));
-        }
-    }
-
     function addSpeed(type) {
         if (!creature.speed.some(e => e.type === type)) {
             setCreature(prevCreature => ({
@@ -122,6 +146,35 @@ export default function AddTag() {
                 }
             }
         }));
+    }
+
+    function addWeakness(type) {
+        if (!creature.defenses.weaknesses.some(e => e.type === type)) {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                defenses: {
+                    ...prevCreature.defenses,
+                    weaknesses: prevCreature.defenses.weaknesses.concat({
+                        type: type,
+                        amount: 5,
+                        id: v4()
+                    })
+                }
+            }));
+        }
+    }
+
+    function addOther(name, description) {
+        if (!creature.other.some(e => e.name === name)) {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                other: prevCreature.other.concat({
+                    name: name,
+                    description: description,
+                    id: v4()
+                })
+            }));
+        }
     }
 
     return (

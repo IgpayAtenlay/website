@@ -110,12 +110,19 @@ export default function CreatureCreator() {
             {
                 name: "studded leather"
             }],
-        defences: {
+        defenses: {
             ac: 20,
             fort: 13,
             ref: 8,
             will: 13,
-            hp: 73
+            hp: 73,
+            weaknesses: [
+                {
+                    type: "cold iron",
+                    amount: 5
+                }
+            ],
+            resistances: []
         },
         speed: [
             {
@@ -157,18 +164,25 @@ export default function CreatureCreator() {
         });
     }
 
+    function listUniqueId(list) {
+        list.forEach(e => {
+            if (!e.id) {
+                e.id = v4();
+            }
+        });
+    }
+
     uniqueID("tags");
     uniqueID("languages");
     uniqueID("skills");
     uniqueID("items");
     uniqueID("weapons");
+    uniqueID("senses");
+    listUniqueId(creature.defenses.weaknesses);
+    listUniqueId(creature.defenses.resistances);
 
     creature.weapons.forEach(f => {
-        f.traits.forEach(e => {
-            if (!e.id) {
-                e.id = v4();
-            }
-        });
+        listUniqueId(f.traits);
     })
 
     return (<div class="creatureCreator">
