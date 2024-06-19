@@ -1,18 +1,18 @@
-.creatureForm {
+.customForm {
     font-size: small;
 }
 
-.creatureForm * {
+.customForm * {
     margin: 0px;
 }
 
-.creatureForm > * {
+.customForm > * {
     border-style: solid;
     border-width: 0px;
     border-bottom-width: 2px;
 }
 
-.creatureForm .title {
+.customForm .title {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
@@ -20,12 +20,12 @@
     font-stretch: condensed;
 }
 
-.creatureForm .tags {
+.customForm .tags {
     font-stretch: condensed;
     display: flex;
 }
 
-.creatureForm .tags p {
+.customForm .tags p {
     color: white;
     font-size: 0.7em;
     border-color: orange;
@@ -35,19 +35,19 @@
     margin: 0.1em;
 }
 
-.creatureForm .orange {
+.customForm .orange {
     background-color: rgb(145, 99, 14);
 }
 
-.creatureForm .green {
+.customForm .green {
     background-color: green;
 }
 
-.creatureForm .red {
+.customForm .red {
     background-color: rgb(111, 10, 10);
 }
 
-.creatureForm .other {
+.customForm .other {
     border-width: 0px;
 }
 

@@ -18,7 +18,7 @@ export default function Creature(props) {
                 <p><b>Perception</b> +{creature.perception}</p>
                 <p><b>Languages</b> <Languages languages={creature.languages} /></p>
                 <p><b>Skills</b> <Skills skills={creature.skills}/></p>
-                <p><b>Str</b> +{creature.abilities.str}, <b>Dex</b> +{creature.abilities.dex}, <b>Con</b> +{creature.abilities.con}, <b>Int</b> +{creature.abilities.int}, <b>Wis</b> +{creature.abilities.wis}, <b>Cha</b> +{creature.abilities.cha}</p>
+                <p><b>Str</b> +{creature.abilities.str.number}, <b>Dex</b> +{creature.abilities.dex.number}, <b>Con</b> +{creature.abilities.con.number}, <b>Int</b> +{creature.abilities.int.number}, <b>Wis</b> +{creature.abilities.wis.number}, <b>Cha</b> +{creature.abilities.cha.number}</p>
                 <p><b>Items</b> <Items items={creature.items} /></p>
             </div>
         </div>
@@ -27,7 +27,7 @@ export default function Creature(props) {
             <p><b>HP</b> {creature.defences.hp}</p>
         </div>
         <div class="other">
-            <p><b>Speed</b> {creature.speed} feet</p>
+            <p><b>Speed</b> {creature.speed[0].speed} feet</p>
             <Weapons weapons={creature.weapons}/>
             <p><b>Divine Prepared Spells</b> etc. etc. etc</p>
         </div>

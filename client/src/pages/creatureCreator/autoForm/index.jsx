@@ -1,20 +1,14 @@
-import "../../../css/creatureCreator/creatureForm.css";
-
-import {useContext} from 'react';
-import {CreatureContext} from "../index";
-
-import Tags from "../customForm/tags";
-import Skills from "../customForm/skills";
+import "../../../css/creatureCreator/autoForm.css";
+import Tags from "./tags";
+import Skills from "../creature/skills";
 import Languages from "../customForm/languages";
-import AddButton from "../customForm/addButton";
 import Items from "../creature/items";
 import Weapons from "../creature/weapons";
-import NumberInput from "../customForm/numberInput";
+import AddButton from "../customForm/addButton";
 
-export default function CustomForm() {
-    var {creature} = useContext(CreatureContext);
-
-    return (<div class="creatureForm">
+export default function Creature(props) {
+    var creature = props.creature;
+    return (<div class="autoForm">
         <div class="title">
             <p class="name">{creature.name.toUpperCase()}</p>
             <p class="level">{creature.type.toUpperCase()} {creature.level}</p>
@@ -22,30 +16,19 @@ export default function CustomForm() {
         <div class="stats">
             <Tags tags={creature.tags} />
             <div class="proficiency">
-                <NumberInput label={<b>Perception</b>} name="perception" location={creature} />
+                <p><b>Perception</b> +{creature.perception}</p>
                 <div><b>Languages</b> <Languages languages={creature.languages} /><AddButton variable="languages" defaultValue={{language: "common"}} /></div>
-                <div><b>Skills</b> <Skills /></div>
-                <div>
-                    <NumberInput label={<b>Str</b>} name={"str"} location={creature.abilities} />,&nbsp;
-                    <NumberInput label={<b>Dex</b>} name={"dex"} location={creature.abilities} />,&nbsp;
-                    <NumberInput label={<b>Con</b>} name={"con"} location={creature.abilities} />,&nbsp;
-                    <NumberInput label={<b>Wis</b>} name={"wis"} location={creature.abilities} />,&nbsp;
-                    <NumberInput label={<b>Int</b>} name={"int"} location={creature.abilities} />,&nbsp;
-                    <NumberInput label={<b>Cha</b>} name={"cha"} location={creature.abilities} />
-                </div>
-                <div><b>Items</b> <Items items={creature.items} /></div>
+                <p><b>Skills</b> <Skills skills={creature.skills}/></p>
+                <p><b>Str</b> {creature.abilities.str.scale}, <b>Dex</b> {creature.abilities.dex.scale}, <b>Con</b> {creature.abilities.con.scale}, <b>Int</b> {creature.abilities.int.scale}, <b>Wis</b> {creature.abilities.wis.scale}, <b>Cha</b> {creature.abilities.cha.scale}</p>
+                <p><b>Items</b> <Items items={creature.items} /></p>
             </div>
         </div>
         <div class="defenses">
-            <p>
-                <NumberInput label={<b>AC</b>} name={"ac"} location={creature.defences} />;&nbsp;
-                <NumberInput label={<b>Fort</b>} name={"fort"} location={creature.defences} />;&nbsp;
-                <NumberInput label={<b>Ref</b>} name={"ref"} location={creature.defences} />;&nbsp;
-                <NumberInput label={<b>Will</b>} name={"will"} location={creature.defences} /></p>
-            <p><NumberInput label={<b>HP</b>} name={"hp"} location={creature.defences} /></p>
+            <p><b>AC</b> {creature.defences.ac}; <b>Fort</b> +{creature.defences.fort}, <b>Ref</b> +{creature.defences.ref}, <b>Will</b> +{creature.defences.will}</p>
+            <p><b>HP</b> {creature.defences.hp}</p>
         </div>
         <div class="other">
-            <p><NumberInput label={<b>Speed</b>} name={"speed"} location={creature} factor={5} /> feet</p>
+            <p><b>Speed</b> {creature.speed[0].speed} feet</p>
             <Weapons weapons={creature.weapons}/>
             <p><b>Divine Prepared Spells</b> etc. etc. etc</p>
         </div>

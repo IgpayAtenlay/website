@@ -1,7 +1,8 @@
-import {useState, createContext, useContext} from 'react';
+import {useState, createContext} from 'react';
 import "../../css/creatureCreator/index.css";
 import Creature from "./creature";
 import CustomForm from "./customForm";
+import AutoForm from './autoForm';
 import {v4} from "uuid";
 
 export var CreatureContext = createContext(null);
@@ -27,8 +28,24 @@ export default function CreatureCreator() {
             {
                 text: "humanoid",
                 color: "red"
-            }],
+            }
+        ],
         perception: 13,
+        senses: [
+            {
+                type: "darkvision"
+            },
+            {
+                type: "echolocation",
+                precision: "precise",
+                distance: 30
+            },
+            {
+                type: "scent",
+                precision: "imprecise",
+                distance: 60
+            }
+        ],
         languages: [{language: "common"}],
         skills: [
             {
@@ -49,12 +66,30 @@ export default function CreatureCreator() {
             }
         ],
         abilities: {
-            str: 0,
-            dex: 1,
-            con: 4,
-            int: 2,
-            wis: 4,
-            cha: 2
+            str: {
+                number: 0, 
+                scale: "low"
+            },
+            dex: {
+                number: 1, 
+                scale: "moderate"
+            },
+            con: {
+                number: 4, 
+                scale: "high"
+            },
+            int: {
+                number: 2, 
+                scale: "moderate"
+            },
+            wis: {
+                number: 4, 
+                scale: "high"
+            },
+            cha: {
+                number: 2, 
+                scale: "moderate"
+            }
         },
         items: [
             {
@@ -82,7 +117,12 @@ export default function CreatureCreator() {
             will: 13,
             hp: 73
         },
-        speed: 25,
+        speed: [
+            {
+                type: "land", 
+                speed: 25
+            }
+        ],
         weapons: [
             {
                 name: "staff",
@@ -133,9 +173,11 @@ export default function CreatureCreator() {
 
     return (<div class="creatureCreator">
         <CreatureContext.Provider value={{creature, setCreature}}>
-            <CustomForm creature={creature}/>
+            <AutoForm creature={creature} />
             <hr />
-            <Creature creature={creature}/>
+            <CustomForm creature={creature} />
+            <hr />
+            <Creature creature={creature} />
         </CreatureContext.Provider>
     </div>);
 }

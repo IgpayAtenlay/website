@@ -1,0 +1,56 @@
+.autoForm {
+    font-size: small;
+}
+
+.autoForm * {
+    margin: 0px;
+}
+
+.autoForm > * {
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 2px;
+}
+
+.autoForm .title {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.5em;
+    font-stretch: condensed;
+}
+
+.autoForm .tags {
+    font-stretch: condensed;
+    display: flex;
+}
+
+.autoForm .tags * {
+    color: white;
+}
+
+.autoForm .tags button, .autoForm .tags select {
+    color: white;
+    font-size: 0.7em;
+    border-color: orange;
+    border-style: solid;
+    border-width: 0.1em;
+    padding: 0px 0.3em;
+    margin: 0.1em;
+}
+
+.autoForm .orange {
+    background-color: rgb(145, 99, 14);
+}
+
+.autoForm .green {
+    background-color: green;
+}
+
+.autoForm .red {
+    background-color: rgb(111, 10, 10);
+}
+
+.autoForm .other {
+    border-width: 0px;
+}
