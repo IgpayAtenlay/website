@@ -314,6 +314,8 @@ export default function AddTag() {
         }
     }
 
+    var sizes = ["tiny", "small", "medium", "large", "huge", "gargantuan"];
+
     var traitOptions = Object.keys(traits).map(e => <option value={e}>{e.toUpperCase()}</option>);
 
     var {creature, setCreature} = useContext(CreatureContext);
@@ -323,7 +325,27 @@ export default function AddTag() {
     }
 
     function addTrait(trait) {
-        if (!creature.tags.some(e => e.text === trait)) {
+        if (sizes.includes(trait)) {
+            if (creature.tags.some(e => sizes.includes(e.text))) {
+                var index = creature.tags.findIndex(e => sizes.includes(e.text));
+                setCreature(prevCreature => ({
+                    ...prevCreature,
+                    tags: prevCreature.tags.with(index, {
+                        ...prevCreature.tags[index],
+                        text: trait
+                    })
+                }));
+            } else {
+                setCreature(prevCreature => ({
+                    ...prevCreature,
+                    tags: prevCreature.tags.concat({
+                        text: trait,
+                        color: "green",
+                        id: v4()
+                    })
+                }));
+            }
+        } else if (!creature.tags.some(e => e.text === trait)) {
             setCreature(prevCreature => ({
                 ...prevCreature,
                 tags: prevCreature.tags.concat({

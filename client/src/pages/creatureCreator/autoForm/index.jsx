@@ -1,10 +1,9 @@
 import "../../../css/creatureCreator/autoForm.css";
 import Tags from "./tags";
 import Skills from "../creature/skills";
-import Languages from "../customForm/languages";
+import Languages from "../creature/languages";
 import Items from "../creature/items";
 import Weapons from "../creature/weapons";
-import AddButton from "../customForm/addButton";
 import MiscAbilities from "../creature/miscAbilities";
 
 export default function Creature(props) {
@@ -18,7 +17,7 @@ export default function Creature(props) {
             <Tags tags={creature.tags} />
             <div class="proficiency">
                 <p><b>Perception</b> +{creature.perception}</p>
-                <div><b>Languages</b> <Languages languages={creature.languages} /><AddButton variable="languages" defaultValue={{language: "common"}} /></div>
+                <div><b>Languages</b> <Languages languages={creature.languages} /></div>
                 <p><b>Skills</b> <Skills skills={creature.skills}/></p>
                 <p><b>Str</b> {creature.abilities.str.scale}, <b>Dex</b> {creature.abilities.dex.scale}, <b>Con</b> {creature.abilities.con.scale}, <b>Int</b> {creature.abilities.int.scale}, <b>Wis</b> {creature.abilities.wis.scale}, <b>Cha</b> {creature.abilities.cha.scale}</p>
                 <p><b>Items</b> <Items items={creature.items} /></p>
