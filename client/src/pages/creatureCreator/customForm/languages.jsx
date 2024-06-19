@@ -20,18 +20,24 @@ function Language(props) {
     
     function handleChange(e) {
         var value = e.target.value.toLowerCase();
-        var language = creature.languages.find(a => a.id === e.target.id);
+        var index = creature.languages.findIndex(a => a.id === e.target.id);
         
         if (value === "delete") {
-            var index = creature.languages.indexOf(language);
-            creature.languages.splice(index,1);
-        } else {
-            language.language = value;
-        }
-        setCreature(prevCreature => ({
-            ...prevCreature,
-            languages: prevCreature.languages
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                languages: prevCreature.languages.filter(a => a.id !== e.target.id)
             }));
+        } else {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                languages: prevCreature.languages.with(index, 
+                    {
+                        ...prevCreature.languages[index],
+                        language: value
+                    }
+                )
+            }));
+        }
     }
 
     var languageOptions = languages.map(e => 

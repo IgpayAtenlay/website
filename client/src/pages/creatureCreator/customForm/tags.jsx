@@ -32,34 +32,46 @@ function Tag(props) {
 
     function handleChangeText(e) {
         var value = e.target.value.toLowerCase();
-        var tag = creature.tags.find(a => a.id === e.target.id);
+        var index = creature.tags.findIndex(a => a.id === e.target.id);
         
         if (value === "delete") {
-            var index = creature.tags.indexOf(tag);
-            creature.tags.splice(index,1);
-        } else {
-            tag.text = value;
-        }
-        setCreature(prevCreature => ({
-            ...prevCreature,
-            tags: prevCreature.tags
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                tags: prevCreature.tags.filter(a => a.id !== e.target.id)
             }));
+        } else {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                tags: prevCreature.tags.with(index, 
+                    {
+                        ...prevCreature.tags[index],
+                        text: value
+                    }
+                )
+            }));
+        }
     }
 
     function handleChangeColor(e) {
         var value = e.target.value.toLowerCase();
-        var tag = creature.tags.find(a => a.id === e.target.id);
+        var index = creature.tags.findIndex(a => a.id === e.target.id);
         
         if (value === "delete") {
-            var index = creature.tags.indexOf(tag);
-            creature.tags.splice(index,1);
-        } else {
-            tag.color = value;
-        }
-        setCreature(prevCreature => ({
-            ...prevCreature,
-            tags: prevCreature.tags
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                tags: prevCreature.tags.filter(a => a.id !== e.target.id)
             }));
+        } else {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                tags: prevCreature.tags.with(index, 
+                    {
+                        ...prevCreature.tags[index],
+                        color: value
+                    }
+                )
+            }));
+        }
     }
 
     return (

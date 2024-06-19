@@ -35,40 +35,34 @@ export default function AddTag() {
             default:
                 break;
         }
-
-        setCreature(prevCreature => ({
-            ...prevCreature,
-            tags: prevCreature.tags
-            }));
     }
 
     function addSense(sense) {
         if (!creature.senses.some(e => e.type === sense)) {
-            if (sense === "darkvision" || sense === "low-light vision") {
-                creature.languages.push(
-                    {
-                        type: sense,
-                        id: v4()
-                    }
-                );
-            } else if (sense === "motion sense") {
-                creature.languages.push(
-                    {
-                        type: sense,
-                        precision: "precise",
-                        distance: 60,
-                        id: v4()
-                    }
-                );
+            var senseObject;
+            if (sense === "motion sense") {
+                senseObject = {
+                    type: sense,
+                    precision: "precise",
+                    distance: 60,
+                    id: v4()
+                }
             } else if (sense === "lifesense") {
-                creature.languages.push(
-                    {
-                        type: sense,
-                        distance: 60,
-                        id: v4()
-                    }
-                );
+                senseObject = {
+                    type: sense,
+                    distance: 60,
+                    id: v4()
+                }
+            } else {
+                senseObject = {
+                    type: sense,
+                    id: v4()
+                };
             }
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                senses: prevCreature.senses.concat(senseObject)
+            }));
         }
     }
     
@@ -127,7 +121,7 @@ export default function AddTag() {
                     scale: scale
                 }
             }
-            }));
+        }));
     }
 
     return (

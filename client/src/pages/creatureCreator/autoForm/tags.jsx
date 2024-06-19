@@ -32,14 +32,15 @@ function Size(props) {
 
     function handleChange(e) {
         var value = e.target.value.toLowerCase();
-        var text = creature.tags.find(a => a.id === e.target.id);
-        
-        text.text = value;
+        var index = creature.tags.findIndex(a => a.id === e.target.id);
 
         setCreature(prevCreature => ({
             ...prevCreature,
-            tags: prevCreature.tags
-            }));
+            tags: prevCreature.tags.with(index, {
+                ...prevCreature.tags[index],
+                text: value
+            })
+        }));
     }
     
     return (
@@ -50,18 +51,13 @@ function Size(props) {
 }
 
 function Tag(props) {
-    var {creature, setCreature} = useContext(CreatureContext);
+    var {setCreature} = useContext(CreatureContext);
 
     function handleClick(e) {
-        var tag = creature.tags.find(a => a.id === e.target.id);
-
-        var index = creature.tags.indexOf(tag);
-        creature.tags.splice(index,1);
-
         setCreature(prevCreature => ({
             ...prevCreature,
-            tags: prevCreature.tags
-            }));
+            tags: prevCreature.tags.filter(a => a.id !== e.target.id)
+        }));
     }
 
     return (<button class={props.color} id={props.id} onClick={handleClick}>{props.text.toUpperCase()}</button>);
