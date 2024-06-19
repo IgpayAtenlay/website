@@ -5,6 +5,7 @@ import Languages from "../customForm/languages";
 import Items from "../creature/items";
 import Weapons from "../creature/weapons";
 import AddButton from "../customForm/addButton";
+import MiscAbilities from "../creature/miscAbilities";
 
 export default function Creature(props) {
     var creature = props.creature;
@@ -30,7 +31,7 @@ export default function Creature(props) {
         <div class="other">
             <p><b>Speed</b> {creature.speed[0].speed} feet</p>
             <Weapons weapons={creature.weapons}/>
-            <p><b>Divine Prepared Spells</b> etc. etc. etc</p>
+            <MiscAbilities other={creature.miscAbilities} />
         </div>
     </div>);
 }

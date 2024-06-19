@@ -4,6 +4,7 @@ import Skills from "./skills";
 import Languages from "./languages";
 import Items from "./items";
 import Weapons from "./weapons";
+import MiscAbilities from "./miscAbilities";
 
 export default function Creature(props) {
     var creature = props.creature;
@@ -28,8 +29,8 @@ export default function Creature(props) {
         </div>
         <div class="other">
             <p><b>Speed</b> {creature.speed[0].speed} feet</p>
-            <Weapons weapons={creature.weapons}/>
-            <p><b>Divine Prepared Spells</b> etc. etc. etc</p>
+            <Weapons weapons={creature.weapons} />
+            <MiscAbilities other={creature.miscAbilities} />
         </div>
     </div>);
 }

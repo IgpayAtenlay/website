@@ -148,7 +148,7 @@ export default function CreatureCreator() {
                 damageType: "piercing"
             }
         ],
-        other: [
+        miscAbilities: [
             {
                 name: "Healing Hands",
                 description: "When the plague doctor casts heal, they roll d10s instead of d8s."
@@ -178,6 +178,7 @@ export default function CreatureCreator() {
     uniqueID("items");
     uniqueID("weapons");
     uniqueID("senses");
+    uniqueID("miscAbilities");
     listUniqueId(creature.defenses.weaknesses);
     listUniqueId(creature.defenses.resistances);
 

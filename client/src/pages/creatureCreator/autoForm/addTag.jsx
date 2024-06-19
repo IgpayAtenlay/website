@@ -3,7 +3,7 @@ import {CreatureContext} from "../index";
 import {v4} from "uuid";
 
 export default function AddTag() {
-    var tags = ["aberration", "aeon", "air", "angel", "animal", "archon", "astral", "azata"];
+    var tags = ["aberration", "aeon", "air", "angel", "animal", "archon", "astral", "azata", "beast", "celestial"];
     var tagOptions = tags.map(e => <option value={e}>{e.toUpperCase()}</option>);
 
     var {creature, setCreature} = useContext(CreatureContext);
@@ -66,8 +66,8 @@ export default function AddTag() {
                 addSense("darkvision");
                 addLanguage("empyrean");
                 addWeakness("unholy");
-                addOther("holy strikes", "all your strikes have the trait holy");
-                addOther("saves vs magic", "you have a +1 status bonus to all saves vs. magic");
+                addMiscAbilities("holy strikes", "all your strikes have the trait holy");
+                addMiscAbilities("saves vs magic", "you have a +1 status bonus to all saves vs. magic");
                 break;
             default:
                 break;
@@ -164,11 +164,11 @@ export default function AddTag() {
         }
     }
 
-    function addOther(name, description) {
-        if (!creature.other.some(e => e.name === name)) {
+    function addMiscAbilities(name, description) {
+        if (!creature.miscAbilities.some(e => e.name === name)) {
             setCreature(prevCreature => ({
                 ...prevCreature,
-                other: prevCreature.other.concat({
+                miscAbilities: prevCreature.miscAbilities.concat({
                     name: name,
                     description: description,
                     id: v4()

@@ -10,6 +10,7 @@ import AddButton from "./addButton";
 import Items from "../creature/items";
 import Weapons from "../creature/weapons";
 import NumberInput from "./numberInput";
+import MiscAbilities from "../creature/miscAbilities";
 
 export default function CustomForm() {
     var {creature} = useContext(CreatureContext);
@@ -47,7 +48,7 @@ export default function CustomForm() {
         <div class="other">
             <p><NumberInput label={<b>Speed</b>} name={"speed"} location={creature.speed[0]} factor={5} /> feet</p>
             <Weapons weapons={creature.weapons}/>
-            <p><b>Divine Prepared Spells</b> etc. etc. etc</p>
+            <MiscAbilities other={creature.miscAbilities} />
         </div>
     </div>);
 }
