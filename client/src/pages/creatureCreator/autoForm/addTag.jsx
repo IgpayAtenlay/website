@@ -56,12 +56,7 @@ export default function AddTag() {
                 description: "Azatas each represent a specific freedom, like free expression or free love, and have a special ability based on the freedom they represent."
             }
         },
-        beast: {
-            ability: {
-                name: "int",
-                scale: "terrible"
-            }
-        },
+        beast: {},
         celestial: {
             trait: "holy",
             sense: "darkvision",
@@ -196,8 +191,126 @@ export default function AddTag() {
                 description: "strikes typically deal fire damage"
             }
         },
+        fungus: {
+            trait: "mindless",
+            weakness: ["slashing", "fire"]
+        },
+        giant: {
+            trait: ["large", "humanoid"],
+            sense: "low-light vision",
+            language: "jotun"
+        },
+        humanoid: {},
+        incorporeal: {
+            ability: {
+                name: "str",
+                number: -5
+            },
+            defense: [
+                {
+                    name: "hp",
+                    scale: "terrible"
+                },
+                {
+                    name: "ac",
+                    scale: "low"
+                }
+            ],
+            immunity: ["disease", "paralyzed", "poison", "precision"],
+            resistance: ["all damage (except force, ghost touch, or spirit)", "non-magical (double resistance)"],
+            miscAbilities: {
+                name: "magical strikes",
+                description: "magical trait, typically low or moderate damage"
+            }
+        },
+        metal: {
+            language: "talican"
+        },
         mindless: {
             immunity: "mental"
+        },
+        monitor: {
+            sense: "darkvision"
+        },
+        ooze: {
+            trait: "mindless",
+            sense: ["motion sense", "no vision"],
+            defense: [
+                {
+                    name: "ac",
+                    scale: "terrible"
+                },
+                {
+                    name: "hp",
+                    scale: "extreme"
+                }
+            ],
+            immunity: ["critical hits", "precision", "unconscious", "acid", "visual effects"]
+        },
+        plant: {
+            trait: "mindless",
+            sense: "low-light vision",
+            weakness: "fire"
+        },
+        protean: {
+            trait: "monitor",
+            language: "protean",
+            resistance: ["precision", "protean anatomy"],
+            miscAbilities: [
+                {
+                    name: "protean anatomy",
+                    description: "This creature's vital organs shift and change shape and position constantly. Immediately after this creature takes acid, electricity, or sonic damage, it gains the listed amount of resistance to that damage type. This lasts for 1 hour or until the next time the protean takes damage of one of the other types (in which case its resistance changes to match that type), whichever comes first."
+                },
+                {
+                    name: "Divine Innate Spells",
+                    description: "constant unfettered movement"
+                },
+                {
+                    name: "Change Shape",
+                    description: "Some sort of shape change ability"
+                }
+            ]
+        },
+        psychopomp: {
+            trait: "monitor",
+            sense: "lifesense",
+            language: "requian",
+            immunity: ["death effects", "disease"],
+            resistance: ["poison", "void"],
+            miscAbilities: {
+                name: "Spirit Touch",
+                description: "This creature's Strikes affect incorporeal creatures with the effects of a ghost touch property rune and deal 1d6 void damage to living creatures and 1d6 vitality damage to undead."
+            }
+        },
+        spirit: {
+            trait: ["incorporeal", "undead"]
+        },
+        swarm: {
+            trait: "large",
+            defense: {
+                name: "hp",
+                scale: "low"
+            },
+            immunity: ["precision", "swarm mind"],
+            weakness: ["area damage", "splash damage"],
+            resistance: ["physical", "usually one physical type has lower or no resistance"]
+        },
+        undead: {
+            trait: ["unholy", "mindless"],
+            sense: "darkvision",
+            immunity: ["death effects", "disease", "paralyze", "poison", "sleep", "unconscious"],
+            miscAbilities: {
+                name: "void healing",
+                description: "void healing"
+            }
+        },
+        water: {
+            language: "thalassic",
+            speed: "swim"
+        },
+        wood: {
+            language: "muan",
+            weakness: ["fire", "slashing"]
         }
     }
 
