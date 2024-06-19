@@ -7,7 +7,9 @@ export default function AddTag() {
         "aberration", "aeon", "air", "angel", "animal", "archon", "astral", "azata", 
         "beast", 
         "celestial", "cold", "construct",
-        "daemon", "demon", "devil",
+        "daemon", "demon", "devil", "dragon",
+        "earth", "elemental", "ethereal",
+        "fey", "fiend", "fire",
         "mindless"
     ];
     var tagOptions = tags.map(e => <option value={e}>{e.toUpperCase()}</option>);
@@ -133,6 +135,46 @@ export default function AddTag() {
                 addMiscAbilities("Divine Innate Spells", "one 5th-rank translocate and at-will 4th-rank translocate");
                 addMiscAbilities("Rituals", "diabolic pact");
                 addMiscAbilities("Infernal", "Hierarchy Ability Devils each have an ability corresponding to the role they play in the infernal hierarchy, typically focused around control or being controlled.");
+                break;
+            case "dragon":
+                addSense("darkvision");
+                addLanguage("draconic");
+                addSpeed("fly");
+                addMiscAbilities("Dragon Breath", "Many dragons have an activity to exhale magical, damaging energy, with specifics determined by their theme.");
+                break;
+            case "earth":
+                addSense("tremorsense");
+                addLanguage("petran");
+                addSpeed("burrow");
+                break;
+            case "elemental":
+                addSense("darkvision");
+                addImmunity("bleed");
+                addImmunity("paralyzed");
+                addImmunity("poison");
+                addImmunity("sleep");
+                break;
+            case "ethereal":
+                addSense("darkvision");
+                break;
+            case "fey":
+                addSense("low-light vision");
+                addLanguage("aklo");
+                addLanguage("fey");
+                addWeakness("cold iron");
+                break;
+            case "fiend":
+                addTag("unholy");
+                addSense("darkvision");
+                addWeakness("holy");
+                addMiscAbilities("Saves", "+1 status bonus to all saves vs. magic");
+                addMiscAbilities("Unholy Strikes", "strikes typically have the unholy trait");
+                break;
+            case "fire":
+                addLanguage("pyric");
+                addImmunity("fire");
+                addResistance("cold");
+                addMiscAbilities("Fire Strikes", "strikes typically deal fire damage");
                 break;
             case "mindless":
                 addImmunity("mental");
