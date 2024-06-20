@@ -50,19 +50,23 @@ export default function CreatureCreator() {
         skills: [
             {
                 name: "intimidation",
-                value: 9
+                value: 9,
+                scale: "low"
             },
             {
                 name: "medicine",
-                value: 13
+                value: 13,
+                scale: "auto"
             },
             {
                 name: "plague lore",
-                value: 13
+                value: 13,
+                scale: "high"
             },
             {
                 name: "religion",
-                value: 13
+                value: 13,
+                scale: "auto"
             }
         ],
         abilities: {

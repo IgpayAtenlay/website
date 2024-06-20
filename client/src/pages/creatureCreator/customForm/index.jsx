@@ -27,11 +27,11 @@ export default function CustomForm() {
                 <div><b>Languages</b> <Languages languages={creature.languages} /><AddButton variable="languages" defaultValue={{language: "common"}} /></div>
                 <div><b>Skills</b> <Skills /></div>
                 <div>
-                    <NumberInput label={<b>Str</b>} name={"number"} location={creature.abilities.str} />,&nbsp;
-                    <NumberInput label={<b>Dex</b>} name={"number"} location={creature.abilities.dex} />,&nbsp;
-                    <NumberInput label={<b>Con</b>} name={"number"} location={creature.abilities.con} />,&nbsp;
-                    <NumberInput label={<b>Wis</b>} name={"number"} location={creature.abilities.wis} />,&nbsp;
-                    <NumberInput label={<b>Int</b>} name={"number"} location={creature.abilities.int} />,&nbsp;
+                    <NumberInput label={<b>Str</b>} name={"number"} location={creature.abilities.str} />,{" "}
+                    <NumberInput label={<b>Dex</b>} name={"number"} location={creature.abilities.dex} />,{" "}
+                    <NumberInput label={<b>Con</b>} name={"number"} location={creature.abilities.con} />,{" "}
+                    <NumberInput label={<b>Wis</b>} name={"number"} location={creature.abilities.wis} />,{" "}
+                    <NumberInput label={<b>Int</b>} name={"number"} location={creature.abilities.int} />,{" "}
                     <NumberInput label={<b>Cha</b>} name={"number"} location={creature.abilities.cha} />
                 </div>
                 <div><b>Items</b> <Items items={creature.items} /></div>
@@ -39,9 +39,9 @@ export default function CustomForm() {
         </div>
         <div class="defenses">
             <p>
-                <NumberInput label={<b>AC</b>} name={"number"} location={creature.defenses.ac} />;&nbsp;
-                <NumberInput label={<b>Fort</b>} name={"number"} location={creature.defenses.fort} />;&nbsp;
-                <NumberInput label={<b>Ref</b>} name={"number"} location={creature.defenses.ref} />;&nbsp;
+                <NumberInput label={<b>AC</b>} name={"number"} location={creature.defenses.ac} />;{" "}
+                <NumberInput label={<b>Fort</b>} name={"number"} location={creature.defenses.fort} />;{" "}
+                <NumberInput label={<b>Ref</b>} name={"number"} location={creature.defenses.ref} />;{" "}
                 <NumberInput label={<b>Will</b>} name={"number"} location={creature.defenses.will} /></p>
             <p><NumberInput label={<b>HP</b>} name={"number"} location={creature.defenses.hp} /></p>
         </div>

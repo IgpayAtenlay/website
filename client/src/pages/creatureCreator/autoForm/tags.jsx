@@ -1,11 +1,10 @@
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
+import {sizes} from "../variables";
 
 import AddTag from './addTag';
 
 export default function Tags(props) {
-    var sizes = ["tiny", "small", "medium", "large", "huge", "gargantuan"];
-
     var tags = props.tags.map(e => {
         if (sizes.includes(e.text)) {
             return (<Size color={e.color} key={e.id} id={e.id} text={e.text} />);
@@ -25,7 +24,6 @@ export default function Tags(props) {
 }
 
 function Size(props) {
-    var sizes = ["tiny", "small", "medium", "large", "huge", "gargantuan"];
     var sizeOptions = sizes.map(e => <option value={e}>{e.toUpperCase()}</option>);
 
     var {creature, setCreature} = useContext(CreatureContext);

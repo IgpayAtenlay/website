@@ -1,6 +1,6 @@
 import "../../../css/creatureCreator/autoForm.css";
 import Tags from "./tags";
-import Skills from "../creature/skills";
+import Skills from "./skills";
 import Languages from "../creature/languages";
 import Items from "../creature/items";
 import Weapons from "../creature/weapons";
