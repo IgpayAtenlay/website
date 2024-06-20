@@ -5,13 +5,14 @@ import Languages from "../creature/languages";
 import Items from "../creature/items";
 import Weapons from "../creature/weapons";
 import MiscAbilities from "../creature/miscAbilities";
+import Level from "./level";
 
 export default function Creature(props) {
     var creature = props.creature;
     return (<div class="autoForm">
         <div class="title">
             <p class="name">{creature.name.toUpperCase()}</p>
-            <p class="level">{creature.type.toUpperCase()} {creature.level}</p>
+            <p class="level">{creature.type.toUpperCase()} <Level /></p>
         </div>
         <div class="stats">
             <Tags tags={creature.tags} />

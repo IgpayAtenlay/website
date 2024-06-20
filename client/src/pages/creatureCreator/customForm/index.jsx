@@ -11,6 +11,7 @@ import Items from "../creature/items";
 import Weapons from "../creature/weapons";
 import NumberInput from "./numberInput";
 import MiscAbilities from "../creature/miscAbilities";
+import Level from "./level";
 
 export default function CustomForm() {
     var {creature} = useContext(CreatureContext);
@@ -18,7 +19,7 @@ export default function CustomForm() {
     return (<div class="customForm">
         <div class="title">
             <p class="name">{creature.name.toUpperCase()}</p>
-            <p class="level">{creature.type.toUpperCase()} {creature.level}</p>
+            <p class="level">{creature.type.toUpperCase()} <Level /></p>
         </div>
         <div class="stats">
             <Tags tags={creature.tags} />
