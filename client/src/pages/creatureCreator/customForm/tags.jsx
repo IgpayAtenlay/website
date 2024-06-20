@@ -75,12 +75,13 @@ function Tag(props) {
     }
 
     return (
-    <div>
-        <input class={props.color} id={props.id} onChange={handleChangeText} value={props.text.toUpperCase()} />
-        <select class={props.color} id={props.id} value={props.color} onChange={handleChangeColor}>
-            {colorOptions}
-            <option value="delete">Delete</option>
-        </select>
-    </div>);
-    }
+        <div>
+            <input class={props.color} id={props.id} onChange={handleChangeText} value={props.text.toUpperCase()} style={{width: (props.text.length * 5 / 8 + 0.5) + "em"}} />
+            <select class={props.color} id={props.id} value={props.color} onChange={handleChangeColor}>
+                {colorOptions}
+                <option value="delete">Delete</option>
+            </select>
+        </div>
+    );
+}
 

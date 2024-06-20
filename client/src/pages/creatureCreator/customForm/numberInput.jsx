@@ -27,44 +27,8 @@ export default function NumberInput(props) {
             }));
     }
 
-    function handleChangeUp(e) {
-        var value = location[name]
-        if (!isNaN(value)) {
-            if (value === "") {
-                value = factor;
-            } else {
-                value = parseInt(value);
-                value = Math.floor(value / factor) * factor + factor;
-            }
-            location[name] = value;
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                name: prevCreature.name
-                }));
-        }
-    }
-
-    function handleChangeDown(e) {
-        var value = location[name]
-        if (!isNaN(value)) {
-            if (value === "") {
-                value = 0 - factor;
-            } else {
-                value = parseInt(value);
-                value = Math.ceil(value / factor) * factor - factor;
-            }
-            location[name] = value;
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                name: prevCreature.name
-                }));
-        }
-    }
-
     return (<div className="numberInput">
         <label for={id}>{props.label}</label>
-        <input value={location[name]} onChange={handleChangeSet} id={id}/>
-        <button className="up" onClick={handleChangeUp}>^</button>
-        <button className="down" onClick={handleChangeDown}>v</button>
+        <input type="number" value={location[name]} onChange={handleChangeSet} id={id} step={factor} style={{width: (location[name].toString().length / 2 + 1.5) + "em"}}/>
     </div>)
 }

@@ -44,7 +44,7 @@ function Size(props) {
     }
     
     return (
-        <select class={props.color} id={props.id} value={props.text} onChange={handleChange}>
+        <select class={props.color} id={props.id} value={props.text} onChange={handleChange} style={{width: (props.text.length * 4 / 5 + 2.5) + "em"}} >
             {sizeOptions}
         </select>
     );

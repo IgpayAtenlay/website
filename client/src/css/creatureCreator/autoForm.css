@@ -39,6 +39,10 @@
     margin: 0.1em;
 }
 
+.autoForm .addTag {
+    width: 7.5em;
+}
+
 .autoForm .orange {
     background-color: rgb(145, 99, 14);
 }
