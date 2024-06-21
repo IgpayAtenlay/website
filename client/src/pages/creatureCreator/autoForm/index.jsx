@@ -7,6 +7,7 @@ import Weapons from "../creature/weapons";
 import MiscAbilities from "../creature/miscAbilities";
 import Level from "./level";
 import AbilityScores from "./abilityScores";
+import Perception from "./perception";
 
 export default function Creature(props) {
     var creature = props.creature;
@@ -18,7 +19,7 @@ export default function Creature(props) {
         <div class="stats">
             <Tags tags={creature.tags} />
             <div class="proficiency">
-                <p><b>Perception</b> +{creature.perception}</p>
+                <Perception />
                 <div><b>Languages</b> <Languages languages={creature.languages} /></div>
                 <p><b>Skills</b> <Skills skills={creature.skills}/></p>
                 <AbilityScores />

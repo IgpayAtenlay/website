@@ -30,7 +30,10 @@ export default function CreatureCreator() {
                 color: "red"
             }
         ],
-        perception: 13,
+        perception: {
+            value: 13,
+            scale: "auto"
+        },
         senses: [
             {
                 type: "darkvision"

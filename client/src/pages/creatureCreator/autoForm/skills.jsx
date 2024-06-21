@@ -2,7 +2,7 @@ import startCase from "../../../util/startCase";
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
 import { skills } from "../variables";
-import { updateSkills } from "./updaters/updateSkills";
+import updateSkills from "./updaters/updateSkills";
 
 export default function Skills(props) {
     var skill = props.skills.slice(0,-1).map(e => 

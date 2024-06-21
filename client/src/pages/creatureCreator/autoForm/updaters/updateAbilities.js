@@ -1,6 +1,6 @@
 import { abilityModifiers } from "../../variables";
 
-export function updateAbilities(abilities, level) {
+export default function updateAbilities(abilities, level) {
     
     // update abilities with assigned scale
     

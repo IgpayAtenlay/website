@@ -1,6 +1,6 @@
 import { skillModifiers, skills } from "../../variables";
 
-export function updateSkills(creatureSkills, level, abilities) {
+export default function updateSkills(creatureSkills, level, abilities) {
     
     // count how many skills are high scale
     

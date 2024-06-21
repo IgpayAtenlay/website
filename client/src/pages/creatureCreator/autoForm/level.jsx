@@ -1,7 +1,8 @@
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
-import { updateAbilities } from './updaters/updateAbilities';
-import { updateSkills } from './updaters/updateSkills';
+import updateAbilities from './updaters/updateAbilities';
+import updateSkills from './updaters/updateSkills';
+import updatePerception from './updaters/updatePerception';
 
 export default function Level() {
     var {creature, setCreature} = useContext(CreatureContext);
@@ -17,6 +18,10 @@ export default function Level() {
 
             var abilities = updateAbilities(creature.abilities, level);
 
+            // update perception
+
+            var perception = updatePerception(creature.perception, level, abilities.wis);
+
             // update skills
 
             var skills = updateSkills(creature.skills, level, abilities);
@@ -26,6 +31,7 @@ export default function Level() {
             ...prevCreature,
             level: level,
             abilities: abilities,
+            perception: perception,
             skills: skills
         }));
     }
