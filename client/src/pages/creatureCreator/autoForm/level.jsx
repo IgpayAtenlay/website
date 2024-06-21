@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
-import { skillModifiers } from '../variables';
-import { updateAbilities } from './updateValues';
+import { updateAbilities } from './updaters/updateAbilities';
+import { updateSkills } from './updaters/updateSkills';
 
 export default function Level() {
     var {creature, setCreature} = useContext(CreatureContext);
@@ -11,24 +11,16 @@ export default function Level() {
         // update level
         var level = parseInt(e.target.value);
 
-        // update skills
-        var skills = creature.skills;
-
         if (level >= -1 && level <= 24) {
-            skills.forEach((skill, index) => {
-                if (skill.scale !== "auto") {
-                    var value = skillModifiers[skill.scale][level + 1];
-                    skills = skills.with(index, {
-                        ...skills[index],
-                        value: value
-                    })
-                }
-            });
+
+            // update abilties
+
+            var abilities = updateAbilities(creature.abilities, level);
+
+            // update skills
+
+            var skills = updateSkills(creature.skills, level, abilities);
         }
-
-        // update abilties
-
-        var abilities = updateAbilities(creature.abilities, level);
 
         setCreature(prevCreature => ({
             ...prevCreature,

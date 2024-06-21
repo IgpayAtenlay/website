@@ -1,4 +1,4 @@
-import { abilityModifiers } from "../variables";
+import { abilityModifiers } from "../../variables";
 
 export function updateAbilities(abilities, level) {
     

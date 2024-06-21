@@ -1,7 +1,7 @@
 import startCase from "../../../util/startCase";
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
-import { updateAbilities } from "./updateValues";
+import { updateAbilities } from "./updaters/updateAbilities";
 
 export default function AbilityScores() {
     return (
