@@ -25,7 +25,7 @@ export default function Perception(props) {
 
     return (
         <span>
-            <label for={id}><b>Perception </b></label>
+            <label htmlFor={id}><b>Perception </b></label>
             <select id={id} value={creature.perception.scale} onChange={handleChange}>
                 <option value="auto">Auto</option>
                 <option value="extreme">Extreme</option>
