@@ -1,7 +1,8 @@
 import startCase from "../../../util/startCase";
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
-import { skillModifiers, skills } from "../variables";
+import { skills } from "../variables";
+import { updateSkills } from "./updaters/updateSkills";
 
 export default function Skills(props) {
     var skill = props.skills.slice(0,-1).map(e => 
@@ -70,27 +71,18 @@ function Scale(props) {
     function handleChange(e) {
         var scale = e.target.value;
         var index = creature.skills.findIndex(a => a.id === e.target.id);
-        
-        if (scale === "auto") {
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                skills: prevCreature.skills.with(index, {
-                    ...prevCreature.skills[index],
-                    scale: scale
-                })
-            }))
-        } else {
-            var value = skillModifiers[scale][creature.level + 1];
 
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                skills: prevCreature.skills.with(index, {
-                    ...prevCreature.skills[index],
-                    value: value,
-                    scale: scale
-                })
-            }))
-        }
+        var skills = creature.skills.with(index, {
+            ...creature.skills[index],
+            scale: scale
+        });
+
+        skills = updateSkills(skills, creature.level, creature.abilities);
+        
+        setCreature(prevCreature => ({
+            ...prevCreature,
+            skills: skills
+        }));
     }
 
     return (
