@@ -1,8 +1,7 @@
 import startCase from "../../../util/startCase";
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
-import { abilityModifiers } from "../variables";
-import { autoScaleAbilities } from "./updateValues";
+import { updateAbilities } from "./updateValues";
 
 export default function AbilityScores() {
     return (
@@ -37,17 +36,7 @@ function AbilityScore(props) {
             }
         }
 
-        if (scale !== "auto" && scale !== "manual") {
-            abilities = {
-                ...abilities,
-                [e.target.id]: {
-                    ...abilities[e.target.id],
-                    number: abilityModifiers[scale][creature.level + 1]
-                }
-            }
-        }
-
-        abilities = autoScaleAbilities(abilities, creature.level);
+        abilities = updateAbilities(abilities, creature.level);
 
         setCreature(prevCreature => ({
             ...prevCreature,

@@ -1,6 +1,9 @@
 import { abilityModifiers } from "../variables";
 
 export function updateAbilities(abilities, level) {
+    
+    // update abilities with assigned scale
+    
     Object.keys(abilities).forEach(e => {
         if (abilities[e].scale !== "auto" && abilities[e].scale !== "manual") {
             abilities = {
@@ -13,12 +16,14 @@ export function updateAbilities(abilities, level) {
         }
     });
 
-    abilities = autoScaleAbilities(abilities, level);
+    // update abilities set to auto
+
+    abilities = updateAutoAbilities(abilities, level);
 
     return abilities;
 }
 
-export function autoScaleAbilities(abilities, level) {
+function updateAutoAbilities(abilities, level) {
     var abilityValuesArray = Object.values(abilities);
     
     // if there are items to autofill, do it
