@@ -31,7 +31,7 @@ export default function Creature(props) {
             <p><b>HP</b> {creature.defenses.hp.scale}</p>
         </div>
         <div class="other">
-            <p><b>Speed</b> {creature.speed[0].speed} feet</p>
+            <p><b>Speed</b> {creature.speed[0].modifier} feet</p>
             <Weapons weapons={creature.weapons}/>
             <MiscAbilities other={creature.miscAbilities} />
         </div>

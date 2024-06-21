@@ -16,19 +16,19 @@ export default function Creature(props) {
         <div class="stats">
             <Tags tags={creature.tags} />
             <div class="proficiency">
-                <p><b>Perception</b> +{creature.perception.value}</p>
+                <p><b>Perception</b> +{creature.perception.modifier}</p>
                 <p><b>Languages</b> <Languages languages={creature.languages} /></p>
                 <p><b>Skills</b> <Skills skills={creature.skills}/></p>
-                <p><b>Str</b> +{creature.abilities.str.number}, <b>Dex</b> +{creature.abilities.dex.number}, <b>Con</b> +{creature.abilities.con.number}, <b>Int</b> +{creature.abilities.int.number}, <b>Wis</b> +{creature.abilities.wis.number}, <b>Cha</b> +{creature.abilities.cha.number}</p>
+                <p><b>Str</b> +{creature.abilities.str.modifier}, <b>Dex</b> +{creature.abilities.dex.modifier}, <b>Con</b> +{creature.abilities.con.modifier}, <b>Int</b> +{creature.abilities.int.modifier}, <b>Wis</b> +{creature.abilities.wis.modifier}, <b>Cha</b> +{creature.abilities.cha.modifier}</p>
                 <p><b>Items</b> <Items items={creature.items} /></p>
             </div>
         </div>
         <div class="defenses">
-            <p><b>AC</b> {creature.defenses.ac.number}; <b>Fort</b> +{creature.defenses.fort.number}, <b>Ref</b> +{creature.defenses.ref.number}, <b>Will</b> +{creature.defenses.will.number}</p>
-            <p><b>HP</b> {creature.defenses.hp.number}</p>
+            <p><b>AC</b> {creature.defenses.ac.modifier}; <b>Fort</b> +{creature.defenses.fort.modifier}, <b>Ref</b> +{creature.defenses.ref.modifier}, <b>Will</b> +{creature.defenses.will.modifier}</p>
+            <p><b>HP</b> {creature.defenses.hp.modifier}</p>
         </div>
         <div class="other">
-            <p><b>Speed</b> {creature.speed[0].speed} feet</p>
+            <p><b>Speed</b> {creature.speed[0].modifier} feet</p>
             <Weapons weapons={creature.weapons} />
             <MiscAbilities other={creature.miscAbilities} />
         </div>

@@ -5,7 +5,6 @@ import {v4} from "uuid";
 
 export default function NumberInput(props) {
     var {setCreature} = useContext(CreatureContext);
-    var name = props.name;
     var location = props.location;
     var factor = 1;
     if (props.factor) {
@@ -20,7 +19,7 @@ export default function NumberInput(props) {
                 value = parseInt(value);
             }
         }
-        location[name] = value;
+        location.modifier = value;
         setCreature(prevCreature => ({
             ...prevCreature,
             name: prevCreature.name
@@ -30,7 +29,7 @@ export default function NumberInput(props) {
     return (
         <span className="numberInput">
             <label htmlFor={id}>{props.label}</label>
-            <input type="number" value={location[name]} onChange={handleChangeSet} id={id} step={factor} style={{width: (location[name].toString().length / 2 + 1.5) + "em"}}/>
+            <input type="number" value={location.modifier} onChange={handleChangeSet} id={id} step={factor} style={{width: (location.modifier.toString().length / 2 + 1.5) + "em"}}/>
         </span>
     );
 }

@@ -8,15 +8,15 @@ export default function updatePerception(perception, level, wisdom) {
         var scale = wisdom.scale;
         if (scale === "auto" || scale === "manual") {
 
-            // identify wisdom scale based on number
+            // identify wisdom scale based on modifier
 
-            if (wisdom.number >= abilityModifiers.extreme[level + 1]) {
+            if (wisdom.modifier >= abilityModifiers.extreme[level + 1]) {
                 scale = "extreme";
-            } else if (wisdom.number >= abilityModifiers.high[level + 1]) {
+            } else if (wisdom.modifier >= abilityModifiers.high[level + 1]) {
                 scale = "high";
-            } else if (wisdom.number >= abilityModifiers.moderate[level + 1]) {
+            } else if (wisdom.modifier >= abilityModifiers.moderate[level + 1]) {
                 scale = "moderate";
-            } else if (wisdom.number >= abilityModifiers.low[level + 1]) {
+            } else if (wisdom.modifier >= abilityModifiers.low[level + 1]) {
                 scale = "low";
             } else {
                 scale = "terrible";
@@ -27,7 +27,7 @@ export default function updatePerception(perception, level, wisdom) {
 
         perception = {
             ...perception,
-            value: perceptionModifiers[scale][level + 1]
+            modifier: perceptionModifiers[scale][level + 1]
         }
 
     } else if (perception.scale !== "manual") {
@@ -36,7 +36,7 @@ export default function updatePerception(perception, level, wisdom) {
 
         perception = {
             ...perception,
-            value: perceptionModifiers[perception.scale][level + 1]
+            modifier: perceptionModifiers[perception.scale][level + 1]
         }
     }
 

@@ -31,7 +31,7 @@ export default function CreatureCreator() {
             }
         ],
         perception: {
-            value: 13,
+            modifier: 13,
             scale: "auto"
         },
         senses: [
@@ -53,48 +53,48 @@ export default function CreatureCreator() {
         skills: [
             {
                 name: "intimidation",
-                value: 9,
+                modifier: 9,
                 scale: "low"
             },
             {
                 name: "medicine",
-                value: 13,
+                modifier: 13,
                 scale: "auto"
             },
             {
                 name: "plague lore",
-                value: 13,
+                modifier: 13,
                 scale: "high"
             },
             {
                 name: "religion",
-                value: 13,
+                modifier: 13,
                 scale: "auto"
             }
         ],
         abilities: {
             str: {
-                number: 0, 
+                modifier: 0, 
                 scale: "low"
             },
             dex: {
-                number: 1, 
+                modifier: 1, 
                 scale: "moderate"
             },
             con: {
-                number: 4, 
+                modifier: 4, 
                 scale: "high"
             },
             int: {
-                number: 2, 
+                modifier: 2, 
                 scale: "moderate"
             },
             wis: {
-                number: 4, 
+                modifier: 4, 
                 scale: "high"
             },
             cha: {
-                number: 2, 
+                modifier: 2, 
                 scale: "moderate"
             }
         },
@@ -119,23 +119,23 @@ export default function CreatureCreator() {
             }],
         defenses: {
             ac: {
-                number: 20, 
+                modifier: 20, 
                 scale: "high"
             },
             fort: {
-                number: 13, 
+                modifier: 13, 
                 scale: "medium"
             },
             ref: {
-                number: 8, 
+                modifier: 8, 
                 scale: "low"
             },
             will: {
-                number: 13, 
+                modifier: 13, 
                 scale: "medium"
             },
             hp: {
-                number: 73, 
+                modifier: 73, 
                 scale: "medium"
             },
             weaknesses: [
@@ -150,14 +150,14 @@ export default function CreatureCreator() {
         speed: [
             {
                 type: "land", 
-                speed: 25
+                modifier: 25
             }
         ],
         weapons: [
             {
                 name: "staff",
                 range: "melee",
-                onhit: 9,
+                modifier: 9,
                 traits: [{name: "two-hand d8"}],
                 damageDice: "1d4",
                 damageType: "bludgeoning"
@@ -165,7 +165,7 @@ export default function CreatureCreator() {
             {
                 name: "crossbow",
                 range: "ranged",
-                onhit: 10,
+                modifier: 10,
                 traits: [{name: "range increment 120 feet"}, {name: "reload 1"}],
                 damageDice: "1d8",
                 damageType: "piercing"

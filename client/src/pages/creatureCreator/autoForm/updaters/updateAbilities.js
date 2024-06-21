@@ -10,7 +10,7 @@ export default function updateAbilities(abilities, level) {
                 ...abilities,
                 [e]: {
                     ...abilities[e],
-                    number: abilityModifiers[abilities[e].scale][level + 1]
+                    modifier: abilityModifiers[abilities[e].scale][level + 1]
                 }
             }
         }
@@ -24,53 +24,53 @@ export default function updateAbilities(abilities, level) {
 }
 
 function updateAutoAbilities(abilities, level) {
-    var abilityValuesArray = Object.values(abilities);
+    var abilityModifiersArray = Object.values(abilities);
     
     // if there are items to autofill, do it
 
-    if (abilityValuesArray.some(e => e.scale === "auto")) {
+    if (abilityModifiersArray.some(e => e.scale === "auto")) {
         
         // count number of each scale category
 
-        var numOfHigh = abilityValuesArray.reduce((total, ability) => {
+        var numOfHigh = abilityModifiersArray.reduce((total, ability) => {
             if (ability.scale === "high" || ability.scale === "extreme") {
                 return total + 1;
-            } else if (ability.scale === "manual" && ability.number >= abilityModifiers.high[level + 1]) {
+            } else if (ability.scale === "manual" && ability.modifier >= abilityModifiers.high[level + 1]) {
                 return total + 1;
             }
             return total;
         }, 0);
 
-        var numOfModerate = abilityValuesArray.reduce((total, ability) => {
+        var numOfModerate = abilityModifiersArray.reduce((total, ability) => {
             if (ability.scale === "moderate") {
                 return total + 1;
-            } else if (ability.scale === "manual" && ability.number > abilityModifiers.low[level + 1] && ability.number < abilityModifiers.high[level + 1]) {
+            } else if (ability.scale === "manual" && ability.modifier > abilityModifiers.low[level + 1] && ability.modifier < abilityModifiers.high[level + 1]) {
                 return total + 1;
             }
             return total;
         }, 0);
 
-        // assign values to auto
+        // assign modifiers to auto
 
         Object.keys(abilities).forEach(e => {
             if (abilities[e].scale === "auto") {
                 if (numOfHigh < 1) {
-                    // create high value
+                    // create high modifier
                     abilities = {
                         ...abilities,
                         [e]: {
                             ...abilities[e],
-                            number: abilityModifiers.high[level + 1]
+                            modifier: abilityModifiers.high[level + 1]
                         }
                     }
                     numOfHigh++;
                 } else if (numOfModerate < 3) {
-                    // create moderate value
+                    // create moderate modifier
                     abilities = {
                         ...abilities,
                         [e]: {
                             ...abilities[e],
-                            number: abilityModifiers.moderate[level + 1]
+                            modifier: abilityModifiers.moderate[level + 1]
                         }
                     }
                     numOfModerate++;
@@ -79,7 +79,7 @@ function updateAutoAbilities(abilities, level) {
                         ...abilities,
                         [e]: {
                             ...abilities[e],
-                            number: abilityModifiers.low[level + 1]
+                            modifier: abilityModifiers.low[level + 1]
                         }
                     }
                 }

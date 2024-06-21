@@ -8,11 +8,11 @@ export default function Skills() {
 
     var skills = creature.skills.slice(0,-1).map(e => 
         <span key={e.id}>
-            <NumberInput label={startCase(e.name)} name={"value"} location={e}/>,&#8196;
+            <NumberInput label={startCase(e.name)} name={"modifier"} location={e}/>,&#8196;
         </span>
     );
     var lastSkill = creature.skills.slice(-1).map(e => 
-        <NumberInput label={startCase(e.name)} name={"value"} location={e} key={e.id}/>
+        <NumberInput label={startCase(e.name)} name={"modifier"} location={e} key={e.id}/>
     );
 
     return (<span>{skills}{lastSkill}</span>);

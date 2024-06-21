@@ -8,7 +8,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
         if (!skill.name.includes("lore")) {
             if (skill.scale === "high" || skill.scale === "extreme") {
                 return total + 1;
-            } else if (skill.scale === "manual" && skill.value >= skillModifiers.high[level + 1]) {
+            } else if (skill.scale === "manual" && skill.modifier >= skillModifiers.high[level + 1]) {
                 return total + 1;
             }
         }
@@ -24,9 +24,9 @@ export default function updateSkills(creatureSkills, level, abilities) {
                 Object.keys(abilities).forEach(key => {
                     if (highestAbilities.length === 0) {
                         highestAbilities = [key];
-                    } else if (abilities[highestAbilities[0]].number < abilities[key].number) {
+                    } else if (abilities[highestAbilities[0]].modifier < abilities[key].modifier) {
                         highestAbilities = [key];
-                    } else if (abilities[highestAbilities[0]].number === abilities[key].number) {
+                    } else if (abilities[highestAbilities[0]].modifier === abilities[key].modifier) {
                         highestAbilities = highestAbilities.concat(key);
                     }
                 })
@@ -38,7 +38,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
                     numOfHighRegular++;
                     return {
                         ...skill,
-                        value: skillModifiers.high[level + 1]
+                        modifier: skillModifiers.high[level + 1]
                     }
                 } else {
 
@@ -46,7 +46,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
 
                     return {
                         ...skill,
-                        value: skillModifiers.moderate[level + 1]
+                        modifier: skillModifiers.moderate[level + 1]
                     }
                 }
                 
@@ -56,7 +56,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
 
                 return {
                     ...skill,
-                    value: skillModifiers.high[level + 1]
+                    modifier: skillModifiers.high[level + 1]
                 }
             } else {
 
@@ -64,7 +64,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
 
                 return {
                     ...skill,
-                    value: skillModifiers.moderate[level + 1]
+                    modifier: skillModifiers.moderate[level + 1]
                 }
             }
         } else if (skill.scale === "manual") {
@@ -72,7 +72,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
         } else {
             return {
                 ...skill,
-                value: skillModifiers[skill.scale][level + 1]
+                modifier: skillModifiers[skill.scale][level + 1]
             }
         }
     });
@@ -85,7 +85,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
                 numOfHighRegular++;
                 return {
                     ...skill,
-                    value: skillModifiers.high[level + 1]
+                    modifier: skillModifiers.high[level + 1]
                 }
             }
         }
