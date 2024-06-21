@@ -5,10 +5,18 @@ export default function Level() {
     var {creature, setCreature} = useContext(CreatureContext);
 
     function handleChange(e) {
-        setCreature(prevCreature => ({
-            ...prevCreature,
-            level: parseInt(e.target.value)
-        }))
+
+        if (e.target.value === "") {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                level: ""
+            }))
+        } else {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                level: parseInt(e.target.value)
+            }))
+        }
     }
 
     return (
