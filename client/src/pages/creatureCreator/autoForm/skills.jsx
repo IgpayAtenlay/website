@@ -5,8 +5,8 @@ import { skillModifiers, skills } from "../variables";
 
 export default function Skills(props) {
     var skill = props.skills.slice(0,-1).map(e => 
-        <span>
-            <Skill key={e.id} id={e.id} name={e.name} scale={e.scale}/>,{" "}
+        <span key={e.id}>
+            <Skill id={e.id} name={e.name} scale={e.scale}/>,{" "}
         </span>
     );
     var lastSkill = props.skills.slice(-1).map(e => 
@@ -27,7 +27,7 @@ function Skill(props) {
 }
 
 function Name(props) {
-    var skillOptions = Object.keys(skills).map(e => <option value={e}>{startCase(e)}</option>)
+    var skillOptions = Object.keys(skills).map(e => <option key={e} value={e}>{startCase(e)}</option>)
     var {creature, setCreature} = useContext(CreatureContext);
 
     function handleChange(e) {

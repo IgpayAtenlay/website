@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
 import { skillModifiers } from '../variables';
+import { updateAbilities } from './updateValues';
 
 export default function Level() {
     var {creature, setCreature} = useContext(CreatureContext);
@@ -25,9 +26,14 @@ export default function Level() {
             });
         }
 
+        // update abilties
+
+        var abilities = updateAbilities(creature.abilities, level);
+
         setCreature(prevCreature => ({
             ...prevCreature,
             level: level,
+            abilities: abilities,
             skills: skills
         }));
     }

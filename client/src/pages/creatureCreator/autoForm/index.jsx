@@ -6,6 +6,7 @@ import Items from "../creature/items";
 import Weapons from "../creature/weapons";
 import MiscAbilities from "../creature/miscAbilities";
 import Level from "./level";
+import AbilityScores from "./abilityScores";
 
 export default function Creature(props) {
     var creature = props.creature;
@@ -20,7 +21,7 @@ export default function Creature(props) {
                 <p><b>Perception</b> +{creature.perception}</p>
                 <div><b>Languages</b> <Languages languages={creature.languages} /></div>
                 <p><b>Skills</b> <Skills skills={creature.skills}/></p>
-                <p><b>Str</b> {creature.abilities.str.scale}, <b>Dex</b> {creature.abilities.dex.scale}, <b>Con</b> {creature.abilities.con.scale}, <b>Int</b> {creature.abilities.int.scale}, <b>Wis</b> {creature.abilities.wis.scale}, <b>Cha</b> {creature.abilities.cha.scale}</p>
+                <AbilityScores />
                 <p><b>Items</b> <Items items={creature.items} /></p>
             </div>
         </div>

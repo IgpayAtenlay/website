@@ -5,7 +5,7 @@ import {traits, sizes} from "../variables"
 
 export default function AddTag() {
 
-    var traitOptions = Object.keys(traits).map(e => <option value={e}>{e.toUpperCase()}</option>);
+    var traitOptions = Object.keys(traits).map(e => <option key={e} value={e}>{e.toUpperCase()}</option>);
 
     var {creature, setCreature} = useContext(CreatureContext);
 

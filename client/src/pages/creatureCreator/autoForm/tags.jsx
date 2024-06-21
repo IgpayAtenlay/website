@@ -24,7 +24,7 @@ export default function Tags(props) {
 }
 
 function Size(props) {
-    var sizeOptions = sizes.map(e => <option value={e}>{e.toUpperCase()}</option>);
+    var sizeOptions = sizes.map(e => <option key={e} value={e}>{e.toUpperCase()}</option>);
 
     var {creature, setCreature} = useContext(CreatureContext);
 

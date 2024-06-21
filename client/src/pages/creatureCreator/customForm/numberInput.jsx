@@ -27,8 +27,10 @@ export default function NumberInput(props) {
             }));
     }
 
-    return (<div className="numberInput">
-        <label for={id}>{props.label}</label>
-        <input type="number" value={location[name]} onChange={handleChangeSet} id={id} step={factor} style={{width: (location[name].toString().length / 2 + 1.5) + "em"}}/>
-    </div>)
+    return (
+        <span className="numberInput">
+            <label htmlFor={id}>{props.label}</label>
+            <input type="number" value={location[name]} onChange={handleChangeSet} id={id} step={factor} style={{width: (location[name].toString().length / 2 + 1.5) + "em"}}/>
+        </span>
+    );
 }
