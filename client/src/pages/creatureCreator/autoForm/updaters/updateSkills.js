@@ -1,4 +1,5 @@
 import { skillModifiers, skills } from "../../variables";
+import highestAbility from "./highestAbility";
 
 export default function updateSkills(creatureSkills, level, abilities) {
     
@@ -20,16 +21,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
     creatureSkills = creatureSkills.map(skill => {
         if (skill.scale === "auto") {
             if (numOfHighRegular < 1 && !skill.name.includes("lore")) {
-                var highestAbilities = [];
-                Object.keys(abilities).forEach(key => {
-                    if (highestAbilities.length === 0) {
-                        highestAbilities = [key];
-                    } else if (abilities[highestAbilities[0]].modifier < abilities[key].modifier) {
-                        highestAbilities = [key];
-                    } else if (abilities[highestAbilities[0]].modifier === abilities[key].modifier) {
-                        highestAbilities = highestAbilities.concat(key);
-                    }
-                })
+                var highestAbilities = highestAbility(abilities);
 
                 if (skill.name in skills && highestAbilities.includes(skills[skill.name])) {
                     

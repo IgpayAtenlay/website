@@ -3,6 +3,8 @@ import {useContext} from 'react';
 import {CreatureContext} from "../index";
 import { skills } from "../variables";
 import updateSkills from "./updaters/updateSkills";
+import {v4} from "uuid";
+import highestAbility from "./updaters/highestAbility";
 
 export default function Skills(props) {
     var skill = props.skills.slice(0,-1).map(e => 
@@ -14,7 +16,13 @@ export default function Skills(props) {
         <Skill key={e.id} id={e.id} name={e.name} scale={e.scale}/>
     );
 
-    return (<span>{skill}{lastSkill}</span>);
+    return (
+        <span>
+            {skill}
+            {lastSkill}
+            <AddButton />
+        </span>
+    );
 }
 
 function Skill(props) {
@@ -28,13 +36,12 @@ function Skill(props) {
 }
 
 function Name(props) {
-    var skillOptions = Object.keys(skills).map(e => <option key={e} value={e}>{startCase(e)}</option>)
     var {creature, setCreature} = useContext(CreatureContext);
 
     function handleChange(e) {
         var name = e.target.value.toLowerCase();
         var index = creature.skills.findIndex(a => a.id === e.target.id);
-        
+
         if (name === "delete") {
             setCreature(prevCreature => ({
                 ...prevCreature,
@@ -51,7 +58,31 @@ function Name(props) {
         }
     }
 
-    if (props.name in skills) {
+    function handleChangeLores(e) {
+        var name = e.target.value.toLowerCase();
+        var index = creature.skills.findIndex(a => a.id === e.target.id);
+
+        if (name === "delete") {
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                skills: prevCreature.skills.filter(a => a.id !== e.target.id)
+            }));
+        } else {
+            name = name + " lore"
+
+            setCreature(prevCreature => ({
+                ...prevCreature,
+                skills: prevCreature.skills.with(index, {
+                    ...prevCreature.skills[index],
+                    name: name
+                })
+            }))
+        }
+    }
+
+    if (!props.name.includes("lore") && props.name in skills) {
+        var skillOptions = Object.keys(skills).map(e => <option key={e} value={e}>{startCase(e)}</option>)
+    
         return(
             <select id={props.id} value={props.name} onChange={handleChange}>
                 {skillOptions}
@@ -59,8 +90,16 @@ function Name(props) {
             </select>
         );
     } else {
+        var name = props.name;
+        if (name.includes(" lore")) {
+            name = name.slice(0, -5);
+        }
+
         return(
-            <input id={props.id} value={startCase(props.name)} onChange={handleChange} style={{width: (props.name.length * 4 / 9 + 1) + "em"}}/>
+            <span>
+                <input id={props.id} value={name} onChange={handleChangeLores} style={{width: (name.length * 4 / 9 + 1) + "em"}}/>
+                {" "}Lore
+            </span>
         );
     }
 }
@@ -98,3 +137,43 @@ function Scale(props) {
     );
 }
 
+function AddButton(props) {
+    var {creature, setCreature} = useContext(CreatureContext);
+
+    function handleChange(e) {
+        var highestAbilities = highestAbility(creature.abilities);
+
+        var name = "lore"
+
+        Object.entries(skills).forEach(([skill, ability]) => {
+            if (skill !== "lore" && highestAbilities.includes(ability) && !creature.skills.some(e => e.name === skill)) {
+                name = skill;
+                return;
+            }
+        });
+
+        if (name === "lore") {
+            Object.keys(skills).forEach((skill) => {
+                if (skill !== "lore" && !creature.skills.some(e => e.name === skill)) {
+                    name = skill;
+                    return;
+                }
+            });
+        }
+        
+        var newSkill = {
+            name: name,
+            scale: "auto",
+            modifier: 0,
+            id: v4()
+        }
+
+        setCreature(prevCreature => ({
+            ...prevCreature,
+            skills: updateSkills(creature.skills.concat(newSkill), creature.level, creature.abilities)
+            }));
+    }
+    
+
+    return <button onClick={handleChange}>+</button>;
+}
