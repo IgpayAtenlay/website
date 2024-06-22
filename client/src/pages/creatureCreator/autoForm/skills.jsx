@@ -88,6 +88,7 @@ function Scale(props) {
     return (
         <select id={props.id} value={props.scale} onChange={handleChange}>
             <option value="auto">Auto</option>
+            <option value="manual">Manual</option>
             <option value="extreme">Extreme</option>
             <option value="high">High</option>
             <option value="moderate">Moderate</option>

@@ -19,7 +19,10 @@ export default function NumberInput(props) {
                 value = parseInt(value);
             }
         }
+
         location.modifier = value;
+        location.scale = "manual";
+
         setCreature(prevCreature => ({
             ...prevCreature,
             name: prevCreature.name
