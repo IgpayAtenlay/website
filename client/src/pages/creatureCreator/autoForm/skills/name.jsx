@@ -3,6 +3,7 @@ import { allSkills } from "../../variables";
 import { useContext } from 'react';
 import { CreatureContext } from "../../index";
 import sortSkills from "../updaters/sortSkills";
+import updateSkills from "../updaters/updateSkills";
 
 export default function Name(props) {
     var {creature, setCreature} = useContext(CreatureContext);
@@ -13,21 +14,20 @@ export default function Name(props) {
 
         var skills = creature.skills;
 
-        if (name === "delete") {
-            skills = skills.filter(a => a.id !== e.target.id);
-        } else {
+        // update name
 
-            // update name
+        skills = skills.with(index, {
+            ...skills[index],
+            name: name
+        })
 
-            skills = skills.with(index, {
-                ...skills[index],
-                name: name
-            })
+        // sort skills
 
-            // sort skills
+        skills = sortSkills(skills);
 
-            skills = sortSkills(skills);
-        }
+        // update skills
+
+        skills = updateSkills(skills, creature.level, creature.abilities);
 
         setCreature(prevCreature => ({
             ...prevCreature,
@@ -41,18 +41,14 @@ export default function Name(props) {
 
         var skills = creature.skills;
 
-        if (name === "delete") {
-            skills = skills.filter(a => a.id !== e.target.id);
-        } else {
+        // don't sort skills on this one to avoid confusion mid-edit
+        // no need to update skills since it will always stay a lore
 
-            // don't sort skills on this one to avoid confusion mid-edit
-
-            name = name + " lore"
-            skills = skills.with(index, {
-                ...skills[index],
-                name: name
-            })
-        }
+        name = name + " lore"
+        skills = skills.with(index, {
+            ...skills[index],
+            name: name
+        })
 
         setCreature(prevCreature => ({
             ...prevCreature,
@@ -69,7 +65,6 @@ export default function Name(props) {
         return(
             <select id={props.id} value={props.name} onChange={handleChangeDropdownMenu}>
                 {skillOptions}
-                <option value="delete">Delete</option>
             </select>
         );
     } else {
@@ -85,10 +80,10 @@ export default function Name(props) {
         }
 
         return(
-            <span>
-                <input id={props.id} value={name} onChange={handleChangeLores} />
-                {" "}Lore
-            </span>
+            <div class="lore">
+                <input class="loreInput" id={props.id} value={name} onChange={handleChangeLores} />
+                <p>&nbsp;Lore</p>
+            </div>
         );
     }
 }

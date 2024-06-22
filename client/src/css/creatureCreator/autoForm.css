@@ -62,5 +62,19 @@
 .autoForm .skillWrapper {
     display: grid;
     width: fit-content;
-    grid-auto-flow: column;
+    grid-template-columns: auto auto auto;
+    column-gap: 5px;
+    row-gap: 3px;
+    grid-auto-rows: 1fr;
+}
+
+.autoForm .lore {
+    display: flex;
+    justify-content: space-between;
+}
+
+.autoForm .lore input {
+    box-sizing: border-box;
+    height: 100%;
+    flex-grow: 1;
 }
