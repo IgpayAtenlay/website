@@ -58,3 +58,9 @@
 .autoForm .other {
     border-width: 0px;
 }
+
+.autoForm .skillWrapper {
+    display: grid;
+    width: fit-content;
+    grid-auto-flow: column;
+}

@@ -21,7 +21,7 @@ export default function Creature(props) {
             <div class="proficiency">
                 <Perception />
                 <div><b>Languages</b> <Languages languages={creature.languages} /></div>
-                <p><b>Skills</b> <Skills skills={creature.skills}/></p>
+                <Skills />
                 <AbilityScores />
                 <p><b>Items</b> <Items items={creature.items} /></p>
             </div>
