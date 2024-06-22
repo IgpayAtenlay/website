@@ -1,4 +1,4 @@
-import { skillModifiers, skills } from "../../variables";
+import { skillModifiers, allSkills } from "../../variables";
 import highestAbility from "./highestAbility";
 
 export default function updateSkills(creatureSkills, level, abilities) {
@@ -23,7 +23,7 @@ export default function updateSkills(creatureSkills, level, abilities) {
             if (numOfHighRegular < 1 && !skill.name.includes("lore")) {
                 var highestAbilities = highestAbility(abilities);
 
-                if (skill.name in skills && highestAbilities.includes(skills[skill.name])) {
+                if (skill.name in allSkills && highestAbilities.includes(allSkills[skill.name])) {
                     
                     // if it matches your highest ability make it high
 

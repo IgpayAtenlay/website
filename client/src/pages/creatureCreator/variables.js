@@ -334,7 +334,7 @@ export var traits = {
     }
 }
 
-export var skills = {
+export var allSkills = {
     acrobatics: "dex",
     arcana: "int",
     athletics: "str",

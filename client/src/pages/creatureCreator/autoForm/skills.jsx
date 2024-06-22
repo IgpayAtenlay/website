@@ -1,10 +1,11 @@
 import startCase from "../../../util/startCase";
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
-import { skills } from "../variables";
+import { allSkills } from "../variables";
 import updateSkills from "./updaters/updateSkills";
 import {v4} from "uuid";
 import highestAbility from "./updaters/highestAbility";
+import sortSkills from "./updaters/sortSkills";
 
 export default function Skills(props) {
     var skill = props.skills.slice(0,-1).map(e => 
@@ -21,6 +22,7 @@ export default function Skills(props) {
             {skill}
             {lastSkill}
             <AddButton />
+            <SortButton />
         </span>
     );
 }
@@ -42,46 +44,48 @@ function Name(props) {
         var name = e.target.value.toLowerCase();
         var index = creature.skills.findIndex(a => a.id === e.target.id);
 
+        var skills = creature.skills;
+
         if (name === "delete") {
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                skills: prevCreature.skills.filter(a => a.id !== e.target.id)
-            }));
+            skills = skills.filter(a => a.id !== e.target.id);
         } else {
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                skills: prevCreature.skills.with(index, {
-                    ...prevCreature.skills[index],
-                    name: name
-                })
-            }))
+            skills = skills.with(index, {
+                ...skills[index],
+                name: name
+            })
+            skills = sortSkills(skills);
         }
+
+        setCreature(prevCreature => ({
+            ...prevCreature,
+            skills: skills
+        }));
     }
 
     function handleChangeLores(e) {
         var name = e.target.value.toLowerCase();
         var index = creature.skills.findIndex(a => a.id === e.target.id);
 
+        var skills = creature.skills;
+
         if (name === "delete") {
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                skills: prevCreature.skills.filter(a => a.id !== e.target.id)
-            }));
+            skills = skills.filter(a => a.id !== e.target.id);
         } else {
             name = name + " lore"
-
-            setCreature(prevCreature => ({
-                ...prevCreature,
-                skills: prevCreature.skills.with(index, {
-                    ...prevCreature.skills[index],
-                    name: name
-                })
-            }))
+            skills = skills.with(index, {
+                ...skills[index],
+                name: name
+            })
         }
+
+        setCreature(prevCreature => ({
+            ...prevCreature,
+            skills: skills
+        }));
     }
 
-    if (!props.name.includes("lore") && props.name in skills) {
-        var skillOptions = Object.keys(skills).map(e => <option key={e} value={e}>{startCase(e)}</option>)
+    if (!props.name.includes("lore") && props.name in allSkills) {
+        var skillOptions = Object.keys(allSkills).map(e => <option key={e} value={e}>{startCase(e)}</option>)
     
         return(
             <select id={props.id} value={props.name} onChange={handleChange}>
@@ -137,7 +141,7 @@ function Scale(props) {
     );
 }
 
-function AddButton(props) {
+function AddButton() {
     var {creature, setCreature} = useContext(CreatureContext);
 
     function handleChange(e) {
@@ -145,7 +149,7 @@ function AddButton(props) {
 
         var name = "lore"
 
-        Object.entries(skills).forEach(([skill, ability]) => {
+        Object.entries(allSkills).forEach(([skill, ability]) => {
             if (skill !== "lore" && highestAbilities.includes(ability) && !creature.skills.some(e => e.name === skill)) {
                 name = skill;
                 return;
@@ -153,7 +157,7 @@ function AddButton(props) {
         });
 
         if (name === "lore") {
-            Object.keys(skills).forEach((skill) => {
+            Object.keys(allSkills).forEach((skill) => {
                 if (skill !== "lore" && !creature.skills.some(e => e.name === skill)) {
                     name = skill;
                     return;
@@ -168,12 +172,30 @@ function AddButton(props) {
             id: v4()
         }
 
+        var skills = updateSkills(creature.skills.concat(newSkill), creature.level, creature.abilities);
+        skills = sortSkills(skills);
+
         setCreature(prevCreature => ({
             ...prevCreature,
-            skills: updateSkills(creature.skills.concat(newSkill), creature.level, creature.abilities)
+            skills: skills
             }));
     }
     
 
     return <button onClick={handleChange}>+</button>;
+}
+
+function SortButton() {
+    var {creature, setCreature} = useContext(CreatureContext);
+
+    function handleChange() {
+        var skills = sortSkills(creature.skills);
+
+        setCreature(prevCreature => ({
+            ...prevCreature,
+            skills: skills
+        }));
+    }
+
+    return <button onClick={handleChange}>Sort</button>
 }

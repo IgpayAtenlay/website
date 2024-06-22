@@ -3,6 +3,7 @@ import {CreatureContext} from "../index";
 import updateAbilities from './updaters/updateAbilities';
 import updateSkills from './updaters/updateSkills';
 import updatePerception from './updaters/updatePerception';
+import sortSkills from './updaters/sortSkills';
 
 export default function Level() {
     var {creature, setCreature} = useContext(CreatureContext);
@@ -37,6 +38,10 @@ export default function Level() {
             // update skills
     
             var skills = updateSkills(creature.skills, level, abilities);
+
+            // sort skills
+
+            skills = sortSkills(skills);
     
             setCreature(prevCreature => ({
                 ...prevCreature,
