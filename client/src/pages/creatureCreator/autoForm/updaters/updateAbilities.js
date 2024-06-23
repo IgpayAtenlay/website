@@ -64,7 +64,7 @@ function updateAutoAbilities(abilities, level) {
                         }
                     }
                     numOfHigh++;
-                } else if (numOfModerate < 3) {
+                } else if (numOfModerate + numOfHigh < 4) {
                     // create moderate modifier
                     abilities = {
                         ...abilities,
