@@ -3,6 +3,12 @@ import "../css/home.css";
 export default function Home() {
   return (
   <div class="container">
+    <a class="card" href='creatureCreator'>
+      <img src="" alt="" />
+      <h1>Creature Creator</h1>
+      <p>Use this React program to make Pathfinder creatures that look straight from the book!</p>
+    </a>
+
     <a class="card" href='diceCalculator'>
       <img src="assets/images/d20.svg" alt="" />
       <h1>Dice Calculator</h1>
