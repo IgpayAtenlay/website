@@ -1,4 +1,4 @@
-import "../../css/gridFlag.css";
+import "../../css/marylandFlag/grid.css";
 
 export default function GridFlag() {
 	return (
