@@ -20,6 +20,12 @@
     font-stretch: condensed;
 }
 
+.customForm .title input {
+    font-weight: bold;
+    font-size: 1em;
+    font-stretch: condensed;
+}
+
 .customForm .tags {
     font-stretch: condensed;
     display: flex;
@@ -51,6 +57,10 @@
     border-width: 0px;
 }
 
-input {
+.customForm input {
     width: 50px;
+}
+
+.customForm .item input[type="checkbox"] {
+    width: fit-content;
 }

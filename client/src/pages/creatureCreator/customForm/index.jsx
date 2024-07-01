@@ -7,18 +7,19 @@ import Tags from "./tags";
 import Skills from "./skills";
 import Languages from "./languages";
 import AddButton from "./addButton";
-import Items from "../creature/items";
+import Items from "./items";
 import Weapons from "../creature/weapons";
 import NumberInput from "./numberInput";
 import MiscAbilities from "../creature/miscAbilities";
 import Level from "./level";
+import Name from "./name";
 
 export default function CustomForm() {
     var {creature} = useContext(CreatureContext);
 
     return (<div class="customForm">
         <div class="title">
-            <p class="name">{creature.name.toUpperCase()}</p>
+            <Name />
             <p class="level">{creature.type.toUpperCase()} <Level /></p>
         </div>
         <div class="stats">
