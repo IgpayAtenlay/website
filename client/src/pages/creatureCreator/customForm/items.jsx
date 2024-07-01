@@ -1,5 +1,6 @@
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
+import AddButton from './addButton';
 
 export default function Items() {
     var {creature} = useContext(CreatureContext);
@@ -12,7 +13,15 @@ export default function Items() {
         <Item item={lastItem} key={lastItem.id}/>
     )
 
-    return (<span>{items}</span>);
+    return (
+        <span>
+            {items}
+            <AddButton variable="items" defaultValue={{
+                name: "bow",
+                amount: "5 arrows"
+            }}/>
+        </span>
+    );
 }
 
 function Item(props) {
