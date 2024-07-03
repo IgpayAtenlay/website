@@ -1,5 +1,6 @@
-import startCase from "../../../../util/startCase";
 import TraitList from "./traitList";
+import Range from "./range";
+import NumberInput from "../numberInput";
 
 export default function Weapons(props) {
     var weapons = props.weapons.map(e => 
@@ -13,12 +14,12 @@ function Weapon(props) {
     var e = props.weapon;
     return (
         <div>
-            <input value ={startCase(e.range)} />
+            <Range id={e.id} />
             &#9670;
             <input value ={e.name} />
-            +
-            <input value ={e.modifier} /> (
-            <TraitList id={e.id}/>
+            <NumberInput location={e} label="+"/>
+            (
+                <TraitList id={e.id}/>
             ), 
             <b>Damage</b>
             <input value ={e.damageDice} /><input value ={e.damageType} />

@@ -4,6 +4,10 @@ import {CreatureContext} from "../index";
 import {v4} from "uuid";
 
 export default function NumberInput(props) {
+    // need props.location
+    // need props.label
+    // can have props.factor
+
     var {setCreature} = useContext(CreatureContext);
     var location = props.location;
     var factor = 1;
@@ -32,7 +36,14 @@ export default function NumberInput(props) {
     return (
         <span className="numberInput">
             <label htmlFor={id}>{props.label}</label>
-            <input type="number" value={location.modifier} onChange={handleChangeSet} id={id} step={factor} style={{width: (location.modifier.toString().length / 2 + 1.5) + "em"}}/>
+            <input 
+                type="number" 
+                value={location.modifier} 
+                onChange={handleChangeSet} 
+                id={id} 
+                step={factor} 
+                style={{width: (location.modifier.toString().length / 2 + 1.5) + "em"}}
+            />
         </span>
     );
 }
