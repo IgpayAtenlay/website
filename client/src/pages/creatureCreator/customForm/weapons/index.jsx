@@ -1,6 +1,7 @@
 import TraitList from "./traitList";
 import Range from "./range";
 import NumberInput from "../numberInput";
+import WordInput from "./wordInput";
 
 export default function Weapons(props) {
     var weapons = props.weapons.map(e => 
@@ -16,13 +17,14 @@ function Weapon(props) {
         <div>
             <Range id={e.id} />
             &#9670;
-            <input value ={e.name} />
+            <WordInput id={e.id} label="name" />
             <NumberInput location={e} label="+"/>
             (
                 <TraitList id={e.id}/>
             ), 
             <b>Damage</b>
-            <input value ={e.damageDice} /><input value ={e.damageType} />
+            <WordInput id={e.id} label="damageDice" />
+            <WordInput id={e.id} label="damageType" />
         </div>
     );
 }
