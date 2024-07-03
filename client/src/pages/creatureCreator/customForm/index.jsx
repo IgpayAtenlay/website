@@ -8,7 +8,7 @@ import Skills from "./skills";
 import Languages from "./languages";
 import AddButton from "./addButton";
 import Items from "./items";
-import Weapons from "../creature/weapons";
+import Weapons from "./weapons";
 import NumberInput from "./numberInput";
 import MiscAbilities from "../creature/miscAbilities";
 import Level from "./level";

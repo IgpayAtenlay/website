@@ -3,6 +3,9 @@ import {CreatureContext} from "../index";
 import {v4} from "uuid";
 
 export default function AddButton(props) {
+    // need props.variable
+    // need props.defaultValue
+    
     var {setCreature} = useContext(CreatureContext);
     props.defaultValue.id = v4();
 
