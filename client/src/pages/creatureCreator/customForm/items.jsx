@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 import {CreatureContext} from "../index";
 import AddButton from './addButton';
+import DeleteButton from './deleteButton';
 
 export default function Items() {
     var {creature} = useContext(CreatureContext);
@@ -65,15 +66,20 @@ function Item(props) {
                 id={props.item.id + "name"}
                 onChange={handleChange}
                 value={props.item.name} 
-            /> (<input
+            />
+            (
+                <input
                 id={props.item.id + "amount"}
                 onChange={handleChange}
                 value={props.item.amount}
-            />) magical: <input 
+            />
+            ) magical: 
+            <input 
                 id={props.item.id + "magical"}
                 onChange={handleChange}
                 type="checkbox" 
                 checked={props.item.magical}
             />
+            <DeleteButton variable="items" id={props.item.id} />
         </span>);
 }
