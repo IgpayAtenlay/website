@@ -209,12 +209,15 @@ export default function CreatureCreator() {
         listUniqueId(f.traits);
     })
 
+    var [formToggle, setFormToggle] = useState(true);
+    function handleChange() {
+        setFormToggle(!formToggle);
+    }
+
     return (<div class="creatureCreator">
         <CreatureContext.Provider value={{creature, setCreature}}>
-            <AutoForm creature={creature} />
-            <hr />
-            <CustomForm creature={creature} />
-            <hr />
+            <input type="checkbox" checked={formToggle} onChange={handleChange} />
+            {formToggle ? <AutoForm creature={creature} /> : <CustomForm creature={creature} />}
             <Creature creature={creature} />
         </CreatureContext.Provider>
     </div>);
