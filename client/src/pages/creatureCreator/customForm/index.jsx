@@ -27,7 +27,7 @@ export default function CustomForm() {
             <div class="proficiency">
                 <NumberInput label={<b>Perception</b>} name="modifier" location={creature.perception} />
                 <div><b>Languages</b> <Languages languages={creature.languages} /><AddButton variable="languages" defaultValue={{language: "common"}} /></div>
-                <div><b>Skills</b> <Skills /></div>
+                <Skills />
                 <div>
                     <NumberInput label={<b>Str</b>} location={creature.abilities.str} />,{" "}
                     <NumberInput label={<b>Dex</b>} location={creature.abilities.dex} />,{" "}
