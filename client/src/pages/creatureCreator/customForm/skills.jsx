@@ -1,19 +1,31 @@
-import startCase from "../../../util/startCase";
-import {useContext} from 'react';
-import {CreatureContext} from "../index";
-import NumberInput from "./numberInput";
+import { useContext } from 'react';
+import { CreatureContext } from "../index";
+import Name from "../autoForm/skills/name";
+import SortButton from '../autoForm/skills/sortButton';
+import AddButton from '../autoForm/skills/addButton';
+import DeleteButton from '../autoForm/skills/deleteButton';
+import NumberInput from './numberInput';
 
 export default function Skills() {
     var {creature} = useContext(CreatureContext);
 
-    var skills = creature.skills.slice(0,-1).map(e => 
-        <span key={e.id}>
-            <NumberInput label={startCase(e.name)} name={"modifier"} location={e}/>,&#8196;
-        </span>
-    );
-    var lastSkill = creature.skills.slice(-1).map(e => 
-        <NumberInput label={startCase(e.name)} name={"modifier"} location={e} key={e.id}/>
+    var skills = []
+    creature.skills.forEach(e => {
+        skills = skills.concat(<Name key={e.id + "name"} id={e.id} name={e.name} />);
+        skills = skills.concat(<NumberInput key={e.id + "scale"} location={e} />);
+        skills = skills.concat(<DeleteButton key={e.id + "delete"} id={e.id} />);
+    }
+        
     );
 
-    return (<span>{skills}{lastSkill}</span>);
+    return (
+        <div>
+            <p><b>Skills</b></p>
+            <div class="skillWrapper">
+                {skills}
+            </div>
+            <AddButton />
+            <SortButton />
+        </div>
+    );
 }

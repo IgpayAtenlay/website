@@ -64,3 +64,23 @@
 .customForm .item input[type="checkbox"] {
     width: fit-content;
 }
+
+.customForm .skillWrapper {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: auto auto auto;
+    column-gap: 5px;
+    row-gap: 3px;
+    grid-auto-rows: 1fr;
+}
+
+.customForm .lore {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customForm .lore input {
+    box-sizing: border-box;
+    height: 100%;
+    flex-grow: 1;
+}
