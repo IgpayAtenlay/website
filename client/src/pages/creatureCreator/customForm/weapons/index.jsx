@@ -1,7 +1,7 @@
 import TraitList from "./traitList";
 import Range from "./range";
 import NumberInput from "../numberInput";
-import WordInput from "./wordInput";
+import WordInput from "../wordInput";
 import AddButton from "../addButton";
 import DeleteButton from "../deleteButton";
 
@@ -53,14 +53,14 @@ function Weapon(props) {
         <div>
             <Range id={e.id} />
             &#9670;
-            <WordInput id={e.id} label="name" />
+            <WordInput id={e.id} variable="weapons" label="name" />
             <NumberInput location={e} label="+"/>
             (
                 <TraitList id={e.id}/>
             ), 
             <b>Damage</b>
-            <WordInput id={e.id} label="damageDice" />
-            <WordInput id={e.id} label="damageType" />
+            <WordInput id={e.id} variable="weapons" label="damageDice" />
+            <WordInput id={e.id} variable="weapons" label="damageType" />
             <DeleteButton id={e.id} variable="weapons" />
         </div>
     );

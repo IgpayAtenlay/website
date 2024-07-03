@@ -10,7 +10,7 @@ import AddButton from "./addButton";
 import Items from "./items";
 import Weapons from "./weapons";
 import NumberInput from "./numberInput";
-import MiscAbilities from "../creature/miscAbilities";
+import MiscAbilities from "./miscAbilities";
 import Level from "./level";
 import Name from "./name";
 
