@@ -17,6 +17,10 @@ export default function allCalculations(data) {
 		result.accuracy = getAccuracy(effectiveDC);
 	}
 
+	if (data.reroll) {
+		result.accuracy = calculateAccuracyReroll(result.accuracy, data.reroll);
+	}
+
 	// damage
 	result.averageDamage = calculateDamage(data.dice, result.accuracy, data.saveOrStrike);
 	result.maxDamage = calculateMaxDamage(data.dice, data.saveOrStrike);
@@ -252,34 +256,45 @@ function calculateAccuracy(effectiveDC) {
 }
 
 function calculateAccuracyReroll(oldAccuracy, reroll) {
-	var accuracy = {};
-	var percentReroll;
-	if (reroll === "critFail") {
-		percentReroll = oldAccuracy.critFail;
+	var accuracy = {
+		...oldAccuracy
+	};
+	var percentReroll = 0;
+	
+	if (reroll.critFail) {
+		percentReroll += oldAccuracy.critFail;
 		accuracy = {
-			critSuccess: oldAccuracy.critSuccess + oldAccuracy.critSuccess * percentReroll,
-			success: oldAccuracy.success + oldAccuracy.success * percentReroll,
-			fail: oldAccuracy.fail + oldAccuracy.fail * percentReroll,
-			critFail: oldAccuracy.critFail * percentReroll
+			...accuracy,
+			critFail: 0
 		}
-	} else if (reroll === "fail") {
-		percentReroll = oldAccuracy.critFail + oldAccuracy.fail;
+	}
+	if (reroll.fail) {
+		percentReroll += oldAccuracy.fail;
 		accuracy = {
-			critSuccess: oldAccuracy.critSuccess + oldAccuracy.critSuccess * percentReroll,
-			success: oldAccuracy.success + oldAccuracy.success * percentReroll,
-			fail: oldAccuracy.fail * percentReroll,
-			critFail: oldAccuracy.critFail * percentReroll
+			...accuracy,
+			fail: 0
 		}
-	} else if (reroll === "success") {
-		percentReroll = oldAccuracy.critFail + oldAccuracy.fail + oldAccuracy.success;
+	}
+	if (reroll.success) {
+		percentReroll += oldAccuracy.success;
 		accuracy = {
-			critSuccess: oldAccuracy.critSuccess + oldAccuracy.critSuccess * percentReroll,
-			success: oldAccuracy.success * percentReroll,
-			fail: oldAccuracy.fail * percentReroll,
-			critFail: oldAccuracy.critFail * percentReroll
+			...accuracy,
+			success: 0
 		}
-	} else {
-		accuracy = oldAccuracy;
+	}
+	if (reroll.critSuccess) {
+		percentReroll += oldAccuracy.critSuccess;
+		accuracy = {
+			...accuracy,
+			critSuccess: 0
+		}
+	}
+
+	accuracy = {
+		critSuccess: accuracy.critSuccess + oldAccuracy.critSuccess * percentReroll,
+		success: accuracy.success + oldAccuracy.success * percentReroll,
+		fail: accuracy.fail + oldAccuracy.fail * percentReroll,
+		critFail: accuracy.critFail + oldAccuracy.critFail * percentReroll,
 	}
 
 	return accuracy;

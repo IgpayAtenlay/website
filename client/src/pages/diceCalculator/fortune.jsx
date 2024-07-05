@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Reroll from './reroll';
 
 export default function Fortune(props) {
     var[reroll, setReroll] = useState(false);
@@ -8,26 +9,33 @@ export default function Fortune(props) {
                 name="None"
                 value="none"
                 default={true}
+                setReroll={setReroll}
             />
             <RadioButton 
                 name="Roll two, take highest"
                 value="advantage"
+                setReroll={setReroll}
             />
             <RadioButton 
                 name="Roll two, take lowest"
                 value="disadvantage"
+                setReroll={setReroll}
             />
             <RadioButton 
                 name="Reroll"
                 value="reroll"
+                setReroll={setReroll}
             />
+            {reroll && 
+                <Reroll />
+            }
         </div>
     );		
 }
 
 function RadioButton(props) {
     function handleChange(e) {
-		// put stuff here
+		props.setReroll(e.target.value === "reroll");
 	}
 
     return(

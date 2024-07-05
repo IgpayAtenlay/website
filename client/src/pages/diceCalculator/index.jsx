@@ -31,32 +31,47 @@ export default function DiceCalculator() {
 			data.advantage = true;
 		} else if (rawData.fortune === "disadvantage") {
 			data.disadvantage = true;
+		} else if (rawData.fortune === "reroll") {
+			data.reroll = {}
+			if (rawData.critSuccessReroll) {
+				data.reroll.critSuccess = true;
+			}
+			if (rawData.successReroll) {
+				data.reroll.success = true;
+			}
+			if (rawData.failReroll) {
+				data.reroll.fail = true;
+			}
+			if (rawData.critFailReroll) {
+				data.reroll.critFail = true;
+			}
 		}
 
 		var result = allCalculations(data);
 		setResult(result);
 	}
 
-return(
-	<div>
-		<h1>Dice Calculator</h1>
+	return(
+		<div>
+			<h1>Dice Calculator</h1>
 
-		<form method="POST" onSubmit={handleSubmit}>
-			<div>
-				<label htmlFor="dC">DC:</label>
-				<input id="dC" name="dC" />
-			</div>
-			<div>
-				<label htmlFor="modifier">Modifier:</label>
-				<input name="modifier" id="modifier" />
-			</div>
-			<Dice saveOrStrike={saveOrStrike} />
-			<Fortune />
-			<SaveOrStrike setSaveOrStrike={setSaveOrStrike} />
+			<form method="POST" onSubmit={handleSubmit}>
+				<div>
+					<label htmlFor="dC">DC:</label>
+					<input id="dC" name="dC" />
+				</div>
+				<div>
+					<label htmlFor="modifier">Modifier:</label>
+					<input name="modifier" id="modifier" />
+				</div>
+				<Dice saveOrStrike={saveOrStrike} />
+				<Fortune />
+				<SaveOrStrike setSaveOrStrike={setSaveOrStrike} />
+				
+				<input type="submit" value="Calculate" />
+			</form>
 			
-			<input type="submit" value="Calculate" />
-		</form>
-		
-		<Result result={result} />
-	</div>);
+			<Result result={result} />
+		</div>
+	);
 };

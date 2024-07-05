@@ -35,16 +35,20 @@ function percent(num) {
     var numString = Math.floor(num)
     
     if (num !== Math.floor(num)) {
-        if (Math.floor(num) === 0) {
-            numString = ""
-        }
         var quarters = (num - Math.floor(num)) * 4;
-        if (quarters === 1) {
-            numString = numString + "¼"
-        } else if (quarters === 2) {
-            numString = numString + "½"
-        } else if (quarters === 3) {
-            numString = numString + "¾"
+        if (quarters === Math.floor(quarters)) {
+            if (Math.floor(num) === 0) {
+                numString = ""
+            }
+            if (quarters === 1) {
+                numString = numString + "¼"
+            } else if (quarters === 2) {
+                numString = numString + "½"
+            } else if (quarters === 3) {
+                numString = numString + "¾"
+            }
+        } else {
+            numString = round(num);
         }
     }
 
