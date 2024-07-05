@@ -3,20 +3,20 @@ var DCToAccuracyTableAdvantage = {};
 
 // high level
 
-export default function allCalculations(dice, DC, totalModifier, basicSave, strike) {
-	var data = {};
+export default function allCalculations(data) {
+	var result = {};
 	
-	data.accuracy = getAccuracy(getEffectiveDC(DC, totalModifier));
-	data.averageDamage = calculateDamage(dice, data.accuracy, basicSave, strike);
-	data.maxDamage = calculateMaxDamage(dice, basicSave, strike);
-	data.minDamage = calculateMinDamage(dice, basicSave, strike);
+	result.accuracy = getAccuracy(getEffectiveDC(data.dC, data.modifier));
+	result.averageDamage = calculateDamage(data.dice, result.accuracy, data.saveOrStrike);
+	result.maxDamage = calculateMaxDamage(data.dice, data.saveOrStrike);
+	result.minDamage = calculateMinDamage(data.dice, data.saveOrStrike);
 
-	data.accuracy.critSuccess = Math.floor(data.accuracy.critSuccess * 100);
-	data.accuracy.success = Math.floor(data.accuracy.success * 100);
-	data.accuracy.fail = Math.floor(data.accuracy.fail * 100);
-	data.accuracy.critFail = Math.floor(data.accuracy.critFail * 100);
+	result.accuracy.critSuccess = Math.floor(result.accuracy.critSuccess * 100);
+	result.accuracy.success = Math.floor(result.accuracy.success * 100);
+	result.accuracy.fail = Math.floor(result.accuracy.fail * 100);
+	result.accuracy.critFail = Math.floor(result.accuracy.critFail * 100);
 
-	return data;
+	return result;
 }
 
 // damage
@@ -34,11 +34,11 @@ function calculateAverageDamage(dice) {
 	}
 }
 
-function calculateDamage(dice, accuracy, basicSave = false, strike = false) {
+function calculateDamage(dice, accuracy, saveOrStrike) {
 	var averageDamage = 0;
 	var damage = 0;
 	if (dice) {
-		if (basicSave) {
+		if (saveOrStrike === "basicSave") {
 			averageDamage = calculateAverageDamage(dice.fail);
 			damage = 0;
 			damage += averageDamage * accuracy.success / 2;
@@ -46,7 +46,7 @@ function calculateDamage(dice, accuracy, basicSave = false, strike = false) {
 			damage += averageDamage * accuracy.critFail * 2;
 
 			return damage;
-		} if (strike) {
+		} if (saveOrStrike === "strike") {
 			averageDamage = calculateAverageDamage(dice.success);
 			damage = 0;
 			damage += averageDamage * accuracy.success;
@@ -67,7 +67,7 @@ function calculateDamage(dice, accuracy, basicSave = false, strike = false) {
 	}
 }
 
-function calculateMaxDamage(dice, basicSave = false, strike = false) {
+function calculateMaxDamage(dice, saveOrStrike) {
 	var damage = {};
 	var dieSize;
 	var numOfDice;
@@ -102,9 +102,9 @@ function calculateMaxDamage(dice, basicSave = false, strike = false) {
 	
 	var maxDamage = NaN;
 
-	if (basicSave) {
+	if (saveOrStrike === "basicSave") {
 		maxDamage = damage.fail * 2;
-	} else if (strike) {
+	} else if (saveOrStrike === "strike") {
 		maxDamage = damage.success * 2;
 	} else {
 		maxDamage = max(damage.critSuccess, damage.success, damage.fail, damage.critFail);
@@ -121,7 +121,7 @@ function calculateMaxDamage(dice, basicSave = false, strike = false) {
 	return maxDamage;
 }
 
-function calculateMinDamage(dice, basicSave = false, strike = false) {
+function calculateMinDamage(dice, saveOrStrike) {
 	var damage = {};
 	var numOfDice;
 	
@@ -155,9 +155,9 @@ function calculateMinDamage(dice, basicSave = false, strike = false) {
 
 	var minDamage = NaN;
 
-	if (basicSave) {
+	if (saveOrStrike === "basicSave") {
 		minDamage = Math.floor(damage.fail / 2);
-	} else if (strike) {
+	} else if (saveOrStrike === "strike") {
 		minDamage = damage.success;
 	} else {
 		minDamage = min(damage.critSuccess, damage.success, damage.fail, damage.critFail);
