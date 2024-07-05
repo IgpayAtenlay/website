@@ -8,6 +8,7 @@ import NomaiWriting from './pages/nomaiWriting';
 import Simon from './pages/simon';
 import SlitherlinkSolver from './pages/slitherlinkSolver';
 import Website from './pages/website';
+import CreatureCreator from "./pages/creatureCreator";
 
 import Header from './components/header';
 import Footer from './components/footer';
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/simon" element={<Simon />} />
             <Route path="/slitherlinkSolver" element={<SlitherlinkSolver />} />
             <Route path="/website" element={<Website />} />
+            <Route path="/creatureCreator" element={<CreatureCreator />} />
           </Routes>
         </Router>
       </main>

@@ -1,4 +1,4 @@
-import "../../css/absolutePositioningFlag.css";
+import "../../css/marylandFlag/absolutePositioning.css";
 
 export default function AbsolutePositioningFlag() {
   return (

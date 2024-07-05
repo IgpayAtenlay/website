@@ -1,4 +1,4 @@
-import "../../css/marylandFlag.css";
+import "../../css/marylandFlag/index.css";
 
 import AbsolutePositioningFlag from "./absolutePositioningFlag";
 import GridFlag from "./gridFlag";
@@ -9,7 +9,7 @@ export default function MarylandFlag() {
 	<div class="marylandFlag">
 		<h1>Marlyland Flag with CSS</h1>
 		<p>I decided to create the Maryland flag using a variety of methods in order to practice using each method and comparing the end products. 
-			I like flag two the best due to the crisp and clean look, also using it without React to separate components would make the HTML 
+			I like flag two the best due to the crisp and clean look, but using it without React to separate components would make the HTML 
 			incredibly messy. Check them all out and see which one you prefer!</p>
 		<div>
 			<div>

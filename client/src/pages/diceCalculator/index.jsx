@@ -5,9 +5,6 @@ import allCalculations from './calculations';
 import parseDice from './parseDice';
 
 export default function DiceCalculator() {
-	useScript('https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js');
-	useScript('./js/diceCalculator.js');
-
 	var[result, setResult] = useState({});
 	var[accuracy, setAccuracy] = useState({});
 

@@ -1,42 +1,55 @@
 import "../css/home.css";
+import Card from "./card";
 
 export default function Home() {
   return (
   <div class="container">
-    <a class="card" href='diceCalculator'>
-      <img src="assets/images/d20.svg" alt="" />
-      <h1>Dice Calculator</h1>
-      <p>This calculator uses JavaScript to determine average damage for TTRPGs</p>
-    </a>
+    <Card 
+      url="creatureCreator"
+      title="Creature Creator"
+      description="Use this React program to make Pathfinder creatures that look straight from the book!"
+    />
 
-    <a class="card" href='simon'>
-      <img src="assets/images/simon.svg" alt="" />
-      <h1>Simon</h1>
-      <p>This game Simon uses JavaScript</p>
-    </a>
-    
-    <a class="card" href='marylandFlag'>
-      <img src="assets/images/marylandFlag.svg" alt="" />
-      <h1>Maryland Flag</h1>
-      <p>These Maryland flags were made using HTML and CSS</p>
-    </a>
+    <Card 
+      url="diceCalculator"
+      image="d20.svg"
+      title="Dice Calculator"
+      description="This calculator uses JavaScript to determine average damage for TTRPGs"
+    />
 
-    <a class="card" href='website'>
-      <img src="assets/images/logo.svg" alt="" />
-      <h1>Website</h1>
-      <p>This is the website you are currently looking at. It uses Node.js, EJS, CSS, and more</p>
-    </a>
+    <Card
+      url="simon"
+      image="simon.svg"
+      title="Simon"
+      description="This game Simon uses JavaScript"
+    />
+
+    <Card
+      url="marylandFlag"
+      image="marylandFlag.svg"
+      title="Maryland Flag"
+      description="These Maryland flags were made using HTML and CSS"
+    />
+
+    <Card
+      url='website'
+      image="logo.svg"
+      title="Website"
+      description="This is the website you are currently looking at. It uses React, Node.js, CSS, HTML, and more"
+    />
+
+    <Card
+      url="nomaiWriting"
+      image="nomaiText.png"
+      title="Nomai"
+      description="This word processor uses Java to create a 2D script. Inspired by Outer Wilds"
+    />
     
-    <a class="card" href='nomaiWriting'>
-      <img src="assets/images/nomaiText.png" alt="" />
-      <h1>Nomai</h1>
-      <p>This word processor uses Java to create a 2D script. Inspired by Outer Wilds</p>
-    </a>
-    
-    <a class="card" href='slitherlinkSolver'>
-      <img src="assets/images/slitherlink.png" alt="" />
-      <h1>Slitherlink Solver</h1>
-      <p>This Java program automatically solves slitherlink puzzle</p>
-    </a>
+    <Card
+      url="slitherlinkSolver"
+      image="slitherlink.png"
+      title="Slitherlink Solver"
+      description="This Java program automatically solves slitherlink puzzle"
+    />
   </div>);
 };

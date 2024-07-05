@@ -1,0 +1,86 @@
+.customForm {
+    font-size: small;
+}
+
+.customForm * {
+    margin: 0px;
+}
+
+.customForm > * {
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 2px;
+}
+
+.customForm .title {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.5em;
+    font-stretch: condensed;
+}
+
+.customForm .title input {
+    font-weight: bold;
+    font-size: 1em;
+    font-stretch: condensed;
+}
+
+.customForm .tags {
+    font-stretch: condensed;
+    display: flex;
+}
+
+.customForm .tags input, .customForm .tags select, .customForm .tags option {
+    color: white;
+    font-size: 0.7em;
+    border-color: orange;
+    border-style: solid;
+    border-width: 0.1em;
+    padding: 0px 0.3em;
+    margin: 0.1em;
+}
+
+.customForm .orange {
+    background-color: rgb(145, 99, 14);
+}
+
+.customForm .green {
+    background-color: green;
+}
+
+.customForm .red {
+    background-color: rgb(111, 10, 10);
+}
+
+.customForm .other {
+    border-width: 0px;
+}
+
+.customForm input {
+    width: 50px;
+}
+
+.customForm .item input[type="checkbox"] {
+    width: fit-content;
+}
+
+.customForm .skillWrapper {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: auto auto auto;
+    column-gap: 5px;
+    row-gap: 3px;
+    grid-auto-rows: 1fr;
+}
+
+.customForm .lore {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customForm .lore input {
+    box-sizing: border-box;
+    height: 100%;
+    flex-grow: 1;
+}
