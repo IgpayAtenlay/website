@@ -5,6 +5,7 @@ import parseDice from './parseDice';
 import Result from './result';
 import SaveOrStrike from './saveOrStrike';
 import Fortune from './fortune';
+import Dice from './dice';
 
 export default function DiceCalculator() {
 	var[result, setResult] = useState({});
@@ -49,30 +50,7 @@ return(
 				<label htmlFor="modifier">Modifier:</label>
 				<input name="modifier" id="modifier" />
 			</div>
-			{saveOrStrike === "customDamage" &&
-				<div>
-					<label  className="newLine" htmlFor="critSuccessDice">On Crit Success:</label>
-					<input name="critSuccessDice" id="critSuccessDice" />
-				</div>
-			}
-			{saveOrStrike !== "basicSave" &&
-				<div>
-					<label htmlFor="successDice">On Success:</label>
-					<input name="successDice" id="successDice" />
-				</div>
-			}
-			{saveOrStrike !== "strike" &&
-				<div>
-					<label htmlFor="failDice">On Failure:</label>
-					<input name="failDice" id="failDice" />
-				</div>
-			}
-			{saveOrStrike === "customDamage" &&
-				<div>
-					<label htmlFor="critFailDice">On Crit Failure:</label>
-					<input name="critFailDice" id="critFailDice" />
-				</div>
-			}
+			<Dice saveOrStrike={saveOrStrike} />
 			<Fortune />
 			<SaveOrStrike setSaveOrStrike={setSaveOrStrike} />
 			

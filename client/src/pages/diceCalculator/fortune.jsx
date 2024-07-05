@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 export default function Fortune(props) {
+    var[reroll, setReroll] = useState(false);
     return (
         <div>
             <RadioButton 
