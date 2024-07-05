@@ -216,8 +216,9 @@ export default function CreatureCreator() {
 
     return (<div class="creatureCreator">
         <CreatureContext.Provider value={{creature, setCreature}}>
-            <input type="checkbox" checked={formToggle} onChange={handleChange} />
+            <button onClick={handleChange}>{formToggle ? "Custom Form" : "Automatic Form"}</button>
             {formToggle ? <AutoForm creature={creature} /> : <CustomForm creature={creature} />}
+            <hr />
             <Creature creature={creature} />
         </CreatureContext.Provider>
     </div>);
