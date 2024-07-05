@@ -5,6 +5,7 @@ export default function Fortune(props) {
     var[reroll, setReroll] = useState(false);
     return (
         <div>
+            <h2>Fortune Effects</h2>
             <RadioButton 
                 name="None"
                 value="none"

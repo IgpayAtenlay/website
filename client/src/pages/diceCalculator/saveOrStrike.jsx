@@ -3,6 +3,7 @@ import camelCase from "../../util/camelCase";
 export default function SaveOrStrike(props) {
     return (
         <div>
+            <h2>Type of Attack</h2>
             <RadioButton 
                 name="Custom Damage"
                 setSaveOrStrike={props.setSaveOrStrike}

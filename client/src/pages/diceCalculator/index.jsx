@@ -1,5 +1,5 @@
 import { useState } from 'react';
-//import "../../css/diceCalculator.css";
+import "../../css/diceCalculator.css";
 import allCalculations from './calculations';
 import parseDice from './parseDice';
 import Result from './result';
@@ -57,11 +57,11 @@ export default function DiceCalculator() {
 
 			<form method="POST" onSubmit={handleSubmit}>
 				<div>
-					<label htmlFor="dC">DC:</label>
+					<label htmlFor="dC">DC: </label>
 					<input id="dC" name="dC" />
 				</div>
 				<div>
-					<label htmlFor="modifier">Modifier:</label>
+					<label htmlFor="modifier">Modifier: </label>
 					<input name="modifier" id="modifier" />
 				</div>
 				<Dice saveOrStrike={saveOrStrike} />
