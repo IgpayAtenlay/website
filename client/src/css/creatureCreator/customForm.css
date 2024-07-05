@@ -20,6 +20,12 @@
     font-stretch: condensed;
 }
 
+.customForm .title input {
+    font-weight: bold;
+    font-size: 1em;
+    font-stretch: condensed;
+}
+
 .customForm .tags {
     font-stretch: condensed;
     display: flex;
@@ -51,6 +57,30 @@
     border-width: 0px;
 }
 
-input {
+.customForm input {
     width: 50px;
+}
+
+.customForm .item input[type="checkbox"] {
+    width: fit-content;
+}
+
+.customForm .skillWrapper {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: auto auto auto;
+    column-gap: 5px;
+    row-gap: 3px;
+    grid-auto-rows: 1fr;
+}
+
+.customForm .lore {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customForm .lore input {
+    box-sizing: border-box;
+    height: 100%;
+    flex-grow: 1;
 }

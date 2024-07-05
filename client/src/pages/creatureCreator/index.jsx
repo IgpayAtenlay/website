@@ -209,11 +209,15 @@ export default function CreatureCreator() {
         listUniqueId(f.traits);
     })
 
+    var [formToggle, setFormToggle] = useState(true);
+    function handleChange() {
+        setFormToggle(!formToggle);
+    }
+
     return (<div class="creatureCreator">
         <CreatureContext.Provider value={{creature, setCreature}}>
-            <AutoForm creature={creature} />
-            <hr />
-            <CustomForm creature={creature} />
+            <button onClick={handleChange}>{formToggle ? "Custom Form" : "Automatic Form"}</button>
+            {formToggle ? <AutoForm creature={creature} /> : <CustomForm creature={creature} />}
             <hr />
             <Creature creature={creature} />
         </CreatureContext.Provider>

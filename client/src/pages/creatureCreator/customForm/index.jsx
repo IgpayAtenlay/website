@@ -7,18 +7,19 @@ import Tags from "./tags";
 import Skills from "./skills";
 import Languages from "./languages";
 import AddButton from "./addButton";
-import Items from "../creature/items";
-import Weapons from "../creature/weapons";
+import Items from "./items";
+import Weapons from "./weapons";
 import NumberInput from "./numberInput";
-import MiscAbilities from "../creature/miscAbilities";
+import MiscAbilities from "./miscAbilities";
 import Level from "./level";
+import Name from "./name";
 
 export default function CustomForm() {
     var {creature} = useContext(CreatureContext);
 
     return (<div class="customForm">
         <div class="title">
-            <p class="name">{creature.name.toUpperCase()}</p>
+            <Name />
             <p class="level">{creature.type.toUpperCase()} <Level /></p>
         </div>
         <div class="stats">
@@ -26,7 +27,7 @@ export default function CustomForm() {
             <div class="proficiency">
                 <NumberInput label={<b>Perception</b>} name="modifier" location={creature.perception} />
                 <div><b>Languages</b> <Languages languages={creature.languages} /><AddButton variable="languages" defaultValue={{language: "common"}} /></div>
-                <div><b>Skills</b> <Skills /></div>
+                <Skills />
                 <div>
                     <NumberInput label={<b>Str</b>} location={creature.abilities.str} />,{" "}
                     <NumberInput label={<b>Dex</b>} location={creature.abilities.dex} />,{" "}
