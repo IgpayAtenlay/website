@@ -35,7 +35,7 @@ function RadioButton(props) {
                 onChange={handleChange}
                 defaultChecked={props.default}
             />
-            <label for={camelCase(props.name)}>{props.name}</label>
+            <label htmlFor={camelCase(props.name)}>{props.name}</label>
         </div>
     );
 }

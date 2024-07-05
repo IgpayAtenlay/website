@@ -35,61 +35,61 @@ return(
 
 		<form method="POST" onSubmit={handleSubmit}>
 			<div>
-				<label for="dC">DC:</label>
+				<label htmlFor="dC">DC:</label>
 				<input id="dC" name="dC" />
 			</div>
 			<div>
-				<label for="modifier">Modifier:</label>
+				<label htmlFor="modifier">Modifier:</label>
 				<input name="modifier" id="modifier" />
 			</div>
 			{saveOrStrike === "customDamage" &&
 				<div>
-					<label class="newLine" for="critSuccessDice">On Crit Success:</label>
+					<label  className="newLine" htmlFor="critSuccessDice">On Crit Success:</label>
 					<input name="critSuccessDice" id="critSuccessDice" />
 				</div>
 			}
 			{saveOrStrike !== "basicSave" &&
 				<div>
-					<label for="successDice">On Success:</label>
+					<label htmlFor="successDice">On Success:</label>
 					<input name="successDice" id="successDice" />
 				</div>
 			}
 			{saveOrStrike !== "strike" &&
 				<div>
-					<label for="failDice">On Failure:</label>
+					<label htmlFor="failDice">On Failure:</label>
 					<input name="failDice" id="failDice" />
 				</div>
 			}
 			{saveOrStrike === "customDamage" &&
 				<div>
-					<label for="critFailDice">On Crit Failure:</label>
+					<label htmlFor="critFailDice">On Crit Failure:</label>
 					<input name="critFailDice" id="critFailDice" />
 				</div>
 			}
-			<div class="checkbox">
+			<div  className="checkbox">
 				<div>
-					<input type="checkbox" class="fortune" name="fortune" id="fortune" />
-					<label for="fortune">Fortune</label>
+					<input type="checkbox"  className="fortune" name="fortune" id="fortune" />
+					<label htmlFor="fortune">Fortune</label>
 				</div>
 				<div>
-					<input type="checkbox" class="fortune" name="misfortune" id="misfortune" />
-					<label for="misfortune">Misfortune</label>
+					<input type="checkbox"  className="fortune" name="misfortune" id="misfortune" />
+					<label htmlFor="misfortune">Misfortune</label>
 				</div>
 				<div>
-					<input type="checkbox" class="fortune" name="rerollCritSuccess" id="rerollCritSuccess" value="CS" />
-					<label for="rerollCritSuccess">Reroll Crit Success</label>
+					<input type="checkbox"  className="fortune" name="rerollCritSuccess" id="rerollCritSuccess" value="CS" />
+					<label htmlFor="rerollCritSuccess">Reroll Crit Success</label>
 				</div>
 				<div>
-					<input type="checkbox" class="fortune" name="rerollSuccess" id="rerollSuccess" value="S" />
-					<label for="rerollSuccess">Reroll Success</label>
+					<input type="checkbox"  className="fortune" name="rerollSuccess" id="rerollSuccess" value="S" />
+					<label htmlFor="rerollSuccess">Reroll Success</label>
 				</div>
 				<div>
-					<input type="checkbox" class="fortune" name="rerollFail" id="rerollFail" value="F" />
-					<label for="rerollFail">Reroll Failure</label>
+					<input type="checkbox"  className="fortune" name="rerollFail" id="rerollFail" value="F" />
+					<label htmlFor="rerollFail">Reroll Failure</label>
 				</div>
 				<div>
-					<input type="checkbox" class="fortune" name="rerollCritFail" id="rerollCritFail" value="CF" />
-					<label for="rerollCritFail">Reroll Crit Failure</label>
+					<input type="checkbox"  className="fortune" name="rerollCritFail" id="rerollCritFail" value="CF" />
+					<label htmlFor="rerollCritFail">Reroll Crit Failure</label>
 				</div>
 			</div>
 			<SaveOrStrike setSaveOrStrike={setSaveOrStrike} />
