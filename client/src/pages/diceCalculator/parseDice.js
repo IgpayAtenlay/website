@@ -1,4 +1,4 @@
-export default function parseDice(diceString) {
+export default function parseDice(diceString = "") {
 	var dice = {};
 	if (diceString.length > 0) {
 		var diceArray = diceString.split("+");

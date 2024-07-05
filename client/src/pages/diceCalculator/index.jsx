@@ -4,6 +4,7 @@ import allCalculations from './calculations';
 import parseDice from './parseDice';
 import Result from './result';
 import SaveOrStrike from './saveOrStrike';
+import Fortune from './fortune';
 
 export default function DiceCalculator() {
 	var[result, setResult] = useState({});
@@ -24,7 +25,13 @@ export default function DiceCalculator() {
 				critFail: parseDice(rawData.critFailDice)
 			}
 		}
-		
+
+		if (rawData.fortune === "advantage") {
+			data.advantage = true;
+		} else if (rawData.fortune === "disadvantage") {
+			data.disadvantage = true;
+		}
+
 		var result = allCalculations(data);
 		setResult(result);
 	}
@@ -66,32 +73,7 @@ return(
 					<input name="critFailDice" id="critFailDice" />
 				</div>
 			}
-			<div  className="checkbox">
-				<div>
-					<input type="checkbox"  className="fortune" name="fortune" id="fortune" />
-					<label htmlFor="fortune">Fortune</label>
-				</div>
-				<div>
-					<input type="checkbox"  className="fortune" name="misfortune" id="misfortune" />
-					<label htmlFor="misfortune">Misfortune</label>
-				</div>
-				<div>
-					<input type="checkbox"  className="fortune" name="rerollCritSuccess" id="rerollCritSuccess" value="CS" />
-					<label htmlFor="rerollCritSuccess">Reroll Crit Success</label>
-				</div>
-				<div>
-					<input type="checkbox"  className="fortune" name="rerollSuccess" id="rerollSuccess" value="S" />
-					<label htmlFor="rerollSuccess">Reroll Success</label>
-				</div>
-				<div>
-					<input type="checkbox"  className="fortune" name="rerollFail" id="rerollFail" value="F" />
-					<label htmlFor="rerollFail">Reroll Failure</label>
-				</div>
-				<div>
-					<input type="checkbox"  className="fortune" name="rerollCritFail" id="rerollCritFail" value="CF" />
-					<label htmlFor="rerollCritFail">Reroll Crit Failure</label>
-				</div>
-			</div>
+			<Fortune />
 			<SaveOrStrike setSaveOrStrike={setSaveOrStrike} />
 			
 			<input type="submit" value="Calculate" />

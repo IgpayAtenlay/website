@@ -7,20 +7,30 @@ export default function Result(props) {
         return (
             <div>
                 <h2>Average</h2>
-                <p>{result.averageDamage}</p>
+                <p>{round(result.averageDamage)}</p>
                 <h2>Max</h2>
-                <p>{result.maxDamage}</p>
+                <p>{round(result.maxDamage)}</p>
                 <h2>Min</h2>
-                <p>{result.minDamage}</p>
+                <p>{round(result.minDamage)}</p>
                 <h2>Percent of Critical Successes</h2>
-                <p>{result.accuracy.critSuccess}</p>
+                <p>{percent(result.accuracy.critSuccess)}</p>
                 <h2>Percent of Successes</h2>
-                <p>{result.accuracy.success}</p>
+                <p>{percent(result.accuracy.success)}</p>
                 <h2>Percent of Failures</h2>
-                <p>{result.accuracy.fail}</p>
+                <p>{percent(result.accuracy.fail)}</p>
                 <h2>Percent of Critical Failures</h2>
-                <p>{result.accuracy.critFail}</p>
+                <p>{percent(result.accuracy.critFail)}</p>
             </div>
         )
     }
+}
+
+function round(num) {
+    return Math.floor(num * 100) / 100;
+}
+
+function percent(num) {
+    num = num * 100;
+    num = round(num);
+    return num;
 }

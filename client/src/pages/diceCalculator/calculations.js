@@ -1,20 +1,26 @@
 var DCToAccuracyTable = {};
 var DCToAccuracyTableAdvantage = {};
+var DCToAccuracyTableDisadvantage = {};
 
 // high level
 
 export default function allCalculations(data) {
 	var result = {};
 	
-	result.accuracy = getAccuracy(getEffectiveDC(data.dC, data.modifier));
+	// accuracy
+	var effectiveDC = getEffectiveDC(data.dC, data.modifier);
+	if (data.advantage) {
+		result.accuracy = getAccuracyAdvantage(effectiveDC, true);
+	} else if (data.disadvantage) {
+		result.accuracy = getAccuracyAdvantage(effectiveDC, false);
+	} else {
+		result.accuracy = getAccuracy(effectiveDC);
+	}
+
+	// damage
 	result.averageDamage = calculateDamage(data.dice, result.accuracy, data.saveOrStrike);
 	result.maxDamage = calculateMaxDamage(data.dice, data.saveOrStrike);
 	result.minDamage = calculateMinDamage(data.dice, data.saveOrStrike);
-
-	result.accuracy.critSuccess = Math.floor(result.accuracy.critSuccess * 100);
-	result.accuracy.success = Math.floor(result.accuracy.success * 100);
-	result.accuracy.fail = Math.floor(result.accuracy.fail * 100);
-	result.accuracy.critFail = Math.floor(result.accuracy.critFail * 100);
 
 	return result;
 }
@@ -286,16 +292,30 @@ function getAccuracyAdvantage(effectiveDC, isAdvantage) {
 		effectiveDC = -100;
 	}
 
-	if (!(effectiveDC in DCToAccuracyTableAdvantage)) {
-		calculateAccuracyAdvantage(effectiveDC, isAdvantage);
+	if (isAdvantage) {
+		if (!(effectiveDC in DCToAccuracyTableAdvantage)) {
+			calculateAccuracyAdvantage(effectiveDC, isAdvantage);
+		}
+	
+		return {
+			critSuccess: DCToAccuracyTableAdvantage[effectiveDC].critSuccess,
+			success: DCToAccuracyTableAdvantage[effectiveDC].success,
+			fail: DCToAccuracyTableAdvantage[effectiveDC].fail,
+			critFail: DCToAccuracyTableAdvantage[effectiveDC].critFail
+		};
+	} else {
+		if (!(effectiveDC in DCToAccuracyTableDisadvantage)) {
+			calculateAccuracyAdvantage(effectiveDC, isAdvantage);
+		}
+	
+		return {
+			critSuccess: DCToAccuracyTableDisadvantage[effectiveDC].critSuccess,
+			success: DCToAccuracyTableDisadvantage[effectiveDC].success,
+			fail: DCToAccuracyTableDisadvantage[effectiveDC].fail,
+			critFail: DCToAccuracyTableDisadvantage[effectiveDC].critFail
+		};
 	}
-
-	return {
-		critSuccess: DCToAccuracyTableAdvantage[effectiveDC].critSuccess,
-		success: DCToAccuracyTableAdvantage[effectiveDC].success,
-		fail: DCToAccuracyTableAdvantage[effectiveDC].fail,
-		critFail: DCToAccuracyTableAdvantage[effectiveDC].critFail
-	};
+	
 }
 
 function calculateAccuracyAdvantage(effectiveDC, isAdvantage) {
@@ -346,11 +366,20 @@ function calculateAccuracyAdvantage(effectiveDC, isAdvantage) {
 		}
 	}
 
-	DCToAccuracyTableAdvantage[effectiveDC] = {
-		critSuccess: numberSuccesses.critSuccess / 400,
-		success: numberSuccesses.success / 400,
-		fail: numberSuccesses.fail / 400,
-		critFail: numberSuccesses.critFail / 400
+	if (isAdvantage) {
+		DCToAccuracyTableAdvantage[effectiveDC] = {
+			critSuccess: numberSuccesses.critSuccess / 400,
+			success: numberSuccesses.success / 400,
+			fail: numberSuccesses.fail / 400,
+			critFail: numberSuccesses.critFail / 400
+		}
+	} else {
+		DCToAccuracyTableDisadvantage[effectiveDC] = {
+			critSuccess: numberSuccesses.critSuccess / 400,
+			success: numberSuccesses.success / 400,
+			fail: numberSuccesses.fail / 400,
+			critFail: numberSuccesses.critFail / 400
+		}
 	}
 }
 
