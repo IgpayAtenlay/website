@@ -1,72 +1,45 @@
-import { useState } from 'react';
+import { useState, createContext } from 'react';
+import {v4} from "uuid";
+
 import "../../css/diceCalculator.css";
+
 import allCalculations from './calculations';
-import parseDice from './parseDice';
 import Result from './result';
-import SaveOrStrike from './saveOrStrike';
-import Fortune from './fortune';
-import Dice from './dice';
+import Activity from './activity';
+import parseData from './parseData';
+
+export var ActivityIDContext = createContext(null);
 
 export default function DiceCalculator() {
 	var[result, setResult] = useState({});
-	var[saveOrStrike, setSaveOrStrike] = useState("customDamage");
+	var[activityIDs, setActivityIDs] = useState([v4()]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
 
 		var rawData = Object.fromEntries(new FormData(e.target).entries());
-		var data = {
-			dC: rawData.dC,
-			modifier: rawData.modifier,
-			saveOrStrike: rawData.saveOrStrike,
-			dice: {
-				critSuccess: parseDice(rawData.critSuccessDice),
-				success: parseDice(rawData.successDice),
-				fail: parseDice(rawData.failDice),
-				critFail: parseDice(rawData.critFailDice)
-			}
-		}
-
-		if (rawData.fortune === "advantage") {
-			data.advantage = true;
-		} else if (rawData.fortune === "disadvantage") {
-			data.disadvantage = true;
-		} else if (rawData.fortune === "reroll") {
-			data.reroll = {}
-			if (rawData.critSuccessReroll) {
-				data.reroll.critSuccess = true;
-			}
-			if (rawData.successReroll) {
-				data.reroll.success = true;
-			}
-			if (rawData.failReroll) {
-				data.reroll.fail = true;
-			}
-			if (rawData.critFailReroll) {
-				data.reroll.critFail = true;
-			}
-		}
-
-		var result = allCalculations(data);
+		var data = parseData(rawData, activityIDs);
+		var result = allCalculations(data[0]);
 		setResult(result);
 	}
+
+	var activities = activityIDs.map((e) => {
+		return (
+			<ActivityIDContext.Provider key={e} value={e}>
+				<Activity />
+			</ActivityIDContext.Provider>
+		)
+		
+	});
 
 	return(
 		<div>
 			<h1>Dice Calculator</h1>
 
 			<form method="POST" onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="dC">DC: </label>
-					<input id="dC" name="dC" />
+				<div className='activities'>
+					{activities}
 				</div>
-				<div>
-					<label htmlFor="modifier">Modifier: </label>
-					<input name="modifier" id="modifier" />
-				</div>
-				<Dice saveOrStrike={saveOrStrike} />
-				<Fortune />
-				<SaveOrStrike setSaveOrStrike={setSaveOrStrike} />
 				
 				<input type="submit" value="Calculate" />
 			</form>

@@ -1,5 +1,8 @@
 import camelCase from "../../util/camelCase";
 
+import { ActivityIDContext } from ".";
+import { useContext } from "react";
+
 export default function SaveOrStrike(props) {
     return (
         <div>
@@ -22,6 +25,10 @@ export default function SaveOrStrike(props) {
 }
 
 function RadioButton(props) {
+    var activityID = useContext(ActivityIDContext);
+    var id = activityID + camelCase(props.name);
+    var name = activityID + "saveOrStrike";
+
     function handleChange(e) {
 		props.setSaveOrStrike(e.target.value);
 	}
@@ -30,13 +37,13 @@ function RadioButton(props) {
         <div>
             <input 
                 type="radio"
-                name="saveOrStrike"
-                id={camelCase(props.name)}
+                name={name}
+                id={id}
                 value={camelCase(props.name)}
                 onChange={handleChange}
                 defaultChecked={props.default}
             />
-            <label htmlFor={camelCase(props.name)}>{props.name}</label>
+            <label htmlFor={id}>{props.name}</label>
         </div>
     );
 }

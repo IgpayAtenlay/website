@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Reroll from './reroll';
+import { ActivityIDContext } from ".";
+import { useContext } from "react";
 
 export default function Fortune(props) {
     var[reroll, setReroll] = useState(false);
@@ -35,6 +37,10 @@ export default function Fortune(props) {
 }
 
 function RadioButton(props) {
+    var activityID = useContext(ActivityIDContext);
+    var id = activityID + props.value;
+    var name = activityID + "fortune";
+
     function handleChange(e) {
 		props.setReroll(e.target.value === "reroll");
 	}
@@ -43,13 +49,13 @@ function RadioButton(props) {
         <div>
             <input 
                 type="radio"
-                name="fortune"
-                id={props.value}
+                name={name}
+                id={id}
                 value={props.value}
                 onChange={handleChange}
                 defaultChecked={props.default}
             />
-            <label htmlFor={props.value}>{props.name}</label>
+            <label htmlFor={id}>{props.name}</label>
         </div>
     );
 }

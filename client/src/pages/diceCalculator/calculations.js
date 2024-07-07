@@ -8,7 +8,7 @@ export default function allCalculations(data) {
 	var result = {};
 	
 	// accuracy
-	var effectiveDC = getEffectiveDC(data.dC, data.modifier);
+	var effectiveDC = getEffectiveDC(data.dc, data.modifier);
 	if (data.advantage) {
 		result.accuracy = getAccuracyAdvantage(effectiveDC, true);
 	} else if (data.disadvantage) {
