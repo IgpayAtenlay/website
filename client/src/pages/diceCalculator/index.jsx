@@ -11,18 +11,14 @@ import parseData from './parseData';
 export var ActivityContext = createContext(null);
 
 export default function DiceCalculator() {
-	var[result, setResult] = useState({});
-	var[activitys, setActivitys] = useState([{
-		id: v4(),
-		data: {},
-		result: {}
-	}]);
+	var[activities, setActivities] = useState([{id: v4(), result: {}},{id: v4(), result: {}}]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
 
 		var rawData = Object.fromEntries(new FormData(e.target).entries());
-		setActivitys(activities.map(e => {
+		setActivities(activities.map(e => {
+			console.log(e.id);
 			var activity = {
 				...e
 			}
@@ -32,9 +28,9 @@ export default function DiceCalculator() {
 		}));
 	}
 
-	var activities = activitys.map((e, index) => {
+	var activityArray = activities.map((e) => {
 		return (
-			<ActivityContext.Provider key={e} value={e}>
+			<ActivityContext.Provider key={e.id} value={e}>
 				<div>
 					<Activity />
 					<Result />
@@ -50,7 +46,7 @@ export default function DiceCalculator() {
 
 			<form method="POST" onSubmit={handleSubmit}>
 				<div className='activities'>
-					{activities}
+					{activityArray}
 				</div>
 				
 				<input type="submit" value="Calculate" />
