@@ -32,6 +32,7 @@ export default function DiceCalculator() {
 		return (
 			<ActivityContext.Provider key={e.id} value={e}>
 				<div>
+					<button id={e.id} onClick={removeActivity}>-</button>
 					<Activity />
 					<Result />
 				</div>
@@ -40,6 +41,16 @@ export default function DiceCalculator() {
 		
 	});
 
+	function removeActivity(e) {
+		e.preventDefault();
+		setActivities(activities.filter(a => a.id !== e.target.id));
+	}
+
+	function addActivity(e) {
+		e.preventDefault();
+		setActivities(activities.concat({id: v4()}));
+	}
+
 	return(
 		<div className='diceCalculator'>
 			<h1>Dice Calculator</h1>
@@ -47,6 +58,7 @@ export default function DiceCalculator() {
 			<form method="POST" onSubmit={handleSubmit}>
 				<div className='activities'>
 					{activityArray}
+					<button onClick={addActivity}>+</button>
 				</div>
 				
 				<input type="submit" value="Calculate" />
