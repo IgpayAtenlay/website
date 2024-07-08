@@ -5,7 +5,7 @@ import { ActivityContext } from ".";
 import { useState, useContext } from "react";
 
 export default function Modifiers(props) {
-    var [complexModifier, setComplexModifier] = useState(true);
+    var [complexModifier, setComplexModifier] = useState(false);
 
     return (
         <div>

@@ -1,4 +1,5 @@
 import camelCase from "../../util/camelCase";
+import startCase from "../../util/startCase";
 
 import { ActivityContext } from ".";
 import { useContext } from "react";
@@ -13,27 +14,21 @@ export default function SaveOrStrike(props) {
 
     return (
         <div>
-            <label htmlFor={name}>Type of Attack</label>
+            <label htmlFor={name}>Type of Attack: </label>
             <select id={name} name={name} onChange={handleChange}>
-            <RadioButton 
-                name="Custom Damage"
-            />
-            <RadioButton 
-                name="Strike"
-            />
-            <RadioButton 
-                name="Basic Save"
-            />
+                <Option name="strike" />
+                <Option name="basic save" />
+                <Option name="custom damage" />
             </select>
         </div>
     );		
 }
 
-function RadioButton(props) {
+function Option(props) {
     var activity = useContext(ActivityContext);
     var id = activity.id + camelCase(props.name);
 
     return(
-        <option id={id} value={camelCase(props.name)}>{props.name}</option>
+        <option id={id} value={camelCase(props.name)}>{startCase(props.name)}</option>
     );
 }

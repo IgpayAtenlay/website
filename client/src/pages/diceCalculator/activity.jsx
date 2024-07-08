@@ -6,7 +6,7 @@ import SaveOrStrike from './saveOrStrike';
 import Modifiers from "./modifiers";
 
 export default function Activity(props) {
-    var[saveOrStrike, setSaveOrStrike] = useState("customDamage");
+    var[saveOrStrike, setSaveOrStrike] = useState("strike");
 
     return (<div className='activity'>
         <Modifiers />

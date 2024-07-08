@@ -14,7 +14,7 @@ export default function Fortune(props) {
     
     return (
         <div>
-            <label htmlFor={name}>Fortune Effects</label>
+            <label htmlFor={name}>Fortune Effects: </label>
             <select id={name} name={name} onChange={handleChange}>
                 <Option name="None" value="none" />
                 <Option name="Roll two, take highest" value="advantage" />
