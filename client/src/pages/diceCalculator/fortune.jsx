@@ -5,30 +5,22 @@ import { useContext } from "react";
 
 export default function Fortune(props) {
     var[reroll, setReroll] = useState(false);
+    var activity = useContext(ActivityContext);
+    var name = activity.id + "fortune";
+
+    function handleChange(e) {
+		setReroll(e.target.value === "reroll");
+	}
+    
     return (
         <div>
-            <h2>Fortune Effects</h2>
-            <RadioButton 
-                name="None"
-                value="none"
-                default={true}
-                setReroll={setReroll}
-            />
-            <RadioButton 
-                name="Roll two, take highest"
-                value="advantage"
-                setReroll={setReroll}
-            />
-            <RadioButton 
-                name="Roll two, take lowest"
-                value="disadvantage"
-                setReroll={setReroll}
-            />
-            <RadioButton 
-                name="Reroll"
-                value="reroll"
-                setReroll={setReroll}
-            />
+            <label htmlFor={name}>Fortune Effects</label>
+            <select id={name} name={name} onChange={handleChange}>
+                <Option name="None" value="none" />
+                <Option name="Roll two, take highest" value="advantage" />
+                <Option name="Roll two, take lowest" value="disadvantage" />
+                <Option name="Reroll" value="reroll" />
+            </select>
             {reroll && 
                 <Reroll />
             }
@@ -36,27 +28,11 @@ export default function Fortune(props) {
     );		
 }
 
-function RadioButton(props) {
+function Option(props) {
     var activity = useContext(ActivityContext);
-    var activityID = activity.id;
-    var id = activityID + props.value;
-    var name = activityID + "fortune";
-
-    function handleChange(e) {
-		props.setReroll(e.target.value === "reroll");
-	}
+    var id = activity.id + props.value;
 
     return(
-        <div>
-            <input 
-                type="radio"
-                name={name}
-                id={id}
-                value={props.value}
-                onChange={handleChange}
-                defaultChecked={props.default}
-            />
-            <label htmlFor={id}>{props.name}</label>
-        </div>
+        <option id={id} value={props.value}>{props.name}</option>
     );
 }

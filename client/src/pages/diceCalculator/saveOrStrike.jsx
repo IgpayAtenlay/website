@@ -4,47 +4,36 @@ import { ActivityContext } from ".";
 import { useContext } from "react";
 
 export default function SaveOrStrike(props) {
+    var activity = useContext(ActivityContext);
+    var name = activity.id + "saveOrStrike";
+
+    function handleChange(e) {
+		props.setSaveOrStrike(e.target.value);
+	}
+
     return (
         <div>
-            <h2>Type of Attack</h2>
+            <label htmlFor={name}>Type of Attack</label>
+            <select id={name} name={name} onChange={handleChange}>
             <RadioButton 
                 name="Custom Damage"
-                setSaveOrStrike={props.setSaveOrStrike}
-                default={true}
             />
             <RadioButton 
                 name="Strike"
-                setSaveOrStrike={props.setSaveOrStrike}
             />
             <RadioButton 
                 name="Basic Save"
-                setSaveOrStrike={props.setSaveOrStrike}
             />
+            </select>
         </div>
     );		
 }
 
 function RadioButton(props) {
     var activity = useContext(ActivityContext);
-    var activityID = activity.id;
-    var id = activityID + camelCase(props.name);
-    var name = activityID + "saveOrStrike";
-
-    function handleChange(e) {
-		props.setSaveOrStrike(e.target.value);
-	}
+    var id = activity.id + camelCase(props.name);
 
     return(
-        <div>
-            <input 
-                type="radio"
-                name={name}
-                id={id}
-                value={camelCase(props.name)}
-                onChange={handleChange}
-                defaultChecked={props.default}
-            />
-            <label htmlFor={id}>{props.name}</label>
-        </div>
+        <option id={id} value={camelCase(props.name)}>{props.name}</option>
     );
 }
