@@ -11,27 +11,31 @@ export default function Modifiers(props) {
         <div>
             <h2>Hit Modifiers</h2>
             <button onClick={function() {setComplexModifier(!complexModifier)}}>{complexModifier ? "Simple Modifier" : "Complex Modifier"}</button>
-            <NumberInput name="DC" />
+            {!complexModifier && <NumberInput name="DC" />}
             {!complexModifier && <NumberInput name="Modifier" />}
             {complexModifier && <div>
                 <h3>Your Modifiers</h3>
-                <NumberInput name="Attribute Score" extra="Self" />
-                <NumberInput name="Circumstance Bonus" extra="Self" />
-                <NumberInput name="Status Bonus" extra="Self" />
-                <NumberInput name="Item Bonus" extra="Self" />
-                <CircumstancePenalty name="Circumstance Penalty" extra="Self" />
-                <NumberInput name="Status Penalty" extra="Self" />
-                <NumberInput name="Item Penalty" extra="Self" />
-                <NumberInput name="Untyped Penalty" extra="Self" />
+                <NumberInput name="Modifier" />
+                <h4>Bonus</h4>
+                    <NumberInput name="Circumstance" extra="BonusSelf" />
+                    <NumberInput name="Status" extra="BonusSelf" />
+                    <NumberInput name="Item" extra="BonusSelf" />
+                <h4>Penalty</h4>
+                    <CircumstancePenalty name="Circumstance" extra="PenaltySelf" />
+                    <NumberInput name="Status" extra="PenaltySelf" />
+                    <NumberInput name="Item" extra="PenaltySelf" />
+                    <NumberInput name="Untyped" extra="SelfPenalty" />
                 <h3>Enemy Modifiers</h3>
-                <NumberInput name="Attribute Score" extra="Enemy" />
-                <NumberInput name="Circumstance Bonus" extra="Enemy" />
-                <NumberInput name="Status Bonus" extra="Enemy" />
-                <NumberInput name="Item Bonus" extra="Enemy" />
-                <CircumstancePenalty name="Circumstance Penalty" extra="Enemy" />
-                <NumberInput name="Status Penalty" extra="Enemy" />
-                <NumberInput name="Item Penalty" extra="Enemy" />
-                <NumberInput name="Untyped Penalty" extra="Enemy" />
+                <NumberInput name="DC" />
+                <h4>Bonus</h4>
+                    <NumberInput name="Circumstance" extra="BonusEnemy" />
+                    <NumberInput name="Status" extra="BonusEnemy" />
+                    <NumberInput name="Item" extra="BonusEnemy" />
+                <h4>Penalty</h4>
+                    <CircumstancePenalty name="Circumstance" extra="PenaltyEnemy" />
+                    <NumberInput name="Status" extra="PenaltyEnemy" />
+                    <NumberInput name="Item" extra="PenaltyEnemy" />
+                    <NumberInput name="Untyped" extra="PenaltyEnemy" />
             </div>}
         </div>
     )
