@@ -6,6 +6,11 @@ export default function NumberInput(props) {
     var activity = useContext(ActivityContext);
     var activityID = activity.id;
     var id = activityID + camelCase(props.name);
+    
+    if (props.extra) {
+        id = id + props.extra;
+    }
+
     return (
         <div>
             <label htmlFor={id}>{props.name}: </label>
