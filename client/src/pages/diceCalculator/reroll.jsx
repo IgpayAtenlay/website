@@ -17,7 +17,7 @@ export default function Reroll() {
 function Checkbox(props) {
     var activity = useContext(ActivityContext);
     var activityID = activity.id;
-    var name = camelCase(props.name) + "Reroll";
+    var name = activityID + camelCase(props.name) + "Reroll";
     var id = activityID + name;
 
     return(
