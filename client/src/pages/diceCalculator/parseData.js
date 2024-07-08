@@ -1,41 +1,37 @@
 import parseDice from './parseDice';
 
-export default function parseData(rawData, activityID) {
-    var modifiedDataArray = activityID.map(e => {
-        var modifiedData = {
-            dc: rawData[e + "dc"],
-            modifier: rawData[e + "modifier"],
-            saveOrStrike: rawData[e + "saveOrStrike"],
-            dice: {
-                critSuccess: parseDice(rawData[e + "critSuccessDice"]),
-                success: parseDice(rawData[e + "successDice"]),
-                fail: parseDice(rawData[e + "failDice"]),
-                critFail: parseDice(rawData[e + "critFailDice"])
-            }
+export default function parseData(rawData, id) {
+    var modifiedData = {
+        dc: rawData[id + "dc"],
+        modifier: rawData[id + "modifier"],
+        saveOrStrike: rawData[id + "saveOrStrike"],
+        dice: {
+            critSuccess: parseDice(rawData[id + "critSuccessDice"]),
+            success: parseDice(rawData[id + "successDice"]),
+            fail: parseDice(rawData[id + "failDice"]),
+            critFail: parseDice(rawData[id + "critFailDice"])
         }
-    
-        if (rawData[e + "fortune"] === "advantage") {
-            modifiedData.advantage = true;
-        } else if (rawData[e + "fortune"] === "disadvantage") {
-            modifiedData.disadvantage = true;
-        } else if (rawData[e + "fortune"] === "reroll") {
-            modifiedData.reroll = {}
-            if (rawData[e + "critSuccessReroll"]) {
-                modifiedData.reroll.critSuccess = true;
-            }
-            if (rawData[e + "successReroll"]) {
-                modifiedData.reroll.success = true;
-            }
-            if (rawData[e + "failReroll"]) {
-                modifiedData.reroll.fail = true;
-            }
-            if (rawData[e + "critFailReroll"]) {
-                modifiedData.reroll.critFail = true;
-            }
+    }
+
+    if (rawData[id + "fortune"] === "advantage") {
+        modifiedData.advantage = true;
+    } else if (rawData[id + "fortune"] === "disadvantage") {
+        modifiedData.disadvantage = true;
+    } else if (rawData[id + "fortune"] === "reroll") {
+        modifiedData.reroll = {}
+        if (rawData[id + "critSuccessReroll"]) {
+            modifiedData.reroll.critSuccess = true;
         }
+        if (rawData[id + "successReroll"]) {
+            modifiedData.reroll.success = true;
+        }
+        if (rawData[id + "failReroll"]) {
+            modifiedData.reroll.fail = true;
+        }
+        if (rawData[id + "critFailReroll"]) {
+            modifiedData.reroll.critFail = true;
+        }
+    }
 
-        return modifiedData;
-    });
-
-    return modifiedDataArray;
+    return modifiedData;
 }

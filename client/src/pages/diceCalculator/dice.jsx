@@ -1,10 +1,11 @@
 import camelCase from "../../util/camelCase";
 import startCase from "../../util/startCase";
-import { ActivityIDContext } from ".";
+import { ActivityContext } from ".";
 import { useContext } from "react";
 
 export default function Dice(props) {
-    var activityID = useContext(ActivityIDContext);
+    var activity = useContext(ActivityContext);
+    var activityID = activity.id;
     var dice = [<h2 key={activityID}>Damage Dice</h2>];
 
     if (props.saveOrStrike === "customDamage") {
@@ -24,7 +25,8 @@ export default function Dice(props) {
 }
 
 function DiceInput(props) {
-    var activityID = useContext(ActivityIDContext);
+    var activity = useContext(ActivityContext);
+    var activityID = activity.id;
     var id = activityID + camelCase(props.name) + "Dice";
     return (
         <div>

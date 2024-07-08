@@ -1,6 +1,6 @@
 import camelCase from "../../util/camelCase";
 import startCase from "../../util/startCase";
-import { ActivityIDContext } from ".";
+import { ActivityContext } from ".";
 import { useContext } from "react";
 
 export default function Reroll() {
@@ -15,7 +15,8 @@ export default function Reroll() {
 }
 
 function Checkbox(props) {
-    var activityID = useContext(ActivityIDContext);
+    var activity = useContext(ActivityContext);
+    var activityID = activity.id;
     var name = camelCase(props.name) + "Reroll";
     var id = activityID + name;
 

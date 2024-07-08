@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Reroll from './reroll';
-import { ActivityIDContext } from ".";
+import { ActivityContext } from ".";
 import { useContext } from "react";
 
 export default function Fortune(props) {
@@ -37,7 +37,8 @@ export default function Fortune(props) {
 }
 
 function RadioButton(props) {
-    var activityID = useContext(ActivityIDContext);
+    var activity = useContext(ActivityContext);
+    var activityID = activity.id;
     var id = activityID + props.value;
     var name = activityID + "fortune";
 

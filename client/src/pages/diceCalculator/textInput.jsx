@@ -3,7 +3,8 @@ import { ActivityIDContext } from ".";
 import { useContext } from "react";
 
 export default function TextInput(props) {
-    var activityID = useContext(ActivityIDContext);
+    var activity = useContext(ActivityContext);
+    var activityID = activity.id;
     var id = activityID + camelCase(props.name);
     return (
         <div>

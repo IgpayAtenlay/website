@@ -1,6 +1,6 @@
 import camelCase from "../../util/camelCase";
 
-import { ActivityIDContext } from ".";
+import { ActivityContext } from ".";
 import { useContext } from "react";
 
 export default function SaveOrStrike(props) {
@@ -25,7 +25,8 @@ export default function SaveOrStrike(props) {
 }
 
 function RadioButton(props) {
-    var activityID = useContext(ActivityIDContext);
+    var activity = useContext(ActivityContext);
+    var activityID = activity.id;
     var id = activityID + camelCase(props.name);
     var name = activityID + "saveOrStrike";
 

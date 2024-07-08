@@ -1,9 +1,10 @@
 import camelCase from "../../util/camelCase";
-import { ActivityIDContext } from ".";
+import { ActivityContext } from ".";
 import { useContext } from "react";
 
 export default function NumberInput(props) {
-    var activityID = useContext(ActivityIDContext);
+    var activity = useContext(ActivityContext);
+    var activityID = activity.id;
     var id = activityID + camelCase(props.name);
     return (
         <div>

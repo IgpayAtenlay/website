@@ -1,25 +1,22 @@
+import { ActivityContext } from ".";
+import { useContext } from "react";
+
 export default function Result(props) {
-    var result = props.result;
+    var activity = useContext(ActivityContext);
+    var result = activity.result;
 
     if (Object.keys(result).length === 0) {
         return
     } else {
         return (
             <div>
-                <h2>Average</h2>
-                <p>{round(result.averageDamage)}</p>
-                <h2>Max</h2>
-                <p>{round(result.maxDamage)}</p>
-                <h2>Min</h2>
-                <p>{round(result.minDamage)}</p>
-                <h2>Percent of Critical Successes</h2>
-                <p>{percent(result.accuracy.critSuccess)}</p>
-                <h2>Percent of Successes</h2>
-                <p>{percent(result.accuracy.success)}</p>
-                <h2>Percent of Failures</h2>
-                <p>{percent(result.accuracy.fail)}</p>
-                <h2>Percent of Critical Failures</h2>
-                <p>{percent(result.accuracy.critFail)}</p>
+                <p>Average: {round(result.averageDamage)}</p>
+                <p>Max: {round(result.maxDamage)}</p>
+                <p>Min: {round(result.minDamage)}</p>
+                <p>Percent of Critical Successes: {percent(result.accuracy.critSuccess)}</p>
+                <p>Percent of Successes: {percent(result.accuracy.success)}</p>
+                <p>Percent of Failures: {percent(result.accuracy.fail)}</p>
+                <p>Percent of Critical Failures: {percent(result.accuracy.critFail)}</p>
             </div>
         )
     }

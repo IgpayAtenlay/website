@@ -8,32 +8,44 @@ import Result from './result';
 import Activity from './activity';
 import parseData from './parseData';
 
-export var ActivityIDContext = createContext(null);
+export var ActivityContext = createContext(null);
 
 export default function DiceCalculator() {
 	var[result, setResult] = useState({});
-	var[activityIDs, setActivityIDs] = useState([v4()]);
+	var[activitys, setActivitys] = useState([{
+		id: v4(),
+		data: {},
+		result: {}
+	}]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
 
 		var rawData = Object.fromEntries(new FormData(e.target).entries());
-		var data = parseData(rawData, activityIDs);
-		var result = allCalculations(data[0]);
-		setResult(result);
+		setActivitys(activities.map(e => {
+			var activity = {
+				...e
+			}
+			activity.data = parseData(rawData, e.id);
+			activity.result = allCalculations(activity.data);
+			return activity;
+		}));
 	}
 
-	var activities = activityIDs.map((e) => {
+	var activities = activitys.map((e, index) => {
 		return (
-			<ActivityIDContext.Provider key={e} value={e}>
-				<Activity />
-			</ActivityIDContext.Provider>
+			<ActivityContext.Provider key={e} value={e}>
+				<div>
+					<Activity />
+					<Result />
+				</div>
+			</ActivityContext.Provider>
 		)
 		
 	});
 
 	return(
-		<div>
+		<div className='diceCalculator'>
 			<h1>Dice Calculator</h1>
 
 			<form method="POST" onSubmit={handleSubmit}>
@@ -43,8 +55,6 @@ export default function DiceCalculator() {
 				
 				<input type="submit" value="Calculate" />
 			</form>
-			
-			<Result result={result} />
 		</div>
 	);
 };
