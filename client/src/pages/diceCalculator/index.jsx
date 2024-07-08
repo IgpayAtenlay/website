@@ -11,7 +11,7 @@ import parseData from './parseData';
 export var ActivityContext = createContext(null);
 
 export default function DiceCalculator() {
-	var[activities, setActivities] = useState([{id: v4(), result: {}},{id: v4(), result: {}}]);
+	var[activities, setActivities] = useState([{id: v4()},{id: v4()}]);
 
 	function handleSubmit(e) {
 		e.preventDefault();

@@ -3,11 +3,9 @@ import { useContext } from "react";
 
 export default function Result(props) {
     var activity = useContext(ActivityContext);
-    var result = activity.result;
 
-    if (Object.keys(result).length === 0) {
-        return
-    } else {
+    if (activity.result) {
+        var result = activity.result;
         return (
             <div>
                 <p>Average: {round(result.averageDamage)}</p>
