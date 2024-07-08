@@ -18,7 +18,6 @@ export default function DiceCalculator() {
 
 		var rawData = Object.fromEntries(new FormData(e.target).entries());
 		setActivities(activities.map(e => {
-			console.log(e.id);
 			var activity = {
 				...e
 			}
