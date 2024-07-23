@@ -201,12 +201,7 @@ function getAccuracy(effectiveDC) {
 		calculateAccuracy(effectiveDC);
 	}
 
-	return {
-		critSuccess: DCToAccuracyTable[effectiveDC].critSuccess,
-		success: DCToAccuracyTable[effectiveDC].success,
-		fail: DCToAccuracyTable[effectiveDC].fail,
-		critFail: DCToAccuracyTable[effectiveDC].critFail
-	};
+	return {...DCToAccuracyTable[effectiveDC]};
 }
 
 function calculateAccuracy(effectiveDC) {
@@ -323,12 +318,7 @@ function getAccuracyAdvantage(effectiveDC, isAdvantage) {
 			calculateAccuracyAdvantage(effectiveDC, isAdvantage);
 		}
 	
-		return {
-			critSuccess: DCToAccuracyTableDisadvantage[effectiveDC].critSuccess,
-			success: DCToAccuracyTableDisadvantage[effectiveDC].success,
-			fail: DCToAccuracyTableDisadvantage[effectiveDC].fail,
-			critFail: DCToAccuracyTableDisadvantage[effectiveDC].critFail
-		};
+		return {...DCToAccuracyTableDisadvantage[effectiveDC]};
 	}
 	
 }
