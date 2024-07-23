@@ -11,8 +11,10 @@ This is a calculator that can be used to find average DPR and hit chance for a g
 - [To Do List](#to-do-list)
 
 ## Screenshots
-### Some screenshot:
-![I need to put a screenshot here](../../../public/assets/images/???.svg)
+### Simple Dice Calculator:
+![Two boxes with five inputs each](../../../public/assets/images/diceCalculator.png)
+### Complex Dice Calculator:
+![A single box with over 15 inputs and doesn't fit in the picture](../../../public/assets/images/complexDiceCalculator.png)
 
 ## Code Examples
 The damage is inputed as a string format that is often used in TTRPGs (table top role playing games). This function takes that string and turns it into an array of dice that other functions use for easier calculations.
