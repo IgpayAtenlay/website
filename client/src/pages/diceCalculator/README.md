@@ -69,6 +69,6 @@ Calculating the accuracy of a hit takes a bit of time. When using a fortune effe
 - Shorten the length of 'Percent of Critical Successes: 15 %' to increase readability
 - Improve CSS
 - Test for screenreader capatibility
-- Add automatic hit option
+- Add an option to automatically hit
 - Add ability to upgrade/downgrade degree of success
 - Check copyright laws to see if disclaimer is needed at the bottom of the page
