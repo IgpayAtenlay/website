@@ -1,6 +1,9 @@
 import '../css/aboutMe.css';
+import { useTitle } from "../util/title";
 
 export default function About() {
+  useTitle("About");
+
   return (
   <div className='about'>
     <div className="contactInfo">

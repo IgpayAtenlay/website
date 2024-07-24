@@ -11,7 +11,7 @@ export default function Home() {
             <span className="two">Programming</span>
             <span className="three">Compendium</span>
           </h1>
-          <p>Where everything is handcrafted by yours truely - from games, to programs, to the website itself! Click on a button to explore.</p>
+          <p>Where everything is handcrafted by yours truly - from games, to programs, to the website itself!</p>
         </div>
         <div className="column verticalFlexbox">
           <a href="/projects">Projects</a>

@@ -1,6 +1,9 @@
 import "../css/website.css"
+import { useTitle } from "../util/title";
 
 export default function Website() {
+	useTitle("Website Info");
+	
 	return (
 	<div className="website">
 		<h1>Website</h1>

@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useContext } from 'react';
 import {v4} from "uuid";
 
 import "../../css/diceCalculator.css";
@@ -7,10 +7,16 @@ import allCalculations from './calculations';
 import Result from './result';
 import Activity from './activity';
 import parseData from './parseData';
+import { useTitle } from '../../util/title';
+import { GithubLinkContext } from '../../App';
 
 export var ActivityContext = createContext(null);
 
 export default function DiceCalculator() {
+	useTitle("Dice Calculator");
+	var {setGithubLink} = useContext(GithubLinkContext);
+	setGithubLink("/website/blob/main/client/src/pages/diceCalculator/README.md");
+
 	var[activities, setActivities] = useState([{id: v4()},{id: v4()}]);
 
 	function handleSubmit(e) {
