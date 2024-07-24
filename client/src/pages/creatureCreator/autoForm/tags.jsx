@@ -16,7 +16,7 @@ export default function Tags(props) {
     );
 
     return (
-        <div class="tags">
+        <div className="tags">
             {tags}
             <AddTag />
         </div>
@@ -42,7 +42,7 @@ function Size(props) {
     }
     
     return (
-        <select class={props.color} id={props.id} value={props.text} onChange={handleChange} style={{width: (props.text.length * 4 / 5 + 2.5) + "em"}} >
+        <select className={props.color} id={props.id} value={props.text} onChange={handleChange} style={{width: (props.text.length * 4 / 5 + 2.5) + "em"}} >
             {sizeOptions}
         </select>
     );
@@ -58,5 +58,5 @@ function Tag(props) {
         }));
     }
 
-    return (<button class={props.color} id={props.id} onClick={handleClick}>{props.text.toUpperCase()}</button>);
+    return (<button className={props.color} id={props.id} onClick={handleClick}>{props.text.toUpperCase()}</button>);
 }

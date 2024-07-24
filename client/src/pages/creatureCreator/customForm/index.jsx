@@ -17,14 +17,14 @@ import Name from "./name";
 export default function CustomForm() {
     var {creature} = useContext(CreatureContext);
 
-    return (<div class="customForm">
-        <div class="title">
+    return (<div className="customForm">
+        <div className="title">
             <Name />
-            <p class="level">{creature.type.toUpperCase()} <Level /></p>
+            <p className="level">{creature.type.toUpperCase()} <Level /></p>
         </div>
-        <div class="stats">
+        <div className="stats">
             <Tags tags={creature.tags} />
-            <div class="proficiency">
+            <div className="proficiency">
                 <NumberInput label={<b>Perception</b>} name="modifier" location={creature.perception} />
                 <div><b>Languages</b> <Languages languages={creature.languages} /><AddButton variable="languages" defaultValue={{language: "common"}} /></div>
                 <Skills />
@@ -39,7 +39,7 @@ export default function CustomForm() {
                 <div><b>Items</b> <Items items={creature.items} /></div>
             </div>
         </div>
-        <div class="defenses">
+        <div className="defenses">
             <p>
                 <NumberInput label={<b>AC</b>} location={creature.defenses.ac} />;{" "}
                 <NumberInput label={<b>Fort</b>} location={creature.defenses.fort} />;{" "}
@@ -47,7 +47,7 @@ export default function CustomForm() {
                 <NumberInput label={<b>Will</b>} location={creature.defenses.will} /></p>
             <p><NumberInput label={<b>HP</b>} location={creature.defenses.hp} /></p>
         </div>
-        <div class="other">
+        <div className="other">
             <p><NumberInput label={<b>Speed</b>} location={creature.speed[0]} factor={5} /> feet</p>
             <Weapons weapons={creature.weapons}/>
             <MiscAbilities other={creature.miscAbilities} />

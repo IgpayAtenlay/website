@@ -61,7 +61,7 @@ function Item(props) {
     }
 
     return(
-        <span class="item">
+        <span className="item">
             <input 
                 id={props.item.id + "name"}
                 onChange={handleChange}

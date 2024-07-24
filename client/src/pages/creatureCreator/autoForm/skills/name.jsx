@@ -80,8 +80,8 @@ export default function Name(props) {
         }
 
         return(
-            <div class="lore">
-                <input class="loreInput" id={props.id} value={name} onChange={handleChangeLores} />
+            <div className="lore">
+                <input className="loreInput" id={props.id} value={name} onChange={handleChangeLores} />
                 <p>&nbsp;Lore</p>
             </div>
         );

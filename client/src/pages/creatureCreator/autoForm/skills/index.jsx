@@ -21,7 +21,7 @@ export default function Skills() {
     return (
         <div>
             <p><b>Skills</b></p>
-            <div class="skillWrapper">
+            <div className="skillWrapper">
                 {skills}
             </div>
             <AddButton />

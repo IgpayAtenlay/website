@@ -9,7 +9,7 @@ export default function Simon() {
   <div className="simon">
     <h1>Click any button to start</h1>
 
-    <div class="container">
+    <div className="container">
       <button id="one" aria-label="lowest"></button>
       <button id="two" aria-label="low"></button>
       <button id="three" aria-label="high"></button>

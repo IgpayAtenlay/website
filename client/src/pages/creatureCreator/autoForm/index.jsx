@@ -11,14 +11,14 @@ import Perception from "./perception";
 
 export default function Creature(props) {
     var creature = props.creature;
-    return (<div class="autoForm">
-        <div class="title">
-            <p class="name">{creature.name.toUpperCase()}</p>
-            <p class="level">{creature.type.toUpperCase()} <Level /></p>
+    return (<div className="autoForm">
+        <div className="title">
+            <p className="name">{creature.name.toUpperCase()}</p>
+            <p className="level">{creature.type.toUpperCase()} <Level /></p>
         </div>
-        <div class="stats">
+        <div className="stats">
             <Tags tags={creature.tags} />
-            <div class="proficiency">
+            <div className="proficiency">
                 <Perception />
                 <div><b>Languages</b> <Languages languages={creature.languages} /></div>
                 <Skills />
@@ -26,11 +26,11 @@ export default function Creature(props) {
                 <p><b>Items</b> <Items items={creature.items} /></p>
             </div>
         </div>
-        <div class="defenses">
+        <div className="defenses">
             <p><b>AC</b> {creature.defenses.ac.scale}; <b>Fort</b> +{creature.defenses.fort.scale}, <b>Ref</b> +{creature.defenses.ref.scale}, <b>Will</b> +{creature.defenses.will.scale}</p>
             <p><b>HP</b> {creature.defenses.hp.scale}</p>
         </div>
-        <div class="other">
+        <div className="other">
             <p><b>Speed</b> {creature.speed[0].modifier} feet</p>
             <Weapons weapons={creature.weapons}/>
             <MiscAbilities other={creature.miscAbilities} />
