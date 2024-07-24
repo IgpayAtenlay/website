@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from './pages/home';
+import Projects from './pages/projects';
 import About from './pages/about';
 import DiceCalculator from './pages/diceCalculator';
 import MarylandFlag from './pages/marylandFlag';
@@ -23,6 +24,7 @@ export default function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/diceCalculator" element={<DiceCalculator />} />
             <Route path="/marylandFlag" element={<MarylandFlag />} />
