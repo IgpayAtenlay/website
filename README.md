@@ -28,7 +28,7 @@ For details on particular projects, please follow these links.
 </ul>
 
 ## Screenshots
-### Home Page:
+### Projects Page:
 ![](client/public/assets/images/homePage.png)
 ### About Me Page:
 ![](client/public/assets/images/aboutMePage.png)
