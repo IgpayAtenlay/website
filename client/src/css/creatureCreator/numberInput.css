@@ -1,17 +1,17 @@
-.numberInput {
+.creatureCreator .numberInput {
     display: inline-grid;
     grid-template-columns: auto auto 1fr;
     grid-template-rows: 0.75em 0.75em;
 }
 
-.numberInput input,label {
+.creatureCreator .numberInput input,label {
     grid-row: span 2;
 }
 
-.numberInput label {
+.creatureCreator .numberInput label {
     margin-right: 0.3em;
 }
 
-.numberInput button {
+.creatureCreator .numberInput button {
     font-size: 0.5em;
 }

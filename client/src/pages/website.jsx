@@ -1,16 +1,20 @@
+import "../css/website.css"
+
 export default function Website() {
 	return (
-	<div>
+	<div className="website">
 		<h1>Website</h1>
 		<h2>Accessibility</h2>
 			<p>
 				This website is compatable to WCAG guidelines for accessibility. Examples of accessibility in this website:
-				<ul>
-					<li>Important images have alt text</li>
-					<li>Decorative images do not have alt text</li>
-					<li>Regions provide easy navigation using screenreaders</li>
-					<li>Link purpose can be determined by link text</li>
-				</ul>
+			</p>
+			<ul>
+				<li>Important images have alt text</li>
+				<li>Decorative images do not have alt text</li>
+				<li>Regions provide easy navigation using screenreaders</li>
+				<li>Link purpose can be determined by link text</li>
+			</ul>
+			<p>
 				If you would like to know more about WCAG guidelines, see here: <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG guidelines</a>.
 			</p>
 		<h2>Visuals, Styling, and CSS</h2>

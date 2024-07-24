@@ -2,7 +2,7 @@ import '../css/aboutMe.css';
 
 export default function About() {
   return (
-  <div>
+  <div className='about'>
     <div className="contactInfo">
       <img alt="Melissa smiling" src="assets/images/melissaPortrait.jpg" />
       <h2>Contact Information</h2>
