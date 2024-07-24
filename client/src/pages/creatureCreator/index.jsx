@@ -1,15 +1,18 @@
-import {useState, createContext} from 'react';
+import { useState, createContext, useContext } from 'react';
 import "../../css/creatureCreator/index.css";
 import Creature from "./creature";
 import CustomForm from "./customForm";
 import AutoForm from './autoForm';
-import {v4} from "uuid";
+import { v4 } from "uuid";
 import { useTitle } from '../../util/title';
+import { GithubLinkContext } from '../../App';
 
 export var CreatureContext = createContext(null);
 
 export default function CreatureCreator() {
     useTitle("Creature Creator");
+    var {setGithubLink} = useContext(GithubLinkContext);
+    setGithubLink("/website/blob/main/client/src/pages/creatureCreator/README.md");
     
     var [creature, setCreature] = useState({
         name: "plague doctor",

@@ -1,9 +1,9 @@
 export default function Header() {
 	return (
 	<header>
-		<a className="logo" href="/" title="Melissa Home" aria-label="Melissa Home">
+		<a className="logo" href="/" title="MPC Home" aria-label="MPC Home">
 			<img src="assets/images/inverseLogo.svg" focusable="false" aria-hidden="true" alt="logo"/>
-			Melissa
+			MPC
 		</a>
 		
 		<nav className="links">
