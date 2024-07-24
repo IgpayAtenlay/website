@@ -7,7 +7,7 @@ export default function MiscAbilities(props) {
     var other = [];
     props.other.forEach(e => {
         other = other.concat(
-        <div>
+        <div key={e.id}>
             <WordInput variable={"miscAbilities"} label={"name"} id={e.id} />
             <input type="checkbox" />
             <Description id={e.id} />
