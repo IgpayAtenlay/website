@@ -70,6 +70,5 @@ This React code describes the cards that are found on the home page
 
 ## To Do List
 - Add examples to Nomai and Slitherlink pages, or find way to integrate them into website
-- Update the github links
 - Create the ReadMe for Slitherlink project
 - Figure out how to get Railway to automatically npm run build when deploying the website
