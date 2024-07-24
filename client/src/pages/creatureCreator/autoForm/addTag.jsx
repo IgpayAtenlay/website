@@ -289,7 +289,7 @@ export default function AddTag() {
     }
 
     return (
-        <select class="red addTag" value="add tag" onChange={handleChange}>
+        <select className="red addTag" value="add tag" onChange={handleChange}>
             <option value="add tag">ADD TAG</option>
             {traitOptions}
         </select>

@@ -214,7 +214,7 @@ export default function CreatureCreator() {
         setFormToggle(!formToggle);
     }
 
-    return (<div class="creatureCreator">
+    return (<div className="creatureCreator">
         <CreatureContext.Provider value={{creature, setCreature}}>
             <button onClick={handleChange}>{formToggle ? "Custom Form" : "Automatic Form"}</button>
             {formToggle ? <AutoForm creature={creature} /> : <CustomForm creature={creature} />}

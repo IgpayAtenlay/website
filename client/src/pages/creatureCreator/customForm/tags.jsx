@@ -9,7 +9,7 @@ export default function Tags(props) {
     );
 
     return (
-        <div class="tags">
+        <div className="tags">
             {tags}
             <AddButton 
                 variable="tags" 
@@ -27,7 +27,7 @@ function Tag(props) {
     var {creature, setCreature} = useContext(CreatureContext);
     
     var colorOptions = colors.map(e => 
-        <option class={e} value={e} key={e}>{startCase(e)}</option>
+        <option className={e} value={e} key={e}>{startCase(e)}</option>
     );
 
     function handleChangeText(e) {
@@ -76,8 +76,8 @@ function Tag(props) {
 
     return (
         <div>
-            <input class={props.color} id={props.id} onChange={handleChangeText} value={props.text.toUpperCase()} style={{width: (props.text.length * 5 / 8 + 0.5) + "em"}} />
-            <select class={props.color} id={props.id} value={props.color} onChange={handleChangeColor}>
+            <input className={props.color} id={props.id} onChange={handleChangeText} value={props.text.toUpperCase()} style={{width: (props.text.length * 5 / 8 + 0.5) + "em"}} />
+            <select className={props.color} id={props.id} value={props.color} onChange={handleChangeColor}>
                 {colorOptions}
                 <option value="delete">Delete</option>
             </select>

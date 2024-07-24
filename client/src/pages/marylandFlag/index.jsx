@@ -6,7 +6,7 @@ import CanvasFlag from "./canvasFlag";
 
 export default function MarylandFlag() {
 	return(
-	<div class="marylandFlag">
+	<div className="marylandFlag">
 		<h1>Marlyland Flag with CSS</h1>
 		<p>I decided to create the Maryland flag using a variety of methods in order to practice using each method and comparing the end products. 
 			I like flag two the best due to the crisp and clean look, but using it without React to separate components would make the HTML 

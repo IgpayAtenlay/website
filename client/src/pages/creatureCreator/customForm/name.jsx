@@ -13,7 +13,7 @@ export default function Name() {
 
     return (
         <input 
-            class="name" 
+            className="name" 
             value={creature.name.toUpperCase()}
             onChange={handleChange}
             style={{width: creature.name.length * 10 + 5}}
