@@ -1,7 +1,9 @@
 import useScript from '../../components/useScript';
 import "../../css/simon.css";
+import { useTitle } from '../../util/title';
 
 export default function Simon() {
+  useTitle("Simon");
   useScript('https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js');
   useScript('./js/simon.js');
 

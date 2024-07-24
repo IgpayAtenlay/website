@@ -4,10 +4,13 @@ import Creature from "./creature";
 import CustomForm from "./customForm";
 import AutoForm from './autoForm';
 import {v4} from "uuid";
+import { useTitle } from '../../util/title';
 
 export var CreatureContext = createContext(null);
 
 export default function CreatureCreator() {
+    useTitle("Creature Creator");
+    
     var [creature, setCreature] = useState({
         name: "plague doctor",
         type: "creature",

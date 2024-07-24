@@ -7,10 +7,12 @@ import allCalculations from './calculations';
 import Result from './result';
 import Activity from './activity';
 import parseData from './parseData';
+import { useTitle } from '../../util/title';
 
 export var ActivityContext = createContext(null);
 
 export default function DiceCalculator() {
+	useTitle("Dice Calculator");
 	var[activities, setActivities] = useState([{id: v4()},{id: v4()}]);
 
 	function handleSubmit(e) {

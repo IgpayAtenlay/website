@@ -1,7 +1,10 @@
 import "../css/projects.css";
 import Card from "./card";
+import { useTitle } from "../util/title";
 
 export default function Projects() {
+  useTitle("Projects");
+
   return (
   <div className="projects container">
     <Card 
@@ -34,7 +37,7 @@ export default function Projects() {
     <Card
       url='website'
       image="logo.svg"
-      title="Website"
+      title="Website Info"
       description="This is the website you are currently looking at. It uses React, Node.js, CSS, HTML, and more"
     />
 
