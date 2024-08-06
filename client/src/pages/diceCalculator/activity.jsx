@@ -7,8 +7,8 @@ export default function Activity(props) {
   var activity = useContext(ActivityContext);
 
   return(
-    <section>
-      <h1>Activity {props.index + 1}</h1>
+    <section aria-labelledby={activity.id + "label"}>
+      <h1 id={activity.id + "label"}>Activity {props.index + 1}</h1>
       <button id={activity.id} onClick={props.removeActivity} className='deleteButton' aria-label='delete activity'>X</button>
       <Form />
       <hr />
