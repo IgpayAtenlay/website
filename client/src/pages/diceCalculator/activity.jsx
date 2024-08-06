@@ -1,18 +1,18 @@
-import { useState } from 'react';
-
-import Dice from './dice';
-import Fortune from './fortune';
-import SaveOrStrike from './saveOrStrike';
-import Modifiers from "./modifiers";
+import Result from './result';
+import Form from './form';
+import { useContext } from 'react';
+import { ActivityContext } from '.';
 
 export default function Activity(props) {
-    var[saveOrStrike, setSaveOrStrike] = useState("strike");
+  var activity = useContext(ActivityContext);
 
-    return (<div className='activity'>
-        <Modifiers />
-        <Dice saveOrStrike={saveOrStrike} />
-        <h2>Other</h2>
-        <Fortune />
-        <SaveOrStrike setSaveOrStrike={setSaveOrStrike} />
-    </div>)
+  return(
+    <section>
+      <h1>Activity {props.index + 1}</h1>
+      <button id={activity.id} onClick={props.removeActivity} className='deleteButton' aria-label='delete activity'>X</button>
+      <Form />
+      <hr />
+      <Result />
+    </section>
+  );
 }

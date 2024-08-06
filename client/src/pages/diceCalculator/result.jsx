@@ -8,6 +8,7 @@ export default function Result(props) {
         var result = activity.result;
         return (
             <div>
+                <h2>Results:</h2>
                 <p>Average: {round(result.averageDamage)}</p>
                 <p>Max: {round(result.maxDamage)}</p>
                 <p>Min: {round(result.minDamage)}</p>

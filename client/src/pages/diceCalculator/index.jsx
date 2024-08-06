@@ -4,11 +4,11 @@ import {v4} from "uuid";
 import "../../css/diceCalculator.css";
 
 import allCalculations from './calculations';
-import Result from './result';
-import Activity from './activity';
+
 import parseData from './parseData';
 import { useTitle } from '../../util/title';
 import { GithubLinkContext } from '../../App';
+import Activity from './activity';
 
 export var ActivityContext = createContext(null);
 
@@ -33,14 +33,10 @@ export default function DiceCalculator() {
 		}));
 	}
 
-	var activityArray = activities.map((e) => {
+	var activityArray = activities.map((e, index) => {
 		return (
 			<ActivityContext.Provider key={e.id} value={e}>
-				<div>
-					<button id={e.id} onClick={removeActivity}>-</button>
-					<Activity />
-					<Result />
-				</div>
+				<Activity index={index} removeActivity={removeActivity} />
 			</ActivityContext.Provider>
 		)
 		
@@ -58,8 +54,6 @@ export default function DiceCalculator() {
 
 	return(
 		<div className='diceCalculator'>
-			<h1>Dice Calculator</h1>
-
 			<form method="POST" onSubmit={handleSubmit}>
 				<div className='activities'>
 					{activityArray}
