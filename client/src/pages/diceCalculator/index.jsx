@@ -57,7 +57,7 @@ export default function DiceCalculator() {
 			<form method="POST" onSubmit={handleSubmit}>
 				<div className='activities'>
 					{activityArray}
-					<button onClick={addActivity}>+</button>
+					<button onClick={addActivity} aria-label="new activity">+</button>
 				</div>
 				
 				<input type="submit" value="Calculate" />
