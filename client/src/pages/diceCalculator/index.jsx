@@ -17,7 +17,7 @@ export default function DiceCalculator() {
 	var {setGithubLink} = useContext(GithubLinkContext);
 	setGithubLink("/website/blob/main/client/src/pages/diceCalculator/README.md");
 
-	var[activities, setActivities] = useState([{id: v4()},{id: v4()}]);
+	var[activities, setActivities] = useState([{id: v4()}]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -54,7 +54,7 @@ export default function DiceCalculator() {
 
 	return(
 		<div className='diceCalculator'>
-			<form method="POST" onSubmit={handleSubmit}>
+			<form method="POST" onSubmit={handleSubmit} aria-label="dice calculator">
 				<div className='activities'>
 					{activityArray}
 					<button onClick={addActivity} aria-label="new activity">+</button>
