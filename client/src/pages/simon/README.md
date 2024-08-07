@@ -59,4 +59,4 @@ This Javascript code both chooses what audio to play and creates the button flas
 ```
 
 ## To Do List
-- The game should show the whole pattern, not just the one most recent button
+- Add instructions

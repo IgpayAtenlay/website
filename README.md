@@ -73,3 +73,4 @@ This React code describes the cards that are found on the home page
 - Create the ReadMe for Slitherlink project
 - Figure out how to get Railway to automatically npm run build when deploying the website
 - Change color template to make header readable when using inversed colors
+- made it to 1.3.1 G115
