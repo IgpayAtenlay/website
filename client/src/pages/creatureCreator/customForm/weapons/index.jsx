@@ -4,6 +4,7 @@ import NumberInput from "../numberInput";
 import WordInput from "../wordInput";
 import AddButton from "../addButton";
 import DeleteButton from "../deleteButton";
+import ActionSymbol from "../../actionSymbol";
 
 export default function Weapons(props) {
     if (props.weapons.length > 0) {
@@ -52,7 +53,7 @@ function Weapon(props) {
     return (
         <div>
             <Range id={e.id} />
-            &#9670;
+            <ActionSymbol num="1" />
             <WordInput id={e.id} variable="weapons" label="name" />
             <NumberInput location={e} label="+"/>
             (
