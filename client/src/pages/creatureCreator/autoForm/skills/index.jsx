@@ -9,21 +9,33 @@ import DeleteButton from './deleteButton';
 export default function Skills() {
     var {creature} = useContext(CreatureContext);
 
-    var skills = []
-    creature.skills.forEach(e => {
-        skills = skills.concat(<Name key={e.id + "name"} id={e.id} name={e.name} />);
-        skills = skills.concat(<Scale key={e.id + "scale"} id={e.id} scale={e.scale} />);
-        skills = skills.concat(<DeleteButton key={e.id + "delete"} id={e.id} />);
+    var skills = creature.skills.map(e => {
+        return (
+            <tr key={e.id}>
+                <th scope='row'><Name id={e.id} name={e.name} /></th>
+                <td><Scale id={e.id} scale={e.scale} /></td>
+                <td><DeleteButton id={e.id} /></td>
+            </tr>
+        );
     }
         
     );
 
     return (
         <div>
-            <p><b>Skills</b></p>
-            <div className="skillWrapper">
-                {skills}
-            </div>
+            <table>
+                <caption>Skills</caption>
+                <thead>
+                    <tr>
+                        <th scope='col'>Skill</th>
+                        <th scope='col'>Scale</th>
+                        <th scope='col'>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {skills}
+                </tbody>
+            </table>
             <AddButton />
             <SortButton />
         </div>
