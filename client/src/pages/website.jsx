@@ -16,6 +16,7 @@ export default function Website() {
 				<li>Decorative images do not have alt text</li>
 				<li>Regions provide easy navigation using screenreaders</li>
 				<li>Link purpose can be determined by link text</li>
+				<li>HTML matches purpose</li>
 			</ul>
 			<p>
 				If you would like to know more about WCAG guidelines, see here: <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG guidelines</a>.

@@ -23,7 +23,7 @@
     gap: 10px
 }
 
-.diceCalculator .activity {
+.diceCalculator section {
     background-color: var(--tint-one);
     border-color: var(--text);
     border: 1px;
@@ -35,4 +35,21 @@
 
 .diceCalculator p {
     margin: 0px;
+}
+
+.diceCalculator hr {
+    height: 0.5px;
+    background-color: black;
+    margin: 5px 0px;
+}
+
+.diceCalculator section {
+    position: relative;
+}
+
+.diceCalculator .deleteButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
 }

@@ -140,3 +140,7 @@ footer {
     margin: 0px;
     padding: 3px;
 }
+
+.icon {
+    font-family: sans-serif !important;
+}
