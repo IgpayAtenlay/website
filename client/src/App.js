@@ -17,15 +17,15 @@ import Footer from './components/footer';
 
 import './css/general.css'
 
-export var GithubLinkContext = createContext(null);
+export var GithubContext = createContext(null);
 
 export default function App() {
 
-  var [githubLink, setGithubLink] = useState("");
+  var [github, setGithub] = useState({link: "", name: ""});
 
   return (
     <div>
-      <GithubLinkContext.Provider value={{githubLink, setGithubLink}}>
+      <GithubContext.Provider value={{github, setGithub}}>
         <Header />
         <main>
           <Router>
@@ -44,7 +44,7 @@ export default function App() {
           </Router>
         </main>
         <Footer />
-      </GithubLinkContext.Provider>
+      </GithubContext.Provider>
     </div>
   );
 };

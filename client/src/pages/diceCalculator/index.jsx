@@ -7,15 +7,15 @@ import allCalculations from './calculations';
 
 import parseData from './parseData';
 import { useTitle } from '../../util/title';
-import { GithubLinkContext } from '../../App';
+import { GithubContext } from '../../App';
 import Activity from './activity';
 
 export var ActivityContext = createContext(null);
 
 export default function DiceCalculator() {
 	useTitle("Dice Calculator");
-	var {setGithubLink} = useContext(GithubLinkContext);
-	setGithubLink("/website/blob/main/client/src/pages/diceCalculator/README.md");
+	var {setGithub} = useContext(GithubContext);
+	setGithub({link: "/website/blob/main/client/src/pages/diceCalculator/README.md", name: "Dice Calculator"});
 
 	var[activities, setActivities] = useState([{id: v4()}]);
 

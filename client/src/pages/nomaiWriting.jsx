@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useTitle } from "../util/title";
-import { GithubLinkContext } from "../App";
+import { GithubContext } from "../App";
 
 export default function NomaiWriting() {
   useTitle("Nomai Writing");
-  var {setGithubLink} = useContext(GithubLinkContext);
-  setGithubLink("/NomaiWriting");
+  var {setGithub} = useContext(GithubContext);
+  setGithub({link: "/NomaiWriting", name: "Nomai Writing"});
 
   return (
   <div>

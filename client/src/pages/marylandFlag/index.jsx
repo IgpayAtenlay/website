@@ -5,12 +5,12 @@ import GridFlag from "./gridFlag";
 import CanvasFlag from "./canvasFlag";
 import { useTitle } from "../../util/title";
 import { useContext } from "react";
-import { GithubLinkContext } from "../../App";
+import { GithubContext } from "../../App";
 
 export default function MarylandFlag() {
 	useTitle("Maryland Flag");
-	var {setGithubLink} = useContext(GithubLinkContext);
-	setGithubLink("/website/blob/main/client/src/pages/marylandFlag/README.md");
+	var {setGithub} = useContext(GithubContext);
+	setGithub({link: "/website/blob/main/client/src/pages/marylandFlag/README.md", name: "Maryland Flag"});
 
 	return(
 	<div className="marylandFlag">
