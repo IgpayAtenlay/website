@@ -5,10 +5,11 @@
     --tint-two: #dce3ff;
     --tint-one-shadow: #d7c4ff;
     --tint-two-shadow: #c9d5ff;
-    --shade-one: #A67CFF;
-    --shade-two: #7090FF;
+    --shade-one: #7b3eff;
+    --shade-two: #416aff;
     --accent-one: #84E296;
     --accent-two: #E65768;
+    --link: #0036FA;
 }
 
 body {
@@ -27,7 +28,7 @@ body {
 }
 
 a {
-    color: VAR(--shade-two);
+    color: VAR(--link);
 }
 
 ul {
