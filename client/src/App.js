@@ -11,6 +11,7 @@ import Simon from './pages/simon';
 import SlitherlinkSolver from './pages/slitherlinkSolver';
 import Website from './pages/website';
 import CreatureCreator from "./pages/creatureCreator";
+import CreatureCreator2 from "./pages/creatureCreator2.jsx";
 
 import Header from './components/header';
 import Footer from './components/footer';
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="/slitherlinkSolver" element={<SlitherlinkSolver />} />
               <Route path="/website" element={<Website />} />
               <Route path="/creatureCreator" element={<CreatureCreator />} />
+              <Route path="/creatureCreator2" element={<CreatureCreator2 />} />
             </Routes>
           </Router>
         </main>
