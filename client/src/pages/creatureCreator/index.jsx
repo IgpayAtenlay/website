@@ -15,7 +15,7 @@ export default function CreatureCreator() {
     setGithubLink("/website/blob/main/client/src/pages/creatureCreator/README.md");
     
     var [creature, setCreature] = useState({
-        name: "plague doctor",
+        name: "monster name",
         type: "creature",
         level: 5,
         tags: [
@@ -68,7 +68,7 @@ export default function CreatureCreator() {
                 scale: "auto"
             },
             {
-                name: "plague lore",
+                name: "warfare lore",
                 modifier: 13,
                 scale: "high"
             },
