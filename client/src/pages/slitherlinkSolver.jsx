@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useTitle } from "../util/title";
-import { GithubLinkContext } from "../App";
+import { GithubContext } from "../App";
 
 export default function SlitherlinkSolver() {
   useTitle("Slitherlink Solver");
-  var {setGithubLink} = useContext(GithubLinkContext);
-  setGithubLink("/Slitherlink");
+  var {setGithub} = useContext(GithubContext);
+  setGithub({link: "/Slitherlink", name: "Slitherlink"});
 
   return (
   <div className="slitherlinkSolver">

@@ -2,12 +2,12 @@ import useScript from '../../util/useScript';
 import "../../css/simon.css";
 import { useTitle } from '../../util/title';
 import { useContext } from 'react';
-import { GithubLinkContext } from '../../App';
+import { GithubContext } from '../../App';
 
 export default function Simon() {
   useTitle("Simon");
-  var {setGithubLink} = useContext(GithubLinkContext);
-  setGithubLink("/website/blob/main/client/src/pages/simon/README.md");
+  var {setGithub} = useContext(GithubContext);
+  setGithub({link: "/website/blob/main/client/src/pages/simon/README.md", name: "Simon"});
 
   useScript('https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js');
   useScript('./js/simon.js');
