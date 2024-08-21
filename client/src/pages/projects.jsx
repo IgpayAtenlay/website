@@ -57,9 +57,9 @@ export default function Projects() {
 
 <Card
       url="colorContrast"
-      image=""
+      image="colorPicker.png"
       title="Color Contrast"
-      description="Invert colors"
+      description="This tool gives color contrast ratios of two input colors and their inverted colors"
     />
   </div>);
 };

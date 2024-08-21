@@ -76,7 +76,7 @@ export default function ColorContrast() {
                 <label htmlFor="b2">B:</label>
                 <input id="b2" type="number" onChange={handleChange} min={0} max={255} value={colorTwo.b} />
                 <label htmlFor="hex2">Hex:</label>
-                <input id="hex2" onChange={handleChange} value={colorOne.hex} />
+                <input id="hex2" onChange={handleChange} value={colorTwo.hex} />
             </div>
             <span>{ratio}</span>
             <div style={{backgroundColor: rgb(inverseOne)}} />
