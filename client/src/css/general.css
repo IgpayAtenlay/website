@@ -146,3 +146,26 @@ footer {
 .icon {
     font-family: sans-serif !important;
 }
+
+.skipLink {
+    z-index: 200;
+    position: fixed;
+    background-color: var(--accent-two);
+    color: var(--text);
+    width: 100vw;
+    border-width: 0px 0px 0.2em 0px;
+    border-style: solid;
+    text-align: center;
+    font-size: large;
+    padding: 1em 0px;
+}
+
+.hideVisual:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }

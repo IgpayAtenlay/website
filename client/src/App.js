@@ -16,6 +16,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 
 import './css/general.css'
+import SkipLink from "./components/skipLink";
 
 export var GithubContext = createContext(null);
 
@@ -26,8 +27,9 @@ export default function App() {
   return (
     <div>
       <GithubContext.Provider value={{github, setGithub}}>
+        <SkipLink />
         <Header />
-        <main>
+        <main id="main">
           <Router>
             <Routes>
               <Route path="/" element={<Home />} />
