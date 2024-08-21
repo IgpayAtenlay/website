@@ -54,5 +54,12 @@ export default function Projects() {
       title="Slitherlink Solver"
       description="This Java program automatically solves slitherlink puzzle"
     />
+
+<Card
+      url="colorContrast"
+      image=""
+      title="Color Contrast"
+      description="Invert colors"
+    />
   </div>);
 };
