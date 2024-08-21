@@ -11,6 +11,7 @@ import Simon from './pages/simon';
 import SlitherlinkSolver from './pages/slitherlinkSolver';
 import Website from './pages/website';
 import CreatureCreator from "./pages/creatureCreator";
+import ColorContrast from "./pages/colorContrast";
 
 import Header from './components/header';
 import Footer from './components/footer';
@@ -42,6 +43,7 @@ export default function App() {
               <Route path="/slitherlinkSolver" element={<SlitherlinkSolver />} />
               <Route path="/website" element={<Website />} />
               <Route path="/creatureCreator" element={<CreatureCreator />} />
+              <Route path="/colorContrast" element={<ColorContrast />} />
             </Routes>
           </Router>
         </main>
