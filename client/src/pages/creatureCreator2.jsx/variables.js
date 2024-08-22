@@ -28,6 +28,11 @@ export var skillModifiers = {
     veryLow: [1, 2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 15, 16, 17, 19, 20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33]
 }
 
+export var wirLevels = {
+    minimum: [1, 1, 2, 2, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13],
+    maximum: [1, 3, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21, 22, 23, 24, 25, 26]
+}
+
 export var creatureInput = {
     name: "bear",
     level: 3,
@@ -379,4 +384,5 @@ export var traits = {
     }
 }
 
-export var damageTypes = ["acid", "bleed", "bludgeoning", "cold", "cold iron", "electricity", "fire", "force", "holy", "mental", "piercing", "precision", "poison", "slashing", "silver", "sonic", "spirit", "unholy", "vitality", "void"];
+export var damageTypes = ["acid", "all", "area", "bleed", "bludgeoning", "cold", "cold iron", "electricity", "fire", "force", "holy", "mental", "physical", "piercing", "precision", "poison", "slashing", "silver", "sonic", "spirit", "splash", "unholy", "vitality", "void"];
+export var generalDamageTypes = ["all", "physical"];

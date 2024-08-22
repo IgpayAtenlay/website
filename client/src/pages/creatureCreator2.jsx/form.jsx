@@ -68,7 +68,7 @@ export function parseData(formData) {
 
     return {
         name: dataObject.name,
-        level: dataObject.level,
+        level: parseInt(dataObject.level),
         archetype: dataObject.archetype,
         primaryAttribute: dataObject.primaryAttribute,
         primarySkill: dataObject.primarySkill,
