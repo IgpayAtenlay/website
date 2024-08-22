@@ -386,3 +386,94 @@ export var traits = {
 
 export var damageTypes = ["acid", "all", "area", "bleed", "bludgeoning", "cold", "cold iron", "electricity", "fire", "force", "holy", "mental", "physical", "piercing", "precision", "poison", "slashing", "silver", "sonic", "spirit", "splash", "unholy", "vitality", "void"];
 export var generalDamageTypes = ["all", "physical"];
+
+export var archetype = {
+    brute: {
+        perception: "low",
+        abilities: {
+            str: "high",
+            dex: "low",
+            con: "moderate",
+            int: "low",
+            wis: "low",
+            cha: "low"
+        },
+        defenses: {
+            ac: "moderate",
+            fort: "high",
+            reflex: "low",
+            will: "low",
+            hp: "high"
+        },
+        attack: {
+            bonus: "high",
+            damage: "high"
+        }
+    },
+    magicalStriker: {
+        attack: {
+            bonus: "high",
+            damage: "high"
+        }
+    },
+    skillParagon: {
+        skill: "extreme",
+        defenses: {
+            reflex: "high",
+            will: "moderate",
+            fort: "low"
+        }
+    },
+    skirmisher: {
+        abilities: {
+            dex: "high"
+        },
+        defenses: {
+            fort: "low",
+            reflex: "high",
+            will: "moderate"
+        },
+        speed: "high"
+    },
+    sniper: {
+        perception: "high",
+        abilities: {
+            dex: "high"
+        },
+        defenses: {
+            fort: "low",
+            reflex: "high",
+            hp: "moderate",
+            will: "moderate"
+        },
+        attack: {
+            bonus: "high",
+            damage: "high"
+        }
+    },
+    soldier: {
+        abilities: {
+            str: "high"
+        },
+        defenses: {
+            ac: "high",
+            fort: "high",
+        },
+        attack: {
+            bonus: "high",
+            damage: "high"
+        },
+        ability: "reactive strike"
+    },
+    spellcaster: {
+        defenses: {
+            fort: "low",
+            will: "high",
+            hp: "low"
+        },
+        attack: {
+            bonus: "low",
+            damage: "moderate"
+        }
+    }
+}
