@@ -1,18 +1,17 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext } from 'react';
 import "../../css/creatureCreator/index.css";
 import Creature from "./creature";
 import CustomForm from "./customForm";
 import AutoForm from './autoForm';
 import { v4 } from "uuid";
-import { useTitle } from '../../util/title';
-import { GithubContext } from '../../App';
+import { useTitle } from '../../util/useTitle';
+import { useFooter } from '../../util/useFooter';
 
 export var CreatureContext = createContext(null);
 
 export default function CreatureCreator() {
     useTitle("Creature Creator");
-    var {setGithub} = useContext(GithubContext);
-    setGithub({link: "/website/blob/main/client/src/pages/creatureCreator/README.md", name: "Creature Creator"});
+    useFooter({link: "/website/blob/main/client/src/pages/creatureCreator/README.md", name: "Creature Creator"});
     
     var [creature, setCreature] = useState({
         name: "monster name",

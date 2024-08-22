@@ -1,11 +1,9 @@
-import { useContext } from "react";
-import { useTitle } from "../util/title";
-import { GithubContext } from "../App";
+import { useTitle } from "../util/useTitle";
+import { useFooter } from "../util/useFooter";
 
 export default function NomaiWriting() {
   useTitle("Nomai Writing");
-  var {setGithub} = useContext(GithubContext);
-  setGithub({link: "/NomaiWriting", name: "Nomai Writing"});
+  useFooter({link: "/NomaiWriting", name: "Nomai Writing"});
 
   return (
   <div>

@@ -1,0 +1,20 @@
+.colorContrast div {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+
+.colorContrast span {
+    font-size: large;
+    font-weight: bold;
+}
+
+.colorContrast .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.colorContrast label {
+    background-color: white;
+    color: black;
+}
