@@ -1,21 +1,20 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext } from 'react';
 import "../../css/creatureCreator/index.css";
 import Creature from "./creature";
 import CustomForm from "./customForm";
 import AutoForm from './autoForm';
 import { v4 } from "uuid";
-import { useTitle } from '../../util/title';
-import { GithubLinkContext } from '../../App';
+import { useTitle } from '../../util/useTitle';
+import { useFooter } from '../../util/useFooter';
 
 export var CreatureContext = createContext(null);
 
 export default function CreatureCreator() {
     useTitle("Creature Creator");
-    var {setGithubLink} = useContext(GithubLinkContext);
-    setGithubLink("/website/blob/main/client/src/pages/creatureCreator/README.md");
+    useFooter({link: "/website/blob/main/client/src/pages/creatureCreator/README.md", name: "Creature Creator"});
     
     var [creature, setCreature] = useState({
-        name: "plague doctor",
+        name: "monster name",
         type: "creature",
         level: 5,
         tags: [
@@ -68,7 +67,7 @@ export default function CreatureCreator() {
                 scale: "auto"
             },
             {
-                name: "plague lore",
+                name: "warfare lore",
                 modifier: 13,
                 scale: "high"
             },

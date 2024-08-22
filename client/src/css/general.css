@@ -5,10 +5,11 @@
     --tint-two: #dce3ff;
     --tint-one-shadow: #d7c4ff;
     --tint-two-shadow: #c9d5ff;
-    --shade-one: #A67CFF;
-    --shade-two: #7090FF;
+    --shade-one: #7113eb;
+    --shade-two: #4423ff;
     --accent-one: #84E296;
     --accent-two: #E65768;
+    --link: #0036FA;
 }
 
 body {
@@ -27,7 +28,7 @@ body {
 }
 
 a {
-    color: VAR(--shade-two);
+    color: VAR(--link);
 }
 
 ul {
@@ -48,7 +49,7 @@ header {
     z-index: 100;
     
     height: 40px;
-    background: linear-gradient(35deg, VAR(--shade-one) 10%, VAR(--shade-two) 50% 50%, VAR(--shade-one));
+    background: linear-gradient(35deg, VAR(--shade-one) 25%, VAR(--shade-two) 50% 25%, VAR(--shade-one));
     margin: 0px;
     padding: 20px;
 }
@@ -90,7 +91,7 @@ main {
     position: absolute;
     padding: 20px;
     padding-top: 100px;
-    padding-bottom: 25px;
+    padding-bottom: 35px;
 }
 
 main > * {
@@ -134,13 +135,37 @@ footer {
     z-index: 100;
     height: 20px;
     background: var(--background);
-    border-color: var(--shade-one);
+    border-color: var(--shade-two);
     border-style: solid;
-    border-width: 1px 1px 0px 0px;
+    border-width: 2px 2px 0px 0px;
     margin: 0px;
-    padding: 3px;
+    padding: 0.3em;
+    border-top-right-radius: 5px;
 }
 
 .icon {
     font-family: sans-serif !important;
 }
+
+.skipLink {
+    z-index: 200;
+    position: fixed;
+    background-color: var(--accent-one);
+    color: var(--text);
+    width: 100vw;
+    border-width: 0px 0px 0.2em 0px;
+    border-style: solid;
+    text-align: center;
+    font-size: large;
+    padding: 1em 0px;
+}
+
+.hideVisual:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }

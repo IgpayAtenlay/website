@@ -3,14 +3,12 @@ import "../../css/marylandFlag/index.css";
 import AbsolutePositioningFlag from "./absolutePositioningFlag";
 import GridFlag from "./gridFlag";
 import CanvasFlag from "./canvasFlag";
-import { useTitle } from "../../util/title";
-import { useContext } from "react";
-import { GithubLinkContext } from "../../App";
+import { useTitle } from "../../util/useTitle";
+import { useFooter } from "../../util/useFooter";
 
 export default function MarylandFlag() {
 	useTitle("Maryland Flag");
-	var {setGithubLink} = useContext(GithubLinkContext);
-	setGithubLink("/website/blob/main/client/src/pages/marylandFlag/README.md");
+	useFooter({link: "/website/blob/main/client/src/pages/marylandFlag/README.md", name: "Maryland Flag"});
 
 	return(
 	<div className="marylandFlag">
