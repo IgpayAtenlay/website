@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext } from 'react';
 import {v4} from "uuid";
 
 import "../../css/diceCalculator.css";
@@ -6,16 +6,15 @@ import "../../css/diceCalculator.css";
 import allCalculations from './calculations';
 
 import parseData from './parseData';
-import { useTitle } from '../../util/title';
-import { GithubContext } from '../../App';
+import { useTitle } from '../../util/useTitle';
 import Activity from './activity';
+import { useFooter } from '../../util/useFooter';
 
 export var ActivityContext = createContext(null);
 
 export default function DiceCalculator() {
 	useTitle("Dice Calculator");
-	var {setGithub} = useContext(GithubContext);
-	setGithub({link: "/website/blob/main/client/src/pages/diceCalculator/README.md", name: "Dice Calculator"});
+	useFooter({link: "/website/blob/main/client/src/pages/diceCalculator/README.md", name: "Dice Calculator"});
 
 	var[activities, setActivities] = useState([{id: v4()}]);
 

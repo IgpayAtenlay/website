@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState, createContext } from 'react';
 
 import Home from './pages/home';
 import Projects from './pages/projects';
@@ -19,36 +18,29 @@ import Footer from './components/footer';
 import './css/general.css'
 import SkipLink from "./components/skipLink";
 
-export var GithubContext = createContext(null);
-
 export default function App() {
-
-  var [github, setGithub] = useState({link: "", name: ""});
-
   return (
     <div>
-      <GithubContext.Provider value={{github, setGithub}}>
-        <SkipLink />
-        <Header />
-        <main id="main">
-          <Router>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/diceCalculator" element={<DiceCalculator />} />
-              <Route path="/marylandFlag" element={<MarylandFlag />} />
-              <Route path="/nomaiWriting" element={<NomaiWriting />} />
-              <Route path="/simon" element={<Simon />} />
-              <Route path="/slitherlinkSolver" element={<SlitherlinkSolver />} />
-              <Route path="/website" element={<Website />} />
-              <Route path="/creatureCreator" element={<CreatureCreator />} />
-              <Route path="/colorContrast" element={<ColorContrast />} />
-            </Routes>
-          </Router>
-        </main>
-        <Footer />
-      </GithubContext.Provider>
+      <SkipLink />
+      <Header />
+      <main id="main">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/diceCalculator" element={<DiceCalculator />} />
+            <Route path="/marylandFlag" element={<MarylandFlag />} />
+            <Route path="/nomaiWriting" element={<NomaiWriting />} />
+            <Route path="/simon" element={<Simon />} />
+            <Route path="/slitherlinkSolver" element={<SlitherlinkSolver />} />
+            <Route path="/website" element={<Website />} />
+            <Route path="/creatureCreator" element={<CreatureCreator />} />
+            <Route path="/colorContrast" element={<ColorContrast />} />
+          </Routes>
+        </Router>
+      </main>
+      <Footer />
     </div>
   );
 };

@@ -1,11 +1,9 @@
-import { useContext } from "react";
-import { useTitle } from "../util/title";
-import { GithubContext } from "../App";
+import { useTitle } from "../util/useTitle";
+import { useFooter } from "../util/useFooter";
 
 export default function SlitherlinkSolver() {
   useTitle("Slitherlink Solver");
-  var {setGithub} = useContext(GithubContext);
-  setGithub({link: "/Slitherlink", name: "Slitherlink"});
+  useFooter({link: "/Slitherlink", name: "Slitherlink"});
 
   return (
   <div className="slitherlinkSolver">

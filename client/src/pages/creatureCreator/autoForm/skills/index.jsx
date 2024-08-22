@@ -19,14 +19,11 @@ export default function Skills() {
     );
 
     return (
-        <div>
-            <b>Skills</b>
-            <div className='skillWrapper'>
-                {skills}
-            </div>
-            
+        <fieldset className='skillWrapper'>
+            <legend>Skills</legend>
+            {skills}
             <AddButton />
             <SortButton />
-        </div>
+        </fieldset>
     );
 }

@@ -1,7 +1,10 @@
 import "../../css/colorContrast.css"
 import { useState } from "react";
+import { useTitle } from "../../util/useTitle";
 
 export default function ColorContrast() {
+    useTitle("Color Contrast");
+
     var [colorOne, setColorOne] = useState({
         r: 0,
         g: 0,
