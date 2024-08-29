@@ -1,4 +1,4 @@
-import { generalDamageTypes, skillModifiers, wirLevels, attributeModifiers, attributes } from "./variables";
+import { generalDamageTypes, skillModifiers, wirLevels, attributeModifiers, attributes, skills } from "./variables";
 import { v4 } from "uuid";
 
 export default function inputToCreature(creatureInput) {
@@ -99,7 +99,16 @@ export default function inputToCreature(creatureInput) {
 
     // do other relivent attributes
 
-    
+    creature.skills.forEach(e => {
+        var scale = "moderate";
+        var attribute = skills[e.name];
+        if (!creature.abilities[attribute]) {
+            creature.abilities[attribute] = {
+                modifier: attributeModifiers[scale][creatureInput.level + 1], 
+                scale: scale
+            }
+        }
+    });
 
     // fill in the rest randomly
 
