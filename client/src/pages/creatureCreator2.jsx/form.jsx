@@ -27,7 +27,7 @@ export default function Form(props) {
                 ]} />
                 <br />
             <label>Primary Attribute</label>
-                <Select name="primaryAttribute" options={attributes} />
+                <Select name="primaryAttribute" options={Object.keys(attributes)} />
                 <br />
             <label>Primary Skill</label>
                 <Select name="primarySkill" options={Object.keys(skills)} />
@@ -70,7 +70,14 @@ export function parseData(formData) {
         name: dataObject.name,
         level: parseInt(dataObject.level),
         archetype: dataObject.archetype,
-        primaryAttribute: dataObject.primaryAttribute,
+        primaryAttribute: {
+            strength: "str",
+            dexterity: "dex",
+            constitution: "con",
+            wisdom: "wis",
+            intelligence: "int",
+            charisma: "cha"
+        }[dataObject.primaryAttribute],
         primarySkill: dataObject.primarySkill,
         secondarySkills: [dataObject.secondSkill, dataObject.thirdSkill],
         traits: formData.getAll('traits'),
