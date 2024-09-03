@@ -1,0 +1,156 @@
+import { generalDamageTypes, skillModifiers, wirLevels, attributeModifiers, sizes, strikeDamage, strikeModifier } from "../variables";
+import { v4 } from "uuid";
+import sortSkills from "./sortSkills";
+
+export default function completeToValues(complete) {
+    if (Object.keys(complete).length === 0) {
+        return {}
+    }
+
+    console.log("values start");
+
+    var values = {
+        name: complete.name,
+        type: "creature",
+        level: complete.level,
+        tags: complete.tags.map(e => {
+            if (sizes.includes(e)) {
+                return {
+                    text: e,
+                    color: "green",
+                    id: v4()
+                }
+            } else {
+                return {
+                    text: e,
+                    color: "red",
+                    id: v4()
+                }
+            }
+            
+        }),
+        skills: sortSkills(complete.skills).map(e => {
+            return {
+                name: e.name,
+                modifier: skillModifiers[e.scale][complete.level + 1],
+                scale: e.scale,
+                id: v4()
+            }
+        }),
+        attributes: {
+            str: {
+                scale: complete.attributes.str.scale,
+                modifier: attributeModifiers[complete.attributes.str.scale][complete.level + 1],
+                id: v4()
+            },
+            dex: {
+                scale: complete.attributes.dex.scale,
+                modifier: attributeModifiers[complete.attributes.dex.scale][complete.level + 1],
+                id: v4()
+            },
+            con: {
+                scale: complete.attributes.con.scale,
+                modifier: attributeModifiers[complete.attributes.con.scale][complete.level + 1],
+                id: v4()
+            },
+            int: {
+                scale: complete.attributes.int.scale,
+                modifier: attributeModifiers[complete.attributes.int.scale][complete.level + 1],
+                id: v4()
+            },
+            wis: {
+                scale: complete.attributes.wis.scale,
+                modifier: attributeModifiers[complete.attributes.wis.scale][complete.level + 1],
+                id: v4()
+            },
+            cha: {
+                scale: complete.attributes.cha.scale,
+                modifier: attributeModifiers[complete.attributes.cha.scale][complete.level + 1],
+                id: v4()
+            }
+        },
+        items: complete.items.map(e => {
+            return {
+                name: e.name,
+                id: v4()
+            }
+        }),
+        defenses: {
+            weaknesses: (complete.defenses.weaknesses).toSorted().map(e => {
+                var amount;
+                if (generalDamageTypes.includes(e)) {
+                    amount = wirLevels.minimum[complete.level + 1]
+                } else {
+                    amount = wirLevels.maximum[complete.level + 1]
+                }
+
+                return {
+                    type: e,
+                    amount: amount,
+                    id: v4()
+                }
+            }),
+            resistances: (complete.defenses.resistances).toSorted().map(e => {
+                var amount;
+                if (generalDamageTypes.includes(e)) {
+                    amount = wirLevels.minimum[complete.level + 1]
+                } else {
+                    amount = wirLevels.maximum[complete.level + 1]
+                }
+
+                return {
+                    type: e,
+                    amount: amount,
+                    id: v4()
+                }
+            }),
+            immunities: (complete.defenses.immunities).toSorted().map(e => {
+                return {
+                    type: e,
+                    id: v4()
+                }
+            })
+        },
+        attacks: complete.attacks.map(e => {
+            if (e.range === "ranged") {
+                return {
+                    ...e,
+                    damageDie: strikeDamage[complete.damageScale.ranged][complete.level + 1],
+                    modifier: strikeModifier[complete.strikeModifier.ranged][complete.level + 1]
+                }
+            } else {
+                var modifier = strikeModifier[complete.strikeModifier.melee][complete.level + 1];
+                if (e.traits.some(e => e.name === "agile")) {
+                    var melee = complete.damageScale.melee;
+                    var agile;
+                    switch(melee) {
+                        case "extreme":
+                            agile = "high";
+                            break;
+                        case "high":
+                            agile = "moderate";
+                            break;
+                        default:
+                            agile = "low";
+                    }
+
+                    return {
+                        ...e,
+                        damageDie: strikeDamage[agile][complete.level + 1],
+                        modifier: modifier
+                    }
+                } else {
+                    return {
+                        ...e,
+                        damageDie: strikeDamage[complete.damageScale.melee][complete.level + 1],
+                        modifier: modifier
+                    }
+                }
+            }
+        })
+    };
+
+    console.log("values done");
+
+    return values;
+}

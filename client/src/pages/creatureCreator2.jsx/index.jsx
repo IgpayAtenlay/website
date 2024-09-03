@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Form, { parseData } from "./form";
-import inputToCreature from "./inputToCreature";
+import inputToPrimary from "./logic/inputToPrimary";
+import primaryToSecondary from "./logic/primaryToSecondary";
+import secondaryToComplete from "./logic/secondaryToComplete";
+import completeToValues from "./logic/completeToValues";
 
 export default function CreatureCreator2() {
     var [creatureInput, setCreatureInput] = useState({});
@@ -8,16 +11,38 @@ export default function CreatureCreator2() {
     function handleSubmit(e) {
 		e.preventDefault();
         var rawData = new FormData(e.target);
-        setCreatureInput(parseData(rawData));
+        var input = parseData(rawData);
+        var primary = inputToPrimary(input);
+        var secondary = primaryToSecondary(primary);
+        var complete = secondaryToComplete(secondary);
+        var values = completeToValues(complete);
+        setCreatureInput({
+            input: input,
+            primary: primary,
+            secondary: secondary,
+            complete: complete,
+            values: values
+        })
 	}
 
     return (
         <div>
             <Form handleSubmit={handleSubmit} />
             <hr />
-            {JSON.stringify(creatureInput)}
+            <p>Input</p>
+            {JSON.stringify(creatureInput.input)}
             <hr />
-            {JSON.stringify(inputToCreature(creatureInput))}
+            <p>Primary</p>
+            {JSON.stringify(creatureInput.primary)}
+            <hr />
+            <p>Secondary</p>
+            {JSON.stringify(creatureInput.secondary)}
+            <hr />
+            <p>Complete</p>
+            {JSON.stringify(creatureInput.complete)}
+            <hr />
+            <p>Values</p>
+            {JSON.stringify(creatureInput.values)}
         </div>
     );
 }

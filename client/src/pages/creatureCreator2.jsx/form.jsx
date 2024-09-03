@@ -50,7 +50,9 @@ export default function Form(props) {
                 <input name="item" />
                 <br />
             other<br />
-            spells<br />
+            <label>Spell Tradition</label>
+                <Select name="spellTradition" options={["none", "arcane", "divine", "primal", "occult"]} />
+                <br />
             <label>Attack One</label>
                 <input name="attackOneName" />
                 <Select name="attackOneType" options={["melee", "agile", "ranged"]} /> <br />
@@ -68,7 +70,7 @@ export function parseData(formData) {
 
     return {
         name: dataObject.name,
-        level: parseInt(dataObject.level),
+        level: dataObject.level ? parseInt(dataObject.level) : 0,
         archetype: dataObject.archetype,
         primaryAttribute: {
             strength: "str",
@@ -88,6 +90,7 @@ export function parseData(formData) {
         resistances: formData.getAll('resistances'),
         item: dataObject.item ? dataObject.item : "none",
         other: {},
+        spellTradition: dataObject.spellTradition,
         spells: [],
         attacks: [
             {
