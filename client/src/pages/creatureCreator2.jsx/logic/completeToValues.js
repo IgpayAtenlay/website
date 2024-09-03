@@ -1,5 +1,4 @@
 import { generalDamageTypes, skillModifiers, wirLevels, attributeModifiers, sizes, strikeDamage, strikeModifier } from "../variables";
-import { v4 } from "uuid";
 import sortSkills from "./sortSkills";
 
 export default function completeToValues(complete) {
@@ -17,14 +16,12 @@ export default function completeToValues(complete) {
             if (sizes.includes(e)) {
                 return {
                     text: e,
-                    color: "green",
-                    id: v4()
+                    color: "green"
                 }
             } else {
                 return {
                     text: e,
-                    color: "red",
-                    id: v4()
+                    color: "red"
                 }
             }
             
@@ -33,48 +30,36 @@ export default function completeToValues(complete) {
             return {
                 name: e.name,
                 modifier: skillModifiers[e.scale][complete.level + 1],
-                scale: e.scale,
-                id: v4()
+                scale: e.scale
             }
         }),
         attributes: {
             str: {
                 scale: complete.attributes.str.scale,
-                modifier: attributeModifiers[complete.attributes.str.scale][complete.level + 1],
-                id: v4()
+                modifier: attributeModifiers[complete.attributes.str.scale][complete.level + 1]
             },
             dex: {
                 scale: complete.attributes.dex.scale,
-                modifier: attributeModifiers[complete.attributes.dex.scale][complete.level + 1],
-                id: v4()
+                modifier: attributeModifiers[complete.attributes.dex.scale][complete.level + 1]
             },
             con: {
                 scale: complete.attributes.con.scale,
-                modifier: attributeModifiers[complete.attributes.con.scale][complete.level + 1],
-                id: v4()
+                modifier: attributeModifiers[complete.attributes.con.scale][complete.level + 1]
             },
             int: {
                 scale: complete.attributes.int.scale,
-                modifier: attributeModifiers[complete.attributes.int.scale][complete.level + 1],
-                id: v4()
+                modifier: attributeModifiers[complete.attributes.int.scale][complete.level + 1]
             },
             wis: {
                 scale: complete.attributes.wis.scale,
-                modifier: attributeModifiers[complete.attributes.wis.scale][complete.level + 1],
-                id: v4()
+                modifier: attributeModifiers[complete.attributes.wis.scale][complete.level + 1]
             },
             cha: {
                 scale: complete.attributes.cha.scale,
-                modifier: attributeModifiers[complete.attributes.cha.scale][complete.level + 1],
-                id: v4()
+                modifier: attributeModifiers[complete.attributes.cha.scale][complete.level + 1]
             }
         },
-        items: complete.items.map(e => {
-            return {
-                name: e.name,
-                id: v4()
-            }
-        }),
+        items: complete.items,
         defenses: {
             weaknesses: (complete.defenses.weaknesses).toSorted().map(e => {
                 var amount;
@@ -86,8 +71,7 @@ export default function completeToValues(complete) {
 
                 return {
                     type: e,
-                    amount: amount,
-                    id: v4()
+                    amount: amount
                 }
             }),
             resistances: (complete.defenses.resistances).toSorted().map(e => {
@@ -100,16 +84,10 @@ export default function completeToValues(complete) {
 
                 return {
                     type: e,
-                    amount: amount,
-                    id: v4()
+                    amount: amount
                 }
             }),
-            immunities: (complete.defenses.immunities).toSorted().map(e => {
-                return {
-                    type: e,
-                    id: v4()
-                }
-            })
+            immunities: (complete.defenses.immunities).toSorted()
         },
         attacks: complete.attacks.map(e => {
             if (e.range === "ranged") {
