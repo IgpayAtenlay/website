@@ -179,7 +179,7 @@ export default function CreatureCreator() {
         miscAbilities: [
             {
                 name: "Healing Hands",
-                description: "When the plague doctor casts heal, they roll d10s instead of d8s."
+                description: "When the creature casts heal, they roll d10s instead of d8s."
             }
         ]
     });

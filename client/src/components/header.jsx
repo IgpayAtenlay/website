@@ -7,7 +7,6 @@ export default function Header() {
 		</a>
 		
 		<nav className="links">
-			<a href="/">Home</a>
 			<a href="/projects">Projects</a>
 			<a href="/about">About</a>
 		</nav>
