@@ -8,6 +8,7 @@ export default function Projects() {
     <div className="projects container">
       <Card 
         url="creatureCreator"
+        image="creatureFromWebsite.png"
         title="Creature Creator"
         description="Use this React program to make Pathfinder creatures that look straight from the book!"
       />
