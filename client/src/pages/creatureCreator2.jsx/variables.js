@@ -125,9 +125,8 @@ export var traits = {
     },
     animal: {
         language: "delete",
-        ability: {
-            name: "int",
-            scale: "terrible"
+        attributes: {
+            int: {scale: "terrible"}
         }
     },
     archon: {
@@ -142,7 +141,7 @@ export var traits = {
     },
     azata: {
         trait: "celestial",
-        weakness: "cold iron",
+        weaknesses: "cold iron",
         miscAbilities: {
             name: "Freedom Ability",
             description: "Azatas each represent a specific freedom, like free expression or free love, and have a special ability based on the freedom they represent."
@@ -153,7 +152,7 @@ export var traits = {
         trait: "holy",
         sense: "darkvision",
         language: "empyrean",
-        weakness: "unholy",
+        weaknesses: "unholy",
         miscAbilities: [
             {
                 name: "holy strikes",
@@ -166,12 +165,12 @@ export var traits = {
         ]
     },
     cold: {
-        immunity: "cold",
-        resistance: "cold"
+        immunities: "cold",
+        resistances: "cold"
     },
     construct: {
         trait: "mindless",
-        immunity: [
+        immunities: [
             "bleed", "death effects", "disease", "doomed", "drained", "fatigued", "healing", "nonlethal attacks",
             "paralyzed", "poison", "sickened", "spirit", "unconscious", "vitality", "void"
         ]
@@ -179,7 +178,7 @@ export var traits = {
     daemon: {
         trait: "fiend",
         language: ["daemonic", "telepathy 100 feet"],
-        immunity: "death effects",
+        immunities: "death effects",
         miscAbilities: {
             name: "Death Ability",
             description: "Daemons each represent a specific kind of death, like death by disease or starvation, and have a special ability based on the method of death they represent."
@@ -192,7 +191,7 @@ export var traits = {
             name: "hp",
             scale: "high"
         },
-        weakness: "cold iron",
+        weaknesses: "cold iron",
         miscAbilities: [
             {
                 name: "Sin Vulnerability",
@@ -215,9 +214,9 @@ export var traits = {
     devil: {
         trait: "fiend",
         language: ["diabolic", "telepathy 100 feet"],
-        immunity: "fire",
-        weakness: "holy",
-        resistance: ["physical (except silver)", "poison"],
+        immunities: "fire",
+        weaknesses: "holy",
+        resistances: ["physical (except silver)", "poison"],
         miscAbilities: [
             {
                 name: "Divine Innate Spells",
@@ -249,7 +248,7 @@ export var traits = {
     },
     elemental: {
         sense: "darkvision",
-        immunity: ["bleed", "paralyzed", "poison", "sleep"]
+        immunities: ["bleed", "paralyzed", "poison", "sleep"]
     },
     ethereal: {
         sense: "darkvision"
@@ -257,12 +256,12 @@ export var traits = {
     fey: {
         sense: "low-light vision",
         language: ["aklo", "fey"],
-        weakness: "cold iron"
+        weaknesses: "cold iron"
     },
     fiend: {
         trait: "unholy",
         sense: "darkvision",
-        weakness: "holy",
+        weaknesses: "holy",
         miscAbilities: [
             {
                 name: "Saves",
@@ -276,8 +275,8 @@ export var traits = {
     },
     fire: {
         language: "pyric",
-        immunity: "fire",
-        resistance: "cold",
+        immunities: "fire",
+        resistances: "cold",
         miscAbilities: {
             name: "Fire Strikes",
             description: "strikes typically deal fire damage"
@@ -285,7 +284,7 @@ export var traits = {
     },
     fungus: {
         trait: "mindless",
-        weakness: ["slashing", "fire"]
+        weaknesses: ["slashing", "fire"]
     },
     giant: {
         trait: ["large", "humanoid"],
@@ -308,8 +307,8 @@ export var traits = {
                 scale: "low"
             }
         ],
-        immunity: ["disease", "paralyzed", "poison", "precision"],
-        resistance: ["all damage (except force, ghost touch, or spirit)", "non-magical (double resistance)"],
+        immunities: ["disease", "paralyzed", "poison", "precision"],
+        resistances: ["all damage (except force, ghost touch, or spirit)", "non-magical (double resistances)"],
         miscAbilities: {
             name: "magical strikes",
             description: "magical trait, typically low or moderate damage"
@@ -319,7 +318,7 @@ export var traits = {
         language: "talican"
     },
     mindless: {
-        immunity: "mental"
+        immunities: "mental"
     },
     monitor: {
         sense: "darkvision"
@@ -337,21 +336,21 @@ export var traits = {
                 scale: "extreme"
             }
         ],
-        immunity: ["critical hits", "precision", "unconscious", "acid", "visual effects"]
+        immunities: ["critical hits", "precision", "unconscious", "acid", "visual effects"]
     },
     plant: {
         trait: "mindless",
         sense: "low-light vision",
-        weakness: "fire"
+        weaknesses: "fire"
     },
     protean: {
         trait: "monitor",
         language: "protean",
-        resistance: ["precision", "protean anatomy"],
+        resistances: ["precision", "protean anatomy"],
         miscAbilities: [
             {
                 name: "protean anatomy",
-                description: "This creature's vital organs shift and change shape and position constantly. Immediately after this creature takes acid, electricity, or sonic damage, it gains the listed amount of resistance to that damage type. This lasts for 1 hour or until the next time the protean takes damage of one of the other types (in which case its resistance changes to match that type), whichever comes first."
+                description: "This creature's vital organs shift and change shape and position constantly. Immediately after this creature takes acid, electricity, or sonic damage, it gains the listed amount of resistances to that damage type. This lasts for 1 hour or until the next time the protean takes damage of one of the other types (in which case its resistances changes to match that type), whichever comes first."
             },
             {
                 name: "Divine Innate Spells",
@@ -367,8 +366,8 @@ export var traits = {
         trait: "monitor",
         sense: "lifesense",
         language: "requian",
-        immunity: ["death effects", "disease"],
-        resistance: ["poison", "void"],
+        immunities: ["death effects", "disease"],
+        resistances: ["poison", "void"],
         miscAbilities: {
             name: "Spirit Touch",
             description: "This creature's Strikes affect incorporeal creatures with the effects of a ghost touch property rune and deal 1d6 void damage to living creatures and 1d6 vitality damage to undead."
@@ -383,14 +382,14 @@ export var traits = {
             name: "hp",
             scale: "low"
         },
-        immunity: ["precision", "swarm mind"],
-        weakness: ["area damage", "splash damage"],
-        resistance: ["physical", "usually one physical type has lower or no resistance"]
+        immunities: ["precision", "swarm mind"],
+        weaknesses: ["area damage", "splash damage"],
+        resistances: ["physical", "usually one physical type has lower or no resistances"]
     },
     undead: {
         trait: ["unholy", "mindless"],
         sense: "darkvision",
-        immunity: ["death effects", "disease", "paralyze", "poison", "sleep", "unconscious"],
+        immunities: ["death effects", "disease", "paralyze", "poison", "sleep", "unconscious"],
         miscAbilities: {
             name: "void healing",
             description: "void healing"
@@ -402,7 +401,7 @@ export var traits = {
     },
     wood: {
         language: "muan",
-        weakness: ["fire", "slashing"]
+        weaknesses: ["fire", "slashing"]
     }
 }
 
@@ -412,13 +411,13 @@ export var generalDamageTypes = ["all", "physical"];
 export var archetype = {
     brute: {
         perception: "low",
-        abilities: {
-            str: "high",
-            dex: "low",
-            con: "moderate",
-            int: "low",
-            wis: "low",
-            cha: "low"
+        attributes: {
+            str: {scale: "high"},
+            dex: {scale: "low"},
+            con: {scale: "moderate"},
+            int: {scale: "low"},
+            wis: {scale: "low"},
+            cha: {scale: "low"}
         },
         defenses: {
             ac: "moderate",
@@ -447,8 +446,8 @@ export var archetype = {
         }
     },
     skirmisher: {
-        abilities: {
-            dex: "high"
+        attributes: {
+            dex: {scale: "high"}
         },
         defenses: {
             fort: "low",
@@ -459,8 +458,8 @@ export var archetype = {
     },
     sniper: {
         perception: "high",
-        abilities: {
-            dex: "high"
+        attributes: {
+            dex: {scale: "high"}
         },
         defenses: {
             fort: "low",
@@ -474,8 +473,8 @@ export var archetype = {
         }
     },
     soldier: {
-        abilities: {
-            str: "high"
+        attributes: {
+            str: {scale: "high"}
         },
         defenses: {
             ac: "high",

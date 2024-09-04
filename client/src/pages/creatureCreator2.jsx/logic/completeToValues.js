@@ -12,7 +12,7 @@ export default function completeToValues(complete) {
         name: complete.name,
         type: "creature",
         level: complete.level,
-        tags: complete.tags.map(e => {
+        traits: complete.traits.map(e => {
             if (sizes.includes(e)) {
                 return {
                     text: e,
@@ -89,6 +89,12 @@ export default function completeToValues(complete) {
             }),
             immunities: (complete.defenses.immunities).toSorted()
         },
+        speed: [
+            {
+                type: "land", 
+                modifier: 25
+            }
+        ],
         attacks: complete.attacks.map(e => {
             if (e.range === "ranged") {
                 return {

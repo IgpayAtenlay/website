@@ -8,7 +8,8 @@ export default function inputToPrimary(input) {
     var primary = {
         name: input.name,
         level: input.level,
-        tags: [input.size],
+        archetype: input.archetype,
+        traits: [input.size].concat(input.traits),
         skills: [
             {
                 name: input.primarySkill,
