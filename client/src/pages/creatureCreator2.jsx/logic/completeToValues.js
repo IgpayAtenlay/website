@@ -26,6 +26,7 @@ export default function completeToValues(complete) {
             }
             
         }),
+        perception: 5,
         skills: sortSkills(complete.skills).map(e => {
             return {
                 name: e.name,
@@ -59,8 +60,13 @@ export default function completeToValues(complete) {
                 modifier: attributeModifiers[complete.attributes.cha.scale][complete.level + 1]
             }
         },
-        items: complete.items,
+        items: complete.items.length > 0 && complete.items,
         defenses: {
+            ac: 5,
+            fort: 5,
+            ref: 5,
+            will: 5,
+            hp: 5,
             weaknesses: (complete.defenses.weaknesses).toSorted().map(e => {
                 var amount;
                 if (generalDamageTypes.includes(e)) {
@@ -131,8 +137,12 @@ export default function completeToValues(complete) {
                     }
                 }
             }
-        })
+        }),
+        abilities: complete.abilities
     };
+
+    // add perception
+    // add defenses (ex. AC)
 
     console.log("values done");
 

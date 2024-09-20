@@ -59,13 +59,20 @@ export default function Form(props) {
             <label>Attack Two</label>
                 <input name="attackTwoName" />
                 <Select name="attackTwoType" options={["melee", "agile", "ranged"]} /> <br />
-            abilities<br />
+            Ability
+                <Select name="abilityAction" options= {["none", "one action", "two actions", "three actions", "free action", "reaction"]} />
+                <label>Name</label>
+                <input name="abilityName" />
+                <label>Trigger</label>
+                <input name="abilityTrigger" />
+                <label>Effect</label>
+                <input name="abilityEffect" /> <br />
             <input type="submit" />
         </form>
     );
 }
 
-export function parseData(formData) {
+export function parseForm(formData) {
     var dataObject = Object.fromEntries(formData.entries());
 
     return {
@@ -104,15 +111,10 @@ export function parseData(formData) {
         ],
         abilities: [
             {
-                name: "Roar",
-                actions: "reaction",
-                trigger: "An ally is reduced to 0 HP",
-                effect: "The bear takes the demoralize action without taking the penalty due to not sharing a language"
-            },
-            {
-                name: "Rush",
-                actions: 2,
-                effect: "The bear strides twice and makes a jaw attack at the end of it's movement"
+                name: dataObject.abilityName,
+                actions: dataObject.abilityAction,
+                trigger: dataObject.abilityTrigger,
+                effect: dataObject.abilityEffect
             }
         ]
     }

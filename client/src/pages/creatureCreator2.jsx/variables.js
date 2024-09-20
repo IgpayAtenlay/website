@@ -496,6 +496,9 @@ export var archetype = {
             bonus: "low",
             damage: "moderate"
         }
+    },
+    "": {
+        
     }
 }
 

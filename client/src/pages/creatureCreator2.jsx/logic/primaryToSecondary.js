@@ -27,6 +27,8 @@ export default function primaryToSecondary(primary) {
         }),
     }
 
+    console.log("secondary middle");
+
     primary.traits.forEach(e => {
         if (traits[e]) {
             secondary.attributes = {

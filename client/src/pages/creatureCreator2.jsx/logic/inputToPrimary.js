@@ -1,3 +1,5 @@
+import { skills } from "../variables";
+
 export default function inputToPrimary(input) {
     if (Object.keys(input).length === 0) {
         return {}
@@ -10,18 +12,24 @@ export default function inputToPrimary(input) {
         level: input.level,
         archetype: input.archetype,
         traits: [input.size].concat(input.traits),
-        skills: [
-            {
-                name: input.primarySkill,
-                scale: "high"
-            }].concat(
-                input.secondarySkills.map(e => {
-                    return {
-                        name: e,
-                        scale: "moderate"
-                    };
-                })
-            ),
+        skills: Object.keys(skills).includes(input.primarySkill)
+            ? 
+                [
+                    {
+                        name: input.primarySkill,
+                        scale: "high"
+                    }
+                ].concat(
+                    input.secondarySkills.map(e => {
+                        return {
+                            name: e,
+                            scale: "moderate"
+                        };
+                    })
+                )
+            :
+                []
+            ,
         attributes: {
             str: {
                 scale: ""
@@ -89,7 +97,28 @@ export default function inputToPrimary(input) {
         strikeModifier: {
             melee: "high",
             ranged: "moderate"
-        }
+        },
+        abilities: input.abilities.map(e => {
+            var action = {
+                oneAction: 1,
+                twoActions: 2,
+                threeActions: 3,
+                reaction: "reaction",
+                freeAction: "freeAction"
+            }[e.actions];
+            if (action === "reaction" || action === "freeAction") {
+                return {
+                    ...e,
+                    actions: action
+                }
+            } else {
+                return {
+                    name: e.name,
+                    effect: e.effect,
+                    actions: action
+                }
+            }
+        })
     };
 
     console.log("primary end");

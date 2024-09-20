@@ -20,12 +20,12 @@
     font-stretch: condensed;
 }
 
-.creature .tags {
+.creature .traits {
     font-stretch: condensed;
     display: flex;
 }
 
-.creature .tags p {
+.creature .traits p {
     color: white;
     font-size: 0.7em;
     border-color: orange;
