@@ -8,11 +8,12 @@ import Abilities from "./abilities";
 
 export default function Creature(props) {
     console.log("creature");
+    console.log(props.creature);
 
     var creature = props.creature;
     return (<div className="creature">
         <div className="title">
-            <p className="name">{creature.name.toUpperCase()}</p>
+            <p className="name">{creature.name && creature.name.toUpperCase()}</p>
             <p className="level">{creature.type.toUpperCase()} {creature.level}</p>
         </div>
         <div className="stats">

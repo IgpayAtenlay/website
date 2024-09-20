@@ -28,6 +28,11 @@ export default function CreatureCreator2() {
             ...creatureInput.input,
             ...partialInput
         }
+
+        console.log(creatureInput.input);
+        console.log(partialInput);
+        console.log(input);
+
         var primary = inputToPrimary(input);
         var secondary = primaryToSecondary(primary);
         var complete = secondaryToComplete(secondary);

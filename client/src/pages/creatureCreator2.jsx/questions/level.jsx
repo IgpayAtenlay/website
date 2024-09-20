@@ -1,4 +1,4 @@
-export default function Name(props) {
+export default function Level(props) {
     function handleSubmit(e) {
         e.preventDefault();
         var rawData = new FormData(e.target);
@@ -9,8 +9,8 @@ export default function Name(props) {
 
     return (
         <form method="POST" onSubmit={handleSubmit} aria-label="name">
-            <label>Name</label>
-            <input name="name" />
+            <label>Level</label>
+            <input type="number" name="level" />
             <input type="submit" />
         </form>
     );
@@ -21,6 +21,6 @@ function parseForm(formData) {
     var dataObject = Object.fromEntries(formData.entries());
 
     return {
-        name: dataObject.name
+        level: dataObject.level
     }
 }

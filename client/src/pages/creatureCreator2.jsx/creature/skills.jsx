@@ -2,6 +2,10 @@ import startCase from "../../../util/startCase";
 
 export default function Skills(props) {
     console.log("skills");
+
+    if (!props.skills || props.skills.length === 0) {
+        return;
+    }
     
     var skills = props.skills.slice(0,-1).map(e => 
         <span key={e.id}>{startCase(e.name)} +{e.modifier}, </span>

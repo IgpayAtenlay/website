@@ -3,7 +3,7 @@ import startCase from "../../../util/startCase";
 export default function Languages(props) {
     console.log("languages");
     
-    if (!props.languages) {
+    if (!props.languages || props.languages.length === 0) {
         return;
     }
 
