@@ -1,4 +1,4 @@
-import { skillModifiers, wirLevels, attributeModifiers, sizes, strikeDamage, strikeModifier, hp, commonDamageTypes, generalDamageTypes } from "../variables";
+import { skillModifiers, wirLevels, attributeModifiers, sizes, strikeDamage, strikeModifier, hp, commonDamageTypes, generalDamageTypes, saveModifier, ac } from "../variables";
 import sortSkills from "./sortSkills";
 
 export default function completeToValues(complete) {
@@ -66,20 +66,20 @@ export default function completeToValues(complete) {
         items: complete.items.length > 0 && complete.items,
         defenses: {
             ac: {
-                scale: "manual",
-                modifier: 5
+                scale: complete.defenses.ac.scale,
+                modifier: ac[complete.defenses.ac.scale][complete.level + 1]
             },
             fort: {
-                scale: "manual",
-                modifier: 5
+                scale: complete.defenses.fort.scale,
+                modifier: saveModifier[complete.defenses.fort.scale][complete.level + 1]
             },
             ref: {
-                scale: "manual",
-                modifier: 5
+                scale: complete.defenses.ref.scale,
+                modifier: saveModifier[complete.defenses.ref.scale][complete.level + 1]
             },
             will: {
-                scale: "manual",
-                modifier: 5
+                scale: complete.defenses.will.scale,
+                modifier: saveModifier[complete.defenses.will.scale][complete.level + 1]
             },
             hp: {
                 scale: complete.defenses.hp.scale,

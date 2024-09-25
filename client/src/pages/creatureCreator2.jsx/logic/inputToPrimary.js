@@ -59,6 +59,21 @@ export default function inputToPrimary(input) {
             }
         ],
         defenses: {
+            ac: {
+                scale: ""
+            },
+            fort: {
+                scale: ""
+            },
+            ref: {
+                scale: ""
+            },
+            will: {
+                scale: ""
+            },
+            hp: {
+                scale: ""
+            },
             weaknesses: (input.weaknesses).toSorted().map(e => {
                 var scale;
                 if (generalDamageTypes.includes(e)) {
