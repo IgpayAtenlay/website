@@ -9,7 +9,6 @@ import NomaiWriting from './pages/nomaiWriting';
 import Simon from './pages/simon';
 import SlitherlinkSolver from './pages/slitherlinkSolver';
 import Website from './pages/website';
-import CreatureCreator from "./pages/creatureCreator";
 import CreatureCreator2 from "./pages/creatureCreator2.jsx";
 import ColorContrast from "./pages/colorContrast";
 
@@ -36,8 +35,7 @@ export default function App() {
             <Route path="/simon" element={<Simon />} />
             <Route path="/slitherlinkSolver" element={<SlitherlinkSolver />} />
             <Route path="/website" element={<Website />} />
-            <Route path="/creatureCreator" element={<CreatureCreator />} />
-            <Route path="/creatureCreator2" element={<CreatureCreator2 />} />
+            <Route path="/creatureCreator" element={<CreatureCreator2 />} />
             <Route path="/colorContrast" element={<ColorContrast />} />
           </Routes>
         </Router>
