@@ -65,6 +65,14 @@ export default function secondaryToComplete(secondary) {
         }
     });
 
+    // fill in defenses randomly
+
+    if(!secondary.defenses.hp) {
+        complete.defenses.hp = {
+            scale: "moderate"
+        }
+    }
+
     console.log("complete done");
 
     return complete;

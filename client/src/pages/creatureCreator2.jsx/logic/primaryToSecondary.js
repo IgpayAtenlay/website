@@ -24,7 +24,7 @@ export default function primaryToSecondary(primary) {
             } else {
                 return e
             }
-        }),
+        })
     }
 
     console.log("secondary middle");

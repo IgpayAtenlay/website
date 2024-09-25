@@ -21,6 +21,6 @@ function parseForm(formData) {
     var dataObject = Object.fromEntries(formData.entries());
 
     return {
-        name: dataObject.name
+        name: dataObject.name.toLowerCase()
     }
 }

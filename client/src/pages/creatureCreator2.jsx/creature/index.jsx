@@ -8,7 +8,6 @@ import Abilities from "./abilities";
 
 export default function Creature(props) {
     console.log("creature");
-    console.log(props.creature);
 
     var creature = props.creature;
     return (<div className="creature">
@@ -21,7 +20,7 @@ export default function Creature(props) {
             <div className="proficiency">
                 <p><b>Perception</b> +{creature.perception.modifier}</p>
                 <Languages languages={creature.languages} />
-                <p><b>Skills</b> <Skills skills={creature.skills}/></p>
+                {creature.skills.length !== 0 && <p><b>Skills</b> <Skills skills={creature.skills}/></p>}
                 <p><b>Str</b> +{creature.attributes.str.modifier}, <b>Dex</b> +{creature.attributes.dex.modifier}, <b>Con</b> +{creature.attributes.con.modifier}, <b>Int</b> +{creature.attributes.int.modifier}, <b>Wis</b> +{creature.attributes.wis.modifier}, <b>Cha</b> +{creature.attributes.cha.modifier}</p>
                 <Items items={creature.items} />
             </div>

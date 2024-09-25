@@ -1,4 +1,4 @@
-import { generalDamageTypes, skillModifiers, wirLevels, attributeModifiers, sizes, strikeDamage, strikeModifier } from "../variables";
+import { skillModifiers, wirLevels, attributeModifiers, sizes, strikeDamage, strikeModifier, hp, commonDamageTypes, generalDamageTypes } from "../variables";
 import sortSkills from "./sortSkills";
 
 export default function completeToValues(complete) {
@@ -26,7 +26,10 @@ export default function completeToValues(complete) {
             }
             
         }),
-        perception: 5,
+        perception: {
+            scale: "manual",
+            modifier: 5
+        },
         skills: sortSkills(complete.skills).map(e => {
             return {
                 name: e.name,
@@ -62,35 +65,38 @@ export default function completeToValues(complete) {
         },
         items: complete.items.length > 0 && complete.items,
         defenses: {
-            ac: 5,
-            fort: 5,
-            ref: 5,
-            will: 5,
-            hp: 5,
-            weaknesses: (complete.defenses.weaknesses).toSorted().map(e => {
-                var amount;
-                if (generalDamageTypes.includes(e)) {
-                    amount = wirLevels.minimum[complete.level + 1]
-                } else {
-                    amount = wirLevels.maximum[complete.level + 1]
-                }
-
+            ac: {
+                scale: "manual",
+                modifier: 5
+            },
+            fort: {
+                scale: "manual",
+                modifier: 5
+            },
+            ref: {
+                scale: "manual",
+                modifier: 5
+            },
+            will: {
+                scale: "manual",
+                modifier: 5
+            },
+            hp: {
+                scale: complete.defenses.hp.scale,
+                modifier: hp[complete.defenses.hp.scale][complete.level + 1]
+            },
+            weaknesses: complete.defenses.weaknesses.map(e => {
                 return {
-                    type: e,
-                    amount: amount
+                    type: e.type,
+                    scale: e.scale,
+                    modifier: wirLevels[e.scale][complete.level + 1]
                 }
             }),
-            resistances: (complete.defenses.resistances).toSorted().map(e => {
-                var amount;
-                if (generalDamageTypes.includes(e)) {
-                    amount = wirLevels.minimum[complete.level + 1]
-                } else {
-                    amount = wirLevels.maximum[complete.level + 1]
-                }
-
+            resistances: complete.defenses.resistances.map(e => {
                 return {
-                    type: e,
-                    amount: amount
+                    type: e.type,
+                    scale: e.scale,
+                    modifier: wirLevels[e.scale][complete.level + 1]
                 }
             }),
             immunities: (complete.defenses.immunities).toSorted()
@@ -140,6 +146,28 @@ export default function completeToValues(complete) {
         }),
         abilities: complete.abilities
     };
+
+    // additional hp from weaknesses
+
+    values.defenses.hp.modifier = values.defenses.hp.modifier + values.defenses.weaknesses.reduce((maximum, e) => {
+        var extraHP;
+        if (commonDamageTypes.includes(e.type)) {
+            extraHP = e.modifier * 4;
+        } else {
+            extraHP = e.modifier;
+        }
+
+        return Math.max(maximum, extraHP);
+    }, 0) - values.defenses.resistances.reduce((maximum, e) => {
+        var extraHP;
+        if (generalDamageTypes.includes(e.type)) {
+            extraHP = e.modifier * 4;
+        } else {
+            extraHP = e.modifier;
+        }
+
+        return Math.max(maximum, extraHP);
+    }, 0)
 
     // add perception
     // add defenses (ex. AC)

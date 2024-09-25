@@ -50,9 +50,15 @@ export var strikeModifier = {
     low: [4, 4, 5, 7, 8, 9, 11, 12, 13, 15, 6, 17, 19, 20, 21, 23, 24, 25, 27, 28, 29, 31, 32, 33, 35, 36]
 }
 
+export var hp = {
+    high: [9, 18, 25, 38, 56, 75, 94, 119, 144, 169, 194, 219, 244, 269, 294, 319, 344, 369, 394, 419],
+    moderate: [7, 15, 20, 30, 45, 60, 75, 95, 115, 135, 155, 175, 195, 215, 235, 255, 275, 295, 315, 335],
+    low: [5, 12, 15, 23, 34, 45, 56, 71, 86, 101, 116, 131, 146, 161, 176, 191, 206, 221, 236, 251]
+}
+
 export var wirLevels = {
-    minimum: [1, 1, 2, 2, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13],
-    maximum: [1, 3, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21, 22, 23, 24, 25, 26]
+    low: [1, 1, 2, 2, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13],
+    high: [1, 3, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21, 22, 23, 24, 25, 26]
 }
 
 export var creatureInput = {
@@ -407,6 +413,7 @@ export var traits = {
 
 export var damageTypes = ["acid", "all", "area", "bleed", "bludgeoning", "cold", "cold iron", "electricity", "fire", "force", "holy", "mental", "physical", "piercing", "precision", "poison", "slashing", "silver", "sonic", "spirit", "splash", "unholy", "vitality", "void"];
 export var generalDamageTypes = ["all", "physical"];
+export var commonDamageTypes = ["all", "area", "bludgeoning", "physical", "piercing", "slashing"];
 
 export var archetype = {
     brute: {

@@ -1,4 +1,4 @@
-import { skills } from "../variables";
+import { skills, generalDamageTypes } from "../variables";
 
 export default function inputToPrimary(input) {
     if (Object.keys(input).length === 0) {
@@ -9,9 +9,9 @@ export default function inputToPrimary(input) {
 
     var primary = {
         name: input.name,
-        level: input.level,
+        level: parseInt(input.level),
         archetype: input.archetype,
-        traits: [input.size].concat(input.traits),
+        traits: [input.size ? input.size : "medium"].concat(input.traits),
         skills: Object.keys(skills).includes(input.primarySkill)
             ? 
                 [
@@ -59,9 +59,33 @@ export default function inputToPrimary(input) {
             }
         ],
         defenses: {
-            weaknesses: input.weaknesses,
-            resistances: input.resistances,
-            immunities: input.immunities
+            weaknesses: (input.weaknesses).toSorted().map(e => {
+                var scale;
+                if (generalDamageTypes.includes(e)) {
+                    scale = "low"
+                } else {
+                    scale = "high"
+                }
+
+                return {
+                    type: e,
+                    scale: scale
+                }
+            }),
+            resistances: (input.resistances).toSorted().map(e => {
+                var scale;
+                if (generalDamageTypes.includes(e)) {
+                    scale = "low"
+                } else {
+                    scale = "high"
+                }
+
+                return {
+                    type: e,
+                    scale: scale
+                }
+            }),
+            immunities: input.immunities.toSorted()
         },
         spellTradition: input.spellTradition,
         attacks: input.attacks.map(e => {
