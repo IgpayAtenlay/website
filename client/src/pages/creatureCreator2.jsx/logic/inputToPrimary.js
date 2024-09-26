@@ -48,9 +48,6 @@ export default function inputToPrimary(input) {
             },
             cha: {
                 scale: ""
-            },
-            [input.primaryAttribute]: {
-                scale: "high"
             }
         },
         items: input.item === "none" ? [] : [
@@ -160,6 +157,12 @@ export default function inputToPrimary(input) {
         })
     };
 
+    if (primary.attributes[input.primaryAttribute]) {
+        primary.attributes[input.primaryAttribute] = {
+            scale: "high"
+        }
+    }
+    
     console.log("primary end");
 
     // archetype

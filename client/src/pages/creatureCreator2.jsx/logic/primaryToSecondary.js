@@ -9,11 +9,10 @@ export default function primaryToSecondary(primary) {
     
     var secondary = JSON.parse(JSON.stringify(primary));
 
-    Object.keys(secondary.attributes).forEach(attribute => {
+    Object.keys(primary.attributes).forEach(attribute => {
         if (primary.attributes[attribute].scale !== "") {
-            console.log(attribute)
             secondary.attributes[attribute].scale = primary.attributes[attribute].scale;
-        } else if (archetype[primary.archetype].attributes[attribute] && archetype[primary.archetype].attributes[attribute].scale !== "") {
+        } else if (archetype[primary.archetype] && archetype[primary.archetype].attributes && archetype[primary.archetype].attributes[attribute] && archetype[primary.archetype].attributes[attribute].scale !== "") {
             secondary.attributes[attribute].scale = archetype[primary.archetype].attributes[attribute].scale;
         }
     });
