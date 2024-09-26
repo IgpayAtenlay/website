@@ -1,5 +1,3 @@
-import { attributes } from "../variables";
-
 export default function secondaryToComplete(secondary) {
     if (Object.keys(secondary).length === 0) {
         return {}
@@ -7,11 +5,9 @@ export default function secondaryToComplete(secondary) {
 
     console.log("complete start");
     
-    var complete = {
-        ...secondary
-    }
+    var complete = JSON.parse(JSON.stringify(secondary));
 
-    // fill in attributes randomly - this is currently broken
+    // fill in attributes randomly
 
     var attributeScaleAmounts = {
         extreme: 0,
@@ -21,8 +17,8 @@ export default function secondaryToComplete(secondary) {
         terrible: 0
     }
 
-    Object.values(attributes).forEach(e => {
-        if (secondary.attributes[e].scale !== ""){
+    Object.keys(secondary.attributes).forEach(e => {
+        if (secondary.attributes[e].scale !== "") {
             attributeScaleAmounts[secondary.attributes[e].scale] += 1;
         }
     });
@@ -37,7 +33,7 @@ export default function secondaryToComplete(secondary) {
         terrible: 0
     }
 
-    Object.values(attributes).forEach(attribute => {
+    Object.keys(secondary.attributes).forEach(attribute => {
         if (secondary.attributes[attribute].scale === "") {
             var amountLeft = Object.values(attributeScaleWanted).reduce((accumulator, currentValue) => {
                 if (currentValue > 0) {
@@ -67,7 +63,7 @@ export default function secondaryToComplete(secondary) {
 
     // fill in defenses randomly
 
-    if(secondary.defenses.hp.scale === "") {
+    if (secondary.defenses.hp.scale === "") {
         complete.defenses.hp = {
             scale: "moderate"
         }
@@ -97,7 +93,7 @@ export default function secondaryToComplete(secondary) {
 
     var defenseScaleWanted
 
-    if(complete.defenses.ac.scale === "extreme" || complete.defenses.ac.scale === "high") {
+    if (complete.defenses.ac.scale === "extreme" || complete.defenses.ac.scale === "high") {
         defenseScaleWanted = {
             extreme: 0,
             high: 1,
@@ -105,7 +101,7 @@ export default function secondaryToComplete(secondary) {
             low: 2,
             terrible: 0
         }
-    } else if(complete.defenses.ac.scale === "low" || complete.defenses.ac.scale === "terrible") {
+    } else if (complete.defenses.ac.scale === "low" || complete.defenses.ac.scale === "terrible") {
         defenseScaleWanted = {
             extreme: 0,
             high: 2,

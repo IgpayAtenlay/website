@@ -7,25 +7,29 @@ export default function primaryToSecondary(primary) {
 
     console.log("secondary start");
     
-    var secondary = {
-        ...primary,
-        attributes: {
-            ...primary.attributes,
-            ...archetype[primary.archetype].attributes
-        },
-        skills: primary.skills.map(e => {
-            var scale = "moderate";
-            var attribute = skills[e.name];
-            if (primary.attributes[attribute].scale === "") {
-                return {
-                    ...e,
-                    scale: scale
-                }
-            } else {
-                return e
+    var secondary = JSON.parse(JSON.stringify(primary));
+
+    Object.keys(secondary.attributes).forEach(attribute => {
+        if (primary.attributes[attribute].scale !== "") {
+            console.log(attribute)
+            secondary.attributes[attribute].scale = primary.attributes[attribute].scale;
+        } else if (archetype[primary.archetype].attributes[attribute] && archetype[primary.archetype].attributes[attribute].scale !== "") {
+            secondary.attributes[attribute].scale = archetype[primary.archetype].attributes[attribute].scale;
+        }
+    });
+
+    secondary.skills = primary.skills.map(e => {
+        var scale = "moderate";
+        var attribute = skills[e.name];
+        if (primary.attributes[attribute].scale === "") {
+            return {
+                ...e,
+                scale: scale
             }
-        })
-    }
+        } else {
+            return e
+        }
+    });
 
     console.log("secondary middle");
 
