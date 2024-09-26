@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Name from "./name";
 import Level from "./level";
+import Archetype from "./archetype";
 
 export default function Questions(props) {
     var [page, setPage] = useState("name");
@@ -11,6 +12,9 @@ export default function Questions(props) {
             case "name":
                 setPage("level");
                 break;
+            case "level":
+                setPage("archetype");
+                break;
             default:
                 setPage("");
         }
@@ -19,5 +23,6 @@ export default function Questions(props) {
     return <div>
         {page==="name" && <Name parseData={props.parseData} nextPage={nextPage} />}
         {page==="level" && <Level parseData={props.parseData} nextPage={nextPage} />}
+        {page==="archetype" && <Archetype parseData={props.parseData} nextPage={nextPage} />}
     </div>
 }

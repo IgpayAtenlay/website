@@ -4,7 +4,7 @@ export default function Level(props) {
         var rawData = new FormData(e.target);
         var input = parseForm(rawData);
         props.parseData(input);
-        props.nextPage("name");
+        props.nextPage("level");
     }
 
     return (
